@@ -16,7 +16,7 @@ def load_json(filename):
 
 def create_anchor(text):
     """Create a markdown-compatible anchor from text"""
-    return text.lower().replace("_", "-")
+    return text.lower()
 
 
 def generate_functions_md(functions, categories, descriptions, link_prefix=""):

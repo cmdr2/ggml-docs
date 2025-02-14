@@ -5,736 +5,736 @@
 <details>
 <summary>Context Management</summary>
 
-- [ggml_backend_alloc_ctx_tensors_from_buft(ctx, buft)](#ggml-backend-alloc-ctx-tensors-from-buft) - Allocates context tensors from a given backend buffer type.
-- [ggml_backend_alloc_ctx_tensors(ctx, backend)](#ggml-backend-alloc-ctx-tensors) - Allocates context tensors for the current backend.
-- [ggml_init(params)](#ggml-init) - Creates a ggml_context.
-- [ggml_reset(ctx)](#ggml-reset) - Resets the internal state of ggml.
-- [ggml_free(ctx)](#ggml-free) - Frees resources allocated by ggml.
-- [ggml_get_no_alloc(ctx)](#ggml-get-no-alloc) - Checks if memory allocation is disabled in ggml.
-- [ggml_set_no_alloc(ctx, no_alloc)](#ggml-set-no-alloc) - Sets the flag to disable memory allocation in ggml.
+- [ggml_backend_alloc_ctx_tensors_from_buft(ctx, buft)](#ggml_backend_alloc_ctx_tensors_from_buft) - Allocates context tensors from a given backend buffer type.
+- [ggml_backend_alloc_ctx_tensors(ctx, backend)](#ggml_backend_alloc_ctx_tensors) - Allocates context tensors for the current backend.
+- [ggml_init(params)](#ggml_init) - Creates a ggml_context.
+- [ggml_reset(ctx)](#ggml_reset) - Resets the internal state of ggml.
+- [ggml_free(ctx)](#ggml_free) - Frees resources allocated by ggml.
+- [ggml_get_no_alloc(ctx)](#ggml_get_no_alloc) - Checks if memory allocation is disabled in ggml.
+- [ggml_set_no_alloc(ctx, no_alloc)](#ggml_set_no_alloc) - Sets the flag to disable memory allocation in ggml.
 </details>
 
 
 <details>
 <summary>Tensor and Graph Allocators</summary>
 
-- [ggml_tallocr_new(buffer)](#ggml-tallocr-new) - Creates a new tensor allocator instance.
-- [ggml_tallocr_alloc(talloc, tensor)](#ggml-tallocr-alloc) - Allocates resources for a tensor allocator instance.
-- [ggml_gallocr_new(buft)](#ggml-gallocr-new) - Creates a new graph allocator instance.
-- [ggml_gallocr_new_n(bufts, n_bufs)](#ggml-gallocr-new-n) - Creates a new graph allocator instance with a specified count.
-- [ggml_gallocr_free(galloc)](#ggml-gallocr-free) - Frees a graph allocator instance.
-- [ggml_gallocr_reserve(galloc, graph)](#ggml-gallocr-reserve) - Reserves resources for a graph allocator instance.
-- [ggml_gallocr_reserve_n(galloc, graph, node_buffer_ids, leaf_buffer_ids)](#ggml-gallocr-reserve-n) - Reserves multiple slots for a graph allocator instance.
-- [ggml_gallocr_alloc_graph(galloc, graph)](#ggml-gallocr-alloc-graph) - Allocates a computation graph for a graph allocator instance.
-- [ggml_gallocr_get_buffer_size(galloc, buffer_id)](#ggml-gallocr-get-buffer-size) - Returns the required buffer size for a graph allocator instance.
+- [ggml_tallocr_new(buffer)](#ggml_tallocr_new) - Creates a new tensor allocator instance.
+- [ggml_tallocr_alloc(talloc, tensor)](#ggml_tallocr_alloc) - Allocates resources for a tensor allocator instance.
+- [ggml_gallocr_new(buft)](#ggml_gallocr_new) - Creates a new graph allocator instance.
+- [ggml_gallocr_new_n(bufts, n_bufs)](#ggml_gallocr_new_n) - Creates a new graph allocator instance with a specified count.
+- [ggml_gallocr_free(galloc)](#ggml_gallocr_free) - Frees a graph allocator instance.
+- [ggml_gallocr_reserve(galloc, graph)](#ggml_gallocr_reserve) - Reserves resources for a graph allocator instance.
+- [ggml_gallocr_reserve_n(galloc, graph, node_buffer_ids, leaf_buffer_ids)](#ggml_gallocr_reserve_n) - Reserves multiple slots for a graph allocator instance.
+- [ggml_gallocr_alloc_graph(galloc, graph)](#ggml_gallocr_alloc_graph) - Allocates a computation graph for a graph allocator instance.
+- [ggml_gallocr_get_buffer_size(galloc, buffer_id)](#ggml_gallocr_get_buffer_size) - Returns the required buffer size for a graph allocator instance.
 </details>
 
 
 <details>
 <summary>Graph Construction & Execution</summary>
 
-- [ggml_graph_plan(cgraph, n_threads, threadpool)](#ggml-graph-plan) - Plans the execution order of a computation graph.
-- [ggml_graph_compute(cgraph, cplan)](#ggml-graph-compute) - Executes the computation graph.
-- [ggml_graph_compute_with_ctx(ctx, cgraph, n_threads)](#ggml-graph-compute-with-ctx) - Computes a graph with an associated execution context.
-- [ggml_new_graph(ctx)](#ggml-new-graph) - Creates a new computation graph.
-- [ggml_new_graph_custom(ctx, size, grads)](#ggml-new-graph-custom) - Creates a custom computation graph.
-- [ggml_graph_dup(ctx, cgraph)](#ggml-graph-dup) - Duplicates an existing computation graph.
-- [ggml_graph_cpy(src, dst)](#ggml-graph-cpy) - Copies a computation graph.
-- [ggml_graph_reset(cgraph)](#ggml-graph-reset) - Resets the state of a computation graph.
-- [ggml_graph_clear(cgraph)](#ggml-graph-clear) - Clears all nodes from a computation graph.
-- [ggml_graph_size(cgraph)](#ggml-graph-size) - Returns the size of a computation graph.
-- [ggml_graph_node(cgraph, i)](#ggml-graph-node) - Retrieves a specific node from a computation graph.
-- [ggml_graph_nodes(cgraph)](#ggml-graph-nodes) - Returns all nodes within a computation graph.
-- [ggml_graph_n_nodes(cgraph)](#ggml-graph-n-nodes) - Returns the total number of nodes in a computation graph.
-- [ggml_graph_add_node(cgraph, tensor)](#ggml-graph-add-node) - Adds a node to a computation graph.
-- [ggml_graph_overhead()](#ggml-graph-overhead) - Returns the memory overhead of a computation graph.
-- [ggml_graph_overhead_custom(size, grads)](#ggml-graph-overhead-custom) - Returns custom overhead metrics for a computation graph.
-- [ggml_graph_get_tensor(cgraph, name)](#ggml-graph-get-tensor) - Retrieves a tensor from a graph node.
-- [ggml_graph_get_grad(cgraph, node)](#ggml-graph-get-grad) - Retrieves the gradient tensor from a graph node.
-- [ggml_graph_get_grad_acc(cgraph, node)](#ggml-graph-get-grad-acc) - Retrieves the accumulated gradients from a graph node.
-- [ggml_graph_export(cgraph, fname)](#ggml-graph-export) - Exports a computation graph to a file or format.
-- [ggml_graph_import(fname, ctx_data, ctx_eval)](#ggml-graph-import) - Imports a computation graph from a file or format.
-- [ggml_graph_print(cgraph)](#ggml-graph-print) - Prints a human-readable representation of a computation graph.
-- [ggml_graph_dump_dot(gb, gf, filename)](#ggml-graph-dump-dot) - Dumps the computation graph in DOT format.
+- [ggml_graph_plan(cgraph, n_threads, threadpool)](#ggml_graph_plan) - Plans the execution order of a computation graph.
+- [ggml_graph_compute(cgraph, cplan)](#ggml_graph_compute) - Executes the computation graph.
+- [ggml_graph_compute_with_ctx(ctx, cgraph, n_threads)](#ggml_graph_compute_with_ctx) - Computes a graph with an associated execution context.
+- [ggml_new_graph(ctx)](#ggml_new_graph) - Creates a new computation graph.
+- [ggml_new_graph_custom(ctx, size, grads)](#ggml_new_graph_custom) - Creates a custom computation graph.
+- [ggml_graph_dup(ctx, cgraph)](#ggml_graph_dup) - Duplicates an existing computation graph.
+- [ggml_graph_cpy(src, dst)](#ggml_graph_cpy) - Copies a computation graph.
+- [ggml_graph_reset(cgraph)](#ggml_graph_reset) - Resets the state of a computation graph.
+- [ggml_graph_clear(cgraph)](#ggml_graph_clear) - Clears all nodes from a computation graph.
+- [ggml_graph_size(cgraph)](#ggml_graph_size) - Returns the size of a computation graph.
+- [ggml_graph_node(cgraph, i)](#ggml_graph_node) - Retrieves a specific node from a computation graph.
+- [ggml_graph_nodes(cgraph)](#ggml_graph_nodes) - Returns all nodes within a computation graph.
+- [ggml_graph_n_nodes(cgraph)](#ggml_graph_n_nodes) - Returns the total number of nodes in a computation graph.
+- [ggml_graph_add_node(cgraph, tensor)](#ggml_graph_add_node) - Adds a node to a computation graph.
+- [ggml_graph_overhead()](#ggml_graph_overhead) - Returns the memory overhead of a computation graph.
+- [ggml_graph_overhead_custom(size, grads)](#ggml_graph_overhead_custom) - Returns custom overhead metrics for a computation graph.
+- [ggml_graph_get_tensor(cgraph, name)](#ggml_graph_get_tensor) - Retrieves a tensor from a graph node.
+- [ggml_graph_get_grad(cgraph, node)](#ggml_graph_get_grad) - Retrieves the gradient tensor from a graph node.
+- [ggml_graph_get_grad_acc(cgraph, node)](#ggml_graph_get_grad_acc) - Retrieves the accumulated gradients from a graph node.
+- [ggml_graph_export(cgraph, fname)](#ggml_graph_export) - Exports a computation graph to a file or format.
+- [ggml_graph_import(fname, ctx_data, ctx_eval)](#ggml_graph_import) - Imports a computation graph from a file or format.
+- [ggml_graph_print(cgraph)](#ggml_graph_print) - Prints a human-readable representation of a computation graph.
+- [ggml_graph_dump_dot(gb, gf, filename)](#ggml_graph_dump_dot) - Dumps the computation graph in DOT format.
 </details>
 
 
 <details>
 <summary>Backend Tensor, Graph & Event Operations</summary>
 
-- [ggml_backend_tensor_copy(src, dst)](#ggml-backend-tensor-copy) - Copies a tensor using backend operations.
-- [ggml_backend_guid(backend)](#ggml-backend-guid) - Returns the unique identifier for the backend.
-- [ggml_backend_name(backend)](#ggml-backend-name) - Retrieves the name of the current backend.
-- [ggml_backend_free(backend)](#ggml-backend-free) - Frees resources associated with the backend.
-- [ggml_backend_get_default_buffer_type(backend)](#ggml-backend-get-default-buffer-type) - Returns the default buffer type for the backend.
-- [ggml_backend_alloc_buffer(backend, size)](#ggml-backend-alloc-buffer) - Allocates a buffer within the backend.
-- [ggml_backend_get_alignment(backend)](#ggml-backend-get-alignment) - Retrieves the alignment requirement for the backend.
-- [ggml_backend_get_max_size(backend)](#ggml-backend-get-max-size) - Returns the maximum buffer size supported by the backend.
-- [ggml_backend_tensor_set_async(backend, tensor, data, offset, size)](#ggml-backend-tensor-set-async) - Enables asynchronous execution for a backend tensor.
-- [ggml_backend_tensor_get_async(backend, tensor, data, offset, size)](#ggml-backend-tensor-get-async) - Retrieves the asynchronous status of a backend tensor.
-- [ggml_backend_tensor_set(tensor, data, offset, size)](#ggml-backend-tensor-set) - Sets properties for a backend tensor.
-- [ggml_backend_tensor_get(tensor, data, offset, size)](#ggml-backend-tensor-get) - Gets properties of a backend tensor.
-- [ggml_backend_tensor_memset(tensor, value, offset, size)](#ggml-backend-tensor-memset) - Fills a backend tensor with a constant value.
-- [ggml_backend_synchronize(backend)](#ggml-backend-synchronize) - Synchronizes operations on the backend.
-- [ggml_backend_graph_plan_create(backend, cgraph)](#ggml-backend-graph-plan-create) - Creates a computation graph plan for the backend.
-- [ggml_backend_graph_plan_free(backend, plan)](#ggml-backend-graph-plan-free) - Frees a previously created backend graph plan.
-- [ggml_backend_graph_plan_compute(backend, plan)](#ggml-backend-graph-plan-compute) - Executes a computation graph plan on the backend.
-- [ggml_backend_graph_compute(backend, cgraph)](#ggml-backend-graph-compute) - Computes a graph on the backend synchronously.
-- [ggml_backend_graph_compute_async(backend, cgraph)](#ggml-backend-graph-compute-async) - Initiates asynchronous graph computation on the backend.
-- [ggml_backend_supports_op(backend, op)](#ggml-backend-supports-op) - Checks if the backend supports a specific operation.
-- [ggml_backend_supports_buft(backend, buft)](#ggml-backend-supports-buft) - Verifies if the backend supports a specific buffer type.
-- [ggml_backend_offload_op(backend, op)](#ggml-backend-offload-op) - Offloads an operation to a backend device.
-- [ggml_backend_tensor_copy_async(backend_src, backend_dst, src, dst)](#ggml-backend-tensor-copy-async) - Asynchronously copies a tensor using the backend.
-- [ggml_backend_get_device(backend)](#ggml-backend-get-device) - Retrieves the current device used by the backend.
-- [ggml_backend_event_new(device)](#ggml-backend-event-new) - Creates a new event for backend synchronization.
-- [ggml_backend_event_free(event)](#ggml-backend-event-free) - Frees a backend event.
-- [ggml_backend_event_record(event, backend)](#ggml-backend-event-record) - Records a timestamp in a backend event.
-- [ggml_backend_event_synchronize(event)](#ggml-backend-event-synchronize) - Synchronizes a backend event.
-- [ggml_backend_event_wait(backend, event)](#ggml-backend-event-wait) - Waits for a backend event to complete.
-- [ggml_backend_dev_name(device)](#ggml-backend-dev-name) - Returns the name of a backend device.
-- [ggml_backend_dev_description(device)](#ggml-backend-dev-description) - Retrieves the description of a backend device.
-- [ggml_backend_dev_memory(device, free, total)](#ggml-backend-dev-memory) - Returns the memory capacity of a backend device.
-- [ggml_backend_dev_type(device)](#ggml-backend-dev-type) - Retrieves the type of a backend device.
-- [ggml_backend_dev_get_props(device, props)](#ggml-backend-dev-get-props) - Gets the properties of a backend device.
-- [ggml_backend_dev_backend_reg(device)](#ggml-backend-dev-backend-reg) - Retrieves the registry entry for a backend device.
-- [ggml_backend_dev_init(device, params)](#ggml-backend-dev-init) - Initializes a backend device.
-- [ggml_backend_dev_buffer_type(device)](#ggml-backend-dev-buffer-type) - Returns the buffer type used by a backend device.
-- [ggml_backend_dev_host_buffer_type(device)](#ggml-backend-dev-host-buffer-type) - Returns the host buffer type for a backend device.
-- [ggml_backend_dev_buffer_from_host_ptr(device, ptr, size, max_tensor_size)](#ggml-backend-dev-buffer-from-host-ptr) - Creates a device buffer from a host pointer.
-- [ggml_backend_dev_supports_op(device, op)](#ggml-backend-dev-supports-op) - Checks if a backend device supports a specific operation.
-- [ggml_backend_dev_supports_buft(device, buft)](#ggml-backend-dev-supports-buft) - Verifies if a backend device supports a buffer type.
-- [ggml_backend_dev_offload_op(device, op)](#ggml-backend-dev-offload-op) - Offloads an operation specifically to a backend device.
-- [ggml_backend_reg_name(reg)](#ggml-backend-reg-name) - Retrieves the name of a backend registry.
-- [ggml_backend_reg_dev_count(reg)](#ggml-backend-reg-dev-count) - Returns the number of devices in a backend registry.
-- [ggml_backend_reg_dev_get(reg, index)](#ggml-backend-reg-dev-get) - Gets a device from the backend registry by index.
-- [ggml_backend_reg_get_proc_address(reg, name)](#ggml-backend-reg-get-proc-address) - Retrieves a procedure address from the backend registry.
-- [ggml_backend_device_register(device)](#ggml-backend-device-register) - Registers a new device with the backend.
-- [ggml_backend_reg_count()](#ggml-backend-reg-count) - Returns the total count of backend registries.
-- [ggml_backend_reg_get(index)](#ggml-backend-reg-get) - Retrieves an entry from the backend registry.
-- [ggml_backend_reg_by_name(name)](#ggml-backend-reg-by-name) - Finds a backend registry entry by name.
-- [ggml_backend_dev_count()](#ggml-backend-dev-count) - Returns the number of available backend devices.
-- [ggml_backend_dev_get(index)](#ggml-backend-dev-get) - Retrieves a backend device by index.
-- [ggml_backend_dev_by_name(name)](#ggml-backend-dev-by-name) - Finds a backend device by its name.
-- [ggml_backend_dev_by_type(type)](#ggml-backend-dev-by-type) - Finds a backend device by its type.
-- [ggml_backend_init_by_name(name, params)](#ggml-backend-init-by-name) - Initializes the backend using its name.
-- [ggml_backend_init_by_type(type, params)](#ggml-backend-init-by-type) - Initializes the backend based on device type.
-- [ggml_backend_init_best()](#ggml-backend-init-best) - Initializes the best available backend automatically.
-- [ggml_backend_load(path)](#ggml-backend-load) - Loads a backend module.
-- [ggml_backend_unload(reg)](#ggml-backend-unload) - Unloads a backend module.
-- [ggml_backend_load_all()](#ggml-backend-load-all) - Loads all available backend modules.
-- [ggml_backend_load_all_from_path(dir_path)](#ggml-backend-load-all-from-path) - Loads all backend modules from a specified path.
-- [ggml_backend_sched_new(backends, bufts, n_backends, graph_size, parallel)](#ggml-backend-sched-new) - Creates a new scheduler for backend operations.
-- [ggml_backend_sched_free(sched)](#ggml-backend-sched-free) - Frees a backend scheduler.
-- [ggml_backend_sched_reserve(sched, measure_graph)](#ggml-backend-sched-reserve) - Reserves resources within the backend scheduler.
-- [ggml_backend_sched_get_n_backends(sched)](#ggml-backend-sched-get-n-backends) - Returns the number of backends managed by the scheduler.
-- [ggml_backend_sched_get_backend(sched, i)](#ggml-backend-sched-get-backend) - Retrieves a specific backend from the scheduler.
-- [ggml_backend_sched_get_n_splits(sched)](#ggml-backend-sched-get-n-splits) - Gets the number of splits configured in the scheduler.
-- [ggml_backend_sched_get_n_copies(sched)](#ggml-backend-sched-get-n-copies) - Returns the number of tensor copies scheduled.
-- [ggml_backend_sched_get_buffer_size(sched, backend)](#ggml-backend-sched-get-buffer-size) - Retrieves the buffer size allocated by the scheduler.
-- [ggml_backend_sched_set_tensor_backend(sched, node, backend)](#ggml-backend-sched-set-tensor-backend) - Assigns a tensor to a specific backend in the scheduler.
-- [ggml_backend_sched_get_tensor_backend(sched, node)](#ggml-backend-sched-get-tensor-backend) - Retrieves the backend associated with a tensor in the scheduler.
-- [ggml_backend_sched_alloc_graph(sched, graph)](#ggml-backend-sched-alloc-graph) - Allocates a computation graph for the scheduler.
-- [ggml_backend_sched_graph_compute(sched, graph)](#ggml-backend-sched-graph-compute) - Computes a graph using the scheduler synchronously.
-- [ggml_backend_sched_graph_compute_async(sched, graph)](#ggml-backend-sched-graph-compute-async) - Initiates asynchronous graph computation via the scheduler.
-- [ggml_backend_sched_synchronize(sched)](#ggml-backend-sched-synchronize) - Synchronizes all scheduled backend operations.
-- [ggml_backend_sched_reset(sched)](#ggml-backend-sched-reset) - Resets the state of the backend scheduler.
-- [ggml_backend_sched_set_eval_callback(sched, callback, user_data)](#ggml-backend-sched-set-eval-callback) - Sets an evaluation callback function in the scheduler.
-- [ggml_backend_graph_copy(backend, graph)](#ggml-backend-graph-copy) - Creates a duplicate of a backend computation graph.
-- [ggml_backend_graph_copy_free(copy)](#ggml-backend-graph-copy-free) - Frees a duplicated backend graph.
-- [ggml_backend_compare_graph_backend(backend1, backend2, graph, callback, user_data)](#ggml-backend-compare-graph-backend) - Compares two backend graph implementations.
-- [ggml_backend_tensor_alloc(buffer, tensor, addr)](#ggml-backend-tensor-alloc) - Allocates memory for a new backend tensor.
-- [ggml_backend_view_init(tensor)](#ggml-backend-view-init) - Initializes a tensor view for the backend.
+- [ggml_backend_tensor_copy(src, dst)](#ggml_backend_tensor_copy) - Copies a tensor using backend operations.
+- [ggml_backend_guid(backend)](#ggml_backend_guid) - Returns the unique identifier for the backend.
+- [ggml_backend_name(backend)](#ggml_backend_name) - Retrieves the name of the current backend.
+- [ggml_backend_free(backend)](#ggml_backend_free) - Frees resources associated with the backend.
+- [ggml_backend_get_default_buffer_type(backend)](#ggml_backend_get_default_buffer_type) - Returns the default buffer type for the backend.
+- [ggml_backend_alloc_buffer(backend, size)](#ggml_backend_alloc_buffer) - Allocates a buffer within the backend.
+- [ggml_backend_get_alignment(backend)](#ggml_backend_get_alignment) - Retrieves the alignment requirement for the backend.
+- [ggml_backend_get_max_size(backend)](#ggml_backend_get_max_size) - Returns the maximum buffer size supported by the backend.
+- [ggml_backend_tensor_set_async(backend, tensor, data, offset, size)](#ggml_backend_tensor_set_async) - Enables asynchronous execution for a backend tensor.
+- [ggml_backend_tensor_get_async(backend, tensor, data, offset, size)](#ggml_backend_tensor_get_async) - Retrieves the asynchronous status of a backend tensor.
+- [ggml_backend_tensor_set(tensor, data, offset, size)](#ggml_backend_tensor_set) - Sets properties for a backend tensor.
+- [ggml_backend_tensor_get(tensor, data, offset, size)](#ggml_backend_tensor_get) - Gets properties of a backend tensor.
+- [ggml_backend_tensor_memset(tensor, value, offset, size)](#ggml_backend_tensor_memset) - Fills a backend tensor with a constant value.
+- [ggml_backend_synchronize(backend)](#ggml_backend_synchronize) - Synchronizes operations on the backend.
+- [ggml_backend_graph_plan_create(backend, cgraph)](#ggml_backend_graph_plan_create) - Creates a computation graph plan for the backend.
+- [ggml_backend_graph_plan_free(backend, plan)](#ggml_backend_graph_plan_free) - Frees a previously created backend graph plan.
+- [ggml_backend_graph_plan_compute(backend, plan)](#ggml_backend_graph_plan_compute) - Executes a computation graph plan on the backend.
+- [ggml_backend_graph_compute(backend, cgraph)](#ggml_backend_graph_compute) - Computes a graph on the backend synchronously.
+- [ggml_backend_graph_compute_async(backend, cgraph)](#ggml_backend_graph_compute_async) - Initiates asynchronous graph computation on the backend.
+- [ggml_backend_supports_op(backend, op)](#ggml_backend_supports_op) - Checks if the backend supports a specific operation.
+- [ggml_backend_supports_buft(backend, buft)](#ggml_backend_supports_buft) - Verifies if the backend supports a specific buffer type.
+- [ggml_backend_offload_op(backend, op)](#ggml_backend_offload_op) - Offloads an operation to a backend device.
+- [ggml_backend_tensor_copy_async(backend_src, backend_dst, src, dst)](#ggml_backend_tensor_copy_async) - Asynchronously copies a tensor using the backend.
+- [ggml_backend_get_device(backend)](#ggml_backend_get_device) - Retrieves the current device used by the backend.
+- [ggml_backend_event_new(device)](#ggml_backend_event_new) - Creates a new event for backend synchronization.
+- [ggml_backend_event_free(event)](#ggml_backend_event_free) - Frees a backend event.
+- [ggml_backend_event_record(event, backend)](#ggml_backend_event_record) - Records a timestamp in a backend event.
+- [ggml_backend_event_synchronize(event)](#ggml_backend_event_synchronize) - Synchronizes a backend event.
+- [ggml_backend_event_wait(backend, event)](#ggml_backend_event_wait) - Waits for a backend event to complete.
+- [ggml_backend_dev_name(device)](#ggml_backend_dev_name) - Returns the name of a backend device.
+- [ggml_backend_dev_description(device)](#ggml_backend_dev_description) - Retrieves the description of a backend device.
+- [ggml_backend_dev_memory(device, free, total)](#ggml_backend_dev_memory) - Returns the memory capacity of a backend device.
+- [ggml_backend_dev_type(device)](#ggml_backend_dev_type) - Retrieves the type of a backend device.
+- [ggml_backend_dev_get_props(device, props)](#ggml_backend_dev_get_props) - Gets the properties of a backend device.
+- [ggml_backend_dev_backend_reg(device)](#ggml_backend_dev_backend_reg) - Retrieves the registry entry for a backend device.
+- [ggml_backend_dev_init(device, params)](#ggml_backend_dev_init) - Initializes a backend device.
+- [ggml_backend_dev_buffer_type(device)](#ggml_backend_dev_buffer_type) - Returns the buffer type used by a backend device.
+- [ggml_backend_dev_host_buffer_type(device)](#ggml_backend_dev_host_buffer_type) - Returns the host buffer type for a backend device.
+- [ggml_backend_dev_buffer_from_host_ptr(device, ptr, size, max_tensor_size)](#ggml_backend_dev_buffer_from_host_ptr) - Creates a device buffer from a host pointer.
+- [ggml_backend_dev_supports_op(device, op)](#ggml_backend_dev_supports_op) - Checks if a backend device supports a specific operation.
+- [ggml_backend_dev_supports_buft(device, buft)](#ggml_backend_dev_supports_buft) - Verifies if a backend device supports a buffer type.
+- [ggml_backend_dev_offload_op(device, op)](#ggml_backend_dev_offload_op) - Offloads an operation specifically to a backend device.
+- [ggml_backend_reg_name(reg)](#ggml_backend_reg_name) - Retrieves the name of a backend registry.
+- [ggml_backend_reg_dev_count(reg)](#ggml_backend_reg_dev_count) - Returns the number of devices in a backend registry.
+- [ggml_backend_reg_dev_get(reg, index)](#ggml_backend_reg_dev_get) - Gets a device from the backend registry by index.
+- [ggml_backend_reg_get_proc_address(reg, name)](#ggml_backend_reg_get_proc_address) - Retrieves a procedure address from the backend registry.
+- [ggml_backend_device_register(device)](#ggml_backend_device_register) - Registers a new device with the backend.
+- [ggml_backend_reg_count()](#ggml_backend_reg_count) - Returns the total count of backend registries.
+- [ggml_backend_reg_get(index)](#ggml_backend_reg_get) - Retrieves an entry from the backend registry.
+- [ggml_backend_reg_by_name(name)](#ggml_backend_reg_by_name) - Finds a backend registry entry by name.
+- [ggml_backend_dev_count()](#ggml_backend_dev_count) - Returns the number of available backend devices.
+- [ggml_backend_dev_get(index)](#ggml_backend_dev_get) - Retrieves a backend device by index.
+- [ggml_backend_dev_by_name(name)](#ggml_backend_dev_by_name) - Finds a backend device by its name.
+- [ggml_backend_dev_by_type(type)](#ggml_backend_dev_by_type) - Finds a backend device by its type.
+- [ggml_backend_init_by_name(name, params)](#ggml_backend_init_by_name) - Initializes the backend using its name.
+- [ggml_backend_init_by_type(type, params)](#ggml_backend_init_by_type) - Initializes the backend based on device type.
+- [ggml_backend_init_best()](#ggml_backend_init_best) - Initializes the best available backend automatically.
+- [ggml_backend_load(path)](#ggml_backend_load) - Loads a backend module.
+- [ggml_backend_unload(reg)](#ggml_backend_unload) - Unloads a backend module.
+- [ggml_backend_load_all()](#ggml_backend_load_all) - Loads all available backend modules.
+- [ggml_backend_load_all_from_path(dir_path)](#ggml_backend_load_all_from_path) - Loads all backend modules from a specified path.
+- [ggml_backend_sched_new(backends, bufts, n_backends, graph_size, parallel)](#ggml_backend_sched_new) - Creates a new scheduler for backend operations.
+- [ggml_backend_sched_free(sched)](#ggml_backend_sched_free) - Frees a backend scheduler.
+- [ggml_backend_sched_reserve(sched, measure_graph)](#ggml_backend_sched_reserve) - Reserves resources within the backend scheduler.
+- [ggml_backend_sched_get_n_backends(sched)](#ggml_backend_sched_get_n_backends) - Returns the number of backends managed by the scheduler.
+- [ggml_backend_sched_get_backend(sched, i)](#ggml_backend_sched_get_backend) - Retrieves a specific backend from the scheduler.
+- [ggml_backend_sched_get_n_splits(sched)](#ggml_backend_sched_get_n_splits) - Gets the number of splits configured in the scheduler.
+- [ggml_backend_sched_get_n_copies(sched)](#ggml_backend_sched_get_n_copies) - Returns the number of tensor copies scheduled.
+- [ggml_backend_sched_get_buffer_size(sched, backend)](#ggml_backend_sched_get_buffer_size) - Retrieves the buffer size allocated by the scheduler.
+- [ggml_backend_sched_set_tensor_backend(sched, node, backend)](#ggml_backend_sched_set_tensor_backend) - Assigns a tensor to a specific backend in the scheduler.
+- [ggml_backend_sched_get_tensor_backend(sched, node)](#ggml_backend_sched_get_tensor_backend) - Retrieves the backend associated with a tensor in the scheduler.
+- [ggml_backend_sched_alloc_graph(sched, graph)](#ggml_backend_sched_alloc_graph) - Allocates a computation graph for the scheduler.
+- [ggml_backend_sched_graph_compute(sched, graph)](#ggml_backend_sched_graph_compute) - Computes a graph using the scheduler synchronously.
+- [ggml_backend_sched_graph_compute_async(sched, graph)](#ggml_backend_sched_graph_compute_async) - Initiates asynchronous graph computation via the scheduler.
+- [ggml_backend_sched_synchronize(sched)](#ggml_backend_sched_synchronize) - Synchronizes all scheduled backend operations.
+- [ggml_backend_sched_reset(sched)](#ggml_backend_sched_reset) - Resets the state of the backend scheduler.
+- [ggml_backend_sched_set_eval_callback(sched, callback, user_data)](#ggml_backend_sched_set_eval_callback) - Sets an evaluation callback function in the scheduler.
+- [ggml_backend_graph_copy(backend, graph)](#ggml_backend_graph_copy) - Creates a duplicate of a backend computation graph.
+- [ggml_backend_graph_copy_free(copy)](#ggml_backend_graph_copy_free) - Frees a duplicated backend graph.
+- [ggml_backend_compare_graph_backend(backend1, backend2, graph, callback, user_data)](#ggml_backend_compare_graph_backend) - Compares two backend graph implementations.
+- [ggml_backend_tensor_alloc(buffer, tensor, addr)](#ggml_backend_tensor_alloc) - Allocates memory for a new backend tensor.
+- [ggml_backend_view_init(tensor)](#ggml_backend_view_init) - Initializes a tensor view for the backend.
 </details>
 
 
 <details>
 <summary>Mathematical Operations & Element-wise Arithmetic</summary>
 
-- [ggml_new_i32(ctx, value)](#ggml-new-i32) - Creates a new 32-bit integer tensor.
-- [ggml_new_f32(ctx, value)](#ggml-new-f32) - Creates a new 32-bit floating-point tensor.
-- [ggml_set_i32(tensor, value)](#ggml-set-i32) - Sets the value of a 32-bit integer tensor.
-- [ggml_set_f32(tensor, value)](#ggml-set-f32) - Sets the value of a 32-bit floating-point tensor.
-- [ggml_get_i32_1d(tensor, i)](#ggml-get-i32-1d) - Retrieves one-dimensional data from a 32-bit integer tensor.
-- [ggml_set_i32_1d(tensor, i, value)](#ggml-set-i32-1d) - Sets one-dimensional data for a 32-bit integer tensor.
-- [ggml_get_i32_nd(tensor, i0, i1, i2, i3)](#ggml-get-i32-nd) - Retrieves N-dimensional data from a 32-bit integer tensor.
-- [ggml_set_i32_nd(tensor, i0, i1, i2, i3, value)](#ggml-set-i32-nd) - Sets N-dimensional data for a 32-bit integer tensor.
-- [ggml_get_f32_1d(tensor, i)](#ggml-get-f32-1d) - Retrieves one-dimensional data from a 32-bit floating-point tensor.
-- [ggml_set_f32_1d(tensor, i, value)](#ggml-set-f32-1d) - Sets one-dimensional data for a 32-bit floating-point tensor.
-- [ggml_get_f32_nd(tensor, i0, i1, i2, i3)](#ggml-get-f32-nd) - Retrieves N-dimensional data from a 32-bit floating-point tensor.
-- [ggml_set_f32_nd(tensor, i0, i1, i2, i3, value)](#ggml-set-f32-nd) - Sets N-dimensional data for a 32-bit floating-point tensor.
-- [ggml_add(ctx, a, b)](#ggml-add) - Adds two tensors element-wise.
-- [ggml_add_inplace(ctx, a, b)](#ggml-add-inplace) - Adds one tensor to another in-place.
-- [ggml_add_cast(ctx, a, b, type)](#ggml-add-cast) - Performs tensor addition with type casting.
-- [ggml_add1(ctx, a, b)](#ggml-add1) - Adds a scalar value to a tensor.
-- [ggml_add1_inplace(ctx, a, b)](#ggml-add1-inplace) - Adds a scalar value to a tensor in-place.
-- [ggml_acc(ctx, a, b, nb1, nb2, nb3, offset)](#ggml-acc) - Accumulates values from one tensor into another.
-- [ggml_acc_inplace(ctx, a, b, nb1, nb2, nb3, offset)](#ggml-acc-inplace) - Accumulates tensor values in-place.
-- [ggml_sub(ctx, a, b)](#ggml-sub) - Subtracts one tensor from another element-wise.
-- [ggml_sub_inplace(ctx, a, b)](#ggml-sub-inplace) - Subtracts one tensor from another in-place.
-- [ggml_mul(ctx, a, b)](#ggml-mul) - Multiplies two tensors element-wise.
-- [ggml_mul_inplace(ctx, a, b)](#ggml-mul-inplace) - Multiplies two tensors element-wise in-place.
-- [ggml_div(ctx, a, b)](#ggml-div) - Divides one tensor by another element-wise.
-- [ggml_div_inplace(ctx, a, b)](#ggml-div-inplace) - Divides one tensor by another in-place.
-- [ggml_sqr(ctx, a)](#ggml-sqr) - Squares each element of a tensor.
-- [ggml_sqr_inplace(ctx, a)](#ggml-sqr-inplace) - Squares each tensor element in-place.
-- [ggml_sqrt(ctx, a)](#ggml-sqrt) - Computes the square root of each tensor element.
-- [ggml_sqrt_inplace(ctx, a)](#ggml-sqrt-inplace) - Computes square roots of tensor elements in-place.
-- [ggml_log(ctx, a)](#ggml-log) - Computes the natural logarithm of each tensor element.
-- [ggml_log_inplace(ctx, a)](#ggml-log-inplace) - Computes natural logarithms in-place on a tensor.
-- [ggml_sin(ctx, a)](#ggml-sin) - Computes the sine of each tensor element.
-- [ggml_sin_inplace(ctx, a)](#ggml-sin-inplace) - Computes sine in-place on a tensor.
-- [ggml_cos(ctx, a)](#ggml-cos) - Computes the cosine of each tensor element.
-- [ggml_cos_inplace(ctx, a)](#ggml-cos-inplace) - Computes cosine in-place on a tensor.
-- [ggml_exp(ctx, a)](#ggml-exp) - Computes the exponential of each tensor element.
-- [ggml_exp_inplace(ctx, a)](#ggml-exp-inplace) - Computes exponentials in-place on a tensor.
-- [ggml_scale(ctx, a, s)](#ggml-scale) - Scales a tensor by a constant factor.
-- [ggml_scale_inplace(ctx, a, s)](#ggml-scale-inplace) - Scales a tensor in-place by a constant factor.
+- [ggml_new_i32(ctx, value)](#ggml_new_i32) - Creates a new 32-bit integer tensor.
+- [ggml_new_f32(ctx, value)](#ggml_new_f32) - Creates a new 32-bit floating-point tensor.
+- [ggml_set_i32(tensor, value)](#ggml_set_i32) - Sets the value of a 32-bit integer tensor.
+- [ggml_set_f32(tensor, value)](#ggml_set_f32) - Sets the value of a 32-bit floating-point tensor.
+- [ggml_get_i32_1d(tensor, i)](#ggml_get_i32_1d) - Retrieves one-dimensional data from a 32-bit integer tensor.
+- [ggml_set_i32_1d(tensor, i, value)](#ggml_set_i32_1d) - Sets one-dimensional data for a 32-bit integer tensor.
+- [ggml_get_i32_nd(tensor, i0, i1, i2, i3)](#ggml_get_i32_nd) - Retrieves N-dimensional data from a 32-bit integer tensor.
+- [ggml_set_i32_nd(tensor, i0, i1, i2, i3, value)](#ggml_set_i32_nd) - Sets N-dimensional data for a 32-bit integer tensor.
+- [ggml_get_f32_1d(tensor, i)](#ggml_get_f32_1d) - Retrieves one-dimensional data from a 32-bit floating-point tensor.
+- [ggml_set_f32_1d(tensor, i, value)](#ggml_set_f32_1d) - Sets one-dimensional data for a 32-bit floating-point tensor.
+- [ggml_get_f32_nd(tensor, i0, i1, i2, i3)](#ggml_get_f32_nd) - Retrieves N-dimensional data from a 32-bit floating-point tensor.
+- [ggml_set_f32_nd(tensor, i0, i1, i2, i3, value)](#ggml_set_f32_nd) - Sets N-dimensional data for a 32-bit floating-point tensor.
+- [ggml_add(ctx, a, b)](#ggml_add) - Adds two tensors element-wise.
+- [ggml_add_inplace(ctx, a, b)](#ggml_add_inplace) - Adds one tensor to another in-place.
+- [ggml_add_cast(ctx, a, b, type)](#ggml_add_cast) - Performs tensor addition with type casting.
+- [ggml_add1(ctx, a, b)](#ggml_add1) - Adds a scalar value to a tensor.
+- [ggml_add1_inplace(ctx, a, b)](#ggml_add1_inplace) - Adds a scalar value to a tensor in-place.
+- [ggml_acc(ctx, a, b, nb1, nb2, nb3, offset)](#ggml_acc) - Accumulates values from one tensor into another.
+- [ggml_acc_inplace(ctx, a, b, nb1, nb2, nb3, offset)](#ggml_acc_inplace) - Accumulates tensor values in-place.
+- [ggml_sub(ctx, a, b)](#ggml_sub) - Subtracts one tensor from another element-wise.
+- [ggml_sub_inplace(ctx, a, b)](#ggml_sub_inplace) - Subtracts one tensor from another in-place.
+- [ggml_mul(ctx, a, b)](#ggml_mul) - Multiplies two tensors element-wise.
+- [ggml_mul_inplace(ctx, a, b)](#ggml_mul_inplace) - Multiplies two tensors element-wise in-place.
+- [ggml_div(ctx, a, b)](#ggml_div) - Divides one tensor by another element-wise.
+- [ggml_div_inplace(ctx, a, b)](#ggml_div_inplace) - Divides one tensor by another in-place.
+- [ggml_sqr(ctx, a)](#ggml_sqr) - Squares each element of a tensor.
+- [ggml_sqr_inplace(ctx, a)](#ggml_sqr_inplace) - Squares each tensor element in-place.
+- [ggml_sqrt(ctx, a)](#ggml_sqrt) - Computes the square root of each tensor element.
+- [ggml_sqrt_inplace(ctx, a)](#ggml_sqrt_inplace) - Computes square roots of tensor elements in-place.
+- [ggml_log(ctx, a)](#ggml_log) - Computes the natural logarithm of each tensor element.
+- [ggml_log_inplace(ctx, a)](#ggml_log_inplace) - Computes natural logarithms in-place on a tensor.
+- [ggml_sin(ctx, a)](#ggml_sin) - Computes the sine of each tensor element.
+- [ggml_sin_inplace(ctx, a)](#ggml_sin_inplace) - Computes sine in-place on a tensor.
+- [ggml_cos(ctx, a)](#ggml_cos) - Computes the cosine of each tensor element.
+- [ggml_cos_inplace(ctx, a)](#ggml_cos_inplace) - Computes cosine in-place on a tensor.
+- [ggml_exp(ctx, a)](#ggml_exp) - Computes the exponential of each tensor element.
+- [ggml_exp_inplace(ctx, a)](#ggml_exp_inplace) - Computes exponentials in-place on a tensor.
+- [ggml_scale(ctx, a, s)](#ggml_scale) - Scales a tensor by a constant factor.
+- [ggml_scale_inplace(ctx, a, s)](#ggml_scale_inplace) - Scales a tensor in-place by a constant factor.
 </details>
 
 
 <details>
 <summary>Activation Functions & Normalization</summary>
 
-- [ggml_tanh(ctx, a)](#ggml-tanh) - Computes the hyperbolic tangent of each tensor element.
-- [ggml_tanh_inplace(ctx, a)](#ggml-tanh-inplace) - Computes hyperbolic tangent in-place on a tensor.
-- [ggml_elu(ctx, a)](#ggml-elu) - Applies the ELU activation function to a tensor.
-- [ggml_elu_inplace(ctx, a)](#ggml-elu-inplace) - Applies the ELU activation function in-place on a tensor.
-- [ggml_relu(ctx, a)](#ggml-relu) - Applies the ReLU activation function to a tensor.
-- [ggml_leaky_relu(ctx, a, negative_slope, inplace)](#ggml-leaky-relu) - Applies the Leaky ReLU activation function to a tensor.
-- [ggml_relu_inplace(ctx, a)](#ggml-relu-inplace) - Applies the ReLU activation function in-place on a tensor.
-- [ggml_sigmoid(ctx, a)](#ggml-sigmoid) - Applies the sigmoid activation function to a tensor.
-- [ggml_sigmoid_inplace(ctx, a)](#ggml-sigmoid-inplace) - Applies the sigmoid activation function in-place on a tensor.
-- [ggml_gelu(ctx, a)](#ggml-gelu) - Applies the GELU activation function to a tensor.
-- [ggml_gelu_inplace(ctx, a)](#ggml-gelu-inplace) - Applies the GELU activation function in-place on a tensor.
-- [ggml_gelu_quick(ctx, a)](#ggml-gelu-quick) - Applies a fast approximation of the GELU activation.
-- [ggml_gelu_quick_inplace(ctx, a)](#ggml-gelu-quick-inplace) - Applies a fast GELU approximation in-place on a tensor.
-- [ggml_silu(ctx, a)](#ggml-silu) - Applies the SiLU (swish) activation function to a tensor.
-- [ggml_silu_inplace(ctx, a)](#ggml-silu-inplace) - Applies the SiLU activation function in-place on a tensor.
-- [ggml_silu_back(ctx, a, b)](#ggml-silu-back) - Computes the backward pass for the SiLU activation.
-- [ggml_hardswish(ctx, a)](#ggml-hardswish) - Applies the hard-swish activation function to a tensor.
-- [ggml_hardsigmoid(ctx, a)](#ggml-hardsigmoid) - Applies the hard-sigmoid activation function to a tensor.
-- [ggml_norm(ctx, a, eps)](#ggml-norm) - Normalizes the elements of a tensor.
-- [ggml_norm_inplace(ctx, a, eps)](#ggml-norm-inplace) - Normalizes a tensor in-place.
-- [ggml_rms_norm(ctx, a, eps)](#ggml-rms-norm) - Applies RMS normalization to a tensor.
-- [ggml_rms_norm_inplace(ctx, a, eps)](#ggml-rms-norm-inplace) - Applies RMS normalization in-place on a tensor.
-- [ggml_group_norm(ctx, a, n_groups, eps)](#ggml-group-norm) - Applies group normalization to a tensor.
-- [ggml_group_norm_inplace(ctx, a, n_groups, eps)](#ggml-group-norm-inplace) - Applies group normalization in-place on a tensor.
-- [ggml_rms_norm_back(ctx, a, b, eps)](#ggml-rms-norm-back) - Computes the backward pass for RMS normalization.
+- [ggml_tanh(ctx, a)](#ggml_tanh) - Computes the hyperbolic tangent of each tensor element.
+- [ggml_tanh_inplace(ctx, a)](#ggml_tanh_inplace) - Computes hyperbolic tangent in-place on a tensor.
+- [ggml_elu(ctx, a)](#ggml_elu) - Applies the ELU activation function to a tensor.
+- [ggml_elu_inplace(ctx, a)](#ggml_elu_inplace) - Applies the ELU activation function in-place on a tensor.
+- [ggml_relu(ctx, a)](#ggml_relu) - Applies the ReLU activation function to a tensor.
+- [ggml_leaky_relu(ctx, a, negative_slope, inplace)](#ggml_leaky_relu) - Applies the Leaky ReLU activation function to a tensor.
+- [ggml_relu_inplace(ctx, a)](#ggml_relu_inplace) - Applies the ReLU activation function in-place on a tensor.
+- [ggml_sigmoid(ctx, a)](#ggml_sigmoid) - Applies the sigmoid activation function to a tensor.
+- [ggml_sigmoid_inplace(ctx, a)](#ggml_sigmoid_inplace) - Applies the sigmoid activation function in-place on a tensor.
+- [ggml_gelu(ctx, a)](#ggml_gelu) - Applies the GELU activation function to a tensor.
+- [ggml_gelu_inplace(ctx, a)](#ggml_gelu_inplace) - Applies the GELU activation function in-place on a tensor.
+- [ggml_gelu_quick(ctx, a)](#ggml_gelu_quick) - Applies a fast approximation of the GELU activation.
+- [ggml_gelu_quick_inplace(ctx, a)](#ggml_gelu_quick_inplace) - Applies a fast GELU approximation in-place on a tensor.
+- [ggml_silu(ctx, a)](#ggml_silu) - Applies the SiLU (swish) activation function to a tensor.
+- [ggml_silu_inplace(ctx, a)](#ggml_silu_inplace) - Applies the SiLU activation function in-place on a tensor.
+- [ggml_silu_back(ctx, a, b)](#ggml_silu_back) - Computes the backward pass for the SiLU activation.
+- [ggml_hardswish(ctx, a)](#ggml_hardswish) - Applies the hard-swish activation function to a tensor.
+- [ggml_hardsigmoid(ctx, a)](#ggml_hardsigmoid) - Applies the hard-sigmoid activation function to a tensor.
+- [ggml_norm(ctx, a, eps)](#ggml_norm) - Normalizes the elements of a tensor.
+- [ggml_norm_inplace(ctx, a, eps)](#ggml_norm_inplace) - Normalizes a tensor in-place.
+- [ggml_rms_norm(ctx, a, eps)](#ggml_rms_norm) - Applies RMS normalization to a tensor.
+- [ggml_rms_norm_inplace(ctx, a, eps)](#ggml_rms_norm_inplace) - Applies RMS normalization in-place on a tensor.
+- [ggml_group_norm(ctx, a, n_groups, eps)](#ggml_group_norm) - Applies group normalization to a tensor.
+- [ggml_group_norm_inplace(ctx, a, n_groups, eps)](#ggml_group_norm_inplace) - Applies group normalization in-place on a tensor.
+- [ggml_rms_norm_back(ctx, a, b, eps)](#ggml_rms_norm_back) - Computes the backward pass for RMS normalization.
 </details>
 
 
 <details>
 <summary>Tensor Duplication, Copy & Reshaping</summary>
 
-- [ggml_dup_tensor(ctx, src)](#ggml-dup-tensor) - Duplicates an existing tensor.
-- [ggml_view_tensor(ctx, src)](#ggml-view-tensor) - Creates a view into an existing tensor.
-- [ggml_get_first_tensor(ctx)](#ggml-get-first-tensor) - Retrieves the first tensor in a tensor list.
-- [ggml_get_next_tensor(ctx, tensor)](#ggml-get-next-tensor) - Retrieves the next tensor in a tensor list.
-- [ggml_get_tensor(ctx, name)](#ggml-get-tensor) - Retrieves a tensor by its index or identifier.
-- [ggml_new_tensor(ctx, type, n_dims, ne)](#ggml-new-tensor) - Creates a new tensor with specified parameters.
-- [ggml_new_tensor_1d(ctx, type, ne0)](#ggml-new-tensor-1d) - Creates a new one-dimensional tensor.
-- [ggml_new_tensor_2d(ctx, type, ne0, ne1)](#ggml-new-tensor-2d) - Creates a new two-dimensional tensor.
-- [ggml_new_tensor_3d(ctx, type, ne0, ne1, ne2)](#ggml-new-tensor-3d) - Creates a new three-dimensional tensor.
-- [ggml_new_tensor_4d(ctx, type, ne0, ne1, ne2, ne3)](#ggml-new-tensor-4d) - Creates a new four-dimensional tensor.
-- [ggml_new_buffer(ctx, nbytes)](#ggml-new-buffer) - Creates a new memory buffer for tensor operations.
-- [ggml_dup(ctx, a)](#ggml-dup) - Duplicates a tensor (shallow copy).
-- [ggml_dup_inplace(ctx, a)](#ggml-dup-inplace) - Duplicates a tensor in-place.
-- [ggml_set(ctx, a, b, nb1, nb2, nb3, offset)](#ggml-set) - Sets tensor elements to specified values.
-- [ggml_set_inplace(ctx, a, b, nb1, nb2, nb3, offset)](#ggml-set-inplace) - Sets tensor elements in-place to specified values.
-- [ggml_set_1d(ctx, a, b, offset)](#ggml-set-1d) - Sets elements of a one-dimensional tensor.
-- [ggml_set_1d_inplace(ctx, a, b, offset)](#ggml-set-1d-inplace) - Sets one-dimensional tensor elements in-place.
-- [ggml_set_2d(ctx, a, b, nb1, offset)](#ggml-set-2d) - Sets elements of a two-dimensional tensor.
-- [ggml_set_2d_inplace(ctx, a, b, nb1, offset)](#ggml-set-2d-inplace) - Sets two-dimensional tensor elements in-place.
-- [ggml_cpy(ctx, a, b)](#ggml-cpy) - Copies data from one tensor to another.
-- [ggml_cast(ctx, a, type)](#ggml-cast) - Casts a tensor to a different data type.
-- [ggml_cont(ctx, a)](#ggml-cont) - Ensures a tensor is stored contiguously in memory.
-- [ggml_cont_1d(ctx, a, ne0)](#ggml-cont-1d) - Ensures a one-dimensional tensor is contiguous in memory.
-- [ggml_cont_2d(ctx, a, ne0, ne1)](#ggml-cont-2d) - Ensures a two-dimensional tensor is contiguous in memory.
-- [ggml_cont_3d(ctx, a, ne0, ne1, ne2)](#ggml-cont-3d) - Ensures a three-dimensional tensor is contiguous in memory.
-- [ggml_cont_4d(ctx, a, ne0, ne1, ne2, ne3)](#ggml-cont-4d) - Ensures a four-dimensional tensor is contiguous in memory.
-- [ggml_reshape(ctx, a, b)](#ggml-reshape) - Reshapes a tensor to new dimensions.
-- [ggml_reshape_1d(ctx, a, ne0)](#ggml-reshape-1d) - Reshapes a tensor into one dimension.
-- [ggml_reshape_2d(ctx, a, ne0, ne1)](#ggml-reshape-2d) - Reshapes a tensor into two dimensions.
-- [ggml_reshape_3d(ctx, a, ne0, ne1, ne2)](#ggml-reshape-3d) - Reshapes a tensor into three dimensions.
-- [ggml_reshape_4d(ctx, a, ne0, ne1, ne2, ne3)](#ggml-reshape-4d) - Reshapes a tensor into four dimensions.
-- [ggml_view_1d(ctx, a, ne0, offset)](#ggml-view-1d) - Creates a one-dimensional view of a tensor.
-- [ggml_view_2d(ctx, a, ne0, ne1, nb1, offset)](#ggml-view-2d) - Creates a two-dimensional view of a tensor.
-- [ggml_view_3d(ctx, a, ne0, ne1, ne2, nb1, nb2, offset)](#ggml-view-3d) - Creates a three-dimensional view of a tensor.
-- [ggml_view_4d(ctx, a, ne0, ne1, ne2, ne3, nb1, nb2, nb3, offset)](#ggml-view-4d) - Creates a four-dimensional view of a tensor.
-- [ggml_permute(ctx, a, axis0, axis1, axis2, axis3)](#ggml-permute) - Permutes the dimensions of a tensor.
-- [ggml_transpose(ctx, a)](#ggml-transpose) - Transposes a tensor.
+- [ggml_dup_tensor(ctx, src)](#ggml_dup_tensor) - Duplicates an existing tensor.
+- [ggml_view_tensor(ctx, src)](#ggml_view_tensor) - Creates a view into an existing tensor.
+- [ggml_get_first_tensor(ctx)](#ggml_get_first_tensor) - Retrieves the first tensor in a tensor list.
+- [ggml_get_next_tensor(ctx, tensor)](#ggml_get_next_tensor) - Retrieves the next tensor in a tensor list.
+- [ggml_get_tensor(ctx, name)](#ggml_get_tensor) - Retrieves a tensor by its index or identifier.
+- [ggml_new_tensor(ctx, type, n_dims, ne)](#ggml_new_tensor) - Creates a new tensor with specified parameters.
+- [ggml_new_tensor_1d(ctx, type, ne0)](#ggml_new_tensor_1d) - Creates a new one-dimensional tensor.
+- [ggml_new_tensor_2d(ctx, type, ne0, ne1)](#ggml_new_tensor_2d) - Creates a new two-dimensional tensor.
+- [ggml_new_tensor_3d(ctx, type, ne0, ne1, ne2)](#ggml_new_tensor_3d) - Creates a new three-dimensional tensor.
+- [ggml_new_tensor_4d(ctx, type, ne0, ne1, ne2, ne3)](#ggml_new_tensor_4d) - Creates a new four-dimensional tensor.
+- [ggml_new_buffer(ctx, nbytes)](#ggml_new_buffer) - Creates a new memory buffer for tensor operations.
+- [ggml_dup(ctx, a)](#ggml_dup) - Duplicates a tensor (shallow copy).
+- [ggml_dup_inplace(ctx, a)](#ggml_dup_inplace) - Duplicates a tensor in-place.
+- [ggml_set(ctx, a, b, nb1, nb2, nb3, offset)](#ggml_set) - Sets tensor elements to specified values.
+- [ggml_set_inplace(ctx, a, b, nb1, nb2, nb3, offset)](#ggml_set_inplace) - Sets tensor elements in-place to specified values.
+- [ggml_set_1d(ctx, a, b, offset)](#ggml_set_1d) - Sets elements of a one-dimensional tensor.
+- [ggml_set_1d_inplace(ctx, a, b, offset)](#ggml_set_1d_inplace) - Sets one-dimensional tensor elements in-place.
+- [ggml_set_2d(ctx, a, b, nb1, offset)](#ggml_set_2d) - Sets elements of a two-dimensional tensor.
+- [ggml_set_2d_inplace(ctx, a, b, nb1, offset)](#ggml_set_2d_inplace) - Sets two-dimensional tensor elements in-place.
+- [ggml_cpy(ctx, a, b)](#ggml_cpy) - Copies data from one tensor to another.
+- [ggml_cast(ctx, a, type)](#ggml_cast) - Casts a tensor to a different data type.
+- [ggml_cont(ctx, a)](#ggml_cont) - Ensures a tensor is stored contiguously in memory.
+- [ggml_cont_1d(ctx, a, ne0)](#ggml_cont_1d) - Ensures a one-dimensional tensor is contiguous in memory.
+- [ggml_cont_2d(ctx, a, ne0, ne1)](#ggml_cont_2d) - Ensures a two-dimensional tensor is contiguous in memory.
+- [ggml_cont_3d(ctx, a, ne0, ne1, ne2)](#ggml_cont_3d) - Ensures a three-dimensional tensor is contiguous in memory.
+- [ggml_cont_4d(ctx, a, ne0, ne1, ne2, ne3)](#ggml_cont_4d) - Ensures a four-dimensional tensor is contiguous in memory.
+- [ggml_reshape(ctx, a, b)](#ggml_reshape) - Reshapes a tensor to new dimensions.
+- [ggml_reshape_1d(ctx, a, ne0)](#ggml_reshape_1d) - Reshapes a tensor into one dimension.
+- [ggml_reshape_2d(ctx, a, ne0, ne1)](#ggml_reshape_2d) - Reshapes a tensor into two dimensions.
+- [ggml_reshape_3d(ctx, a, ne0, ne1, ne2)](#ggml_reshape_3d) - Reshapes a tensor into three dimensions.
+- [ggml_reshape_4d(ctx, a, ne0, ne1, ne2, ne3)](#ggml_reshape_4d) - Reshapes a tensor into four dimensions.
+- [ggml_view_1d(ctx, a, ne0, offset)](#ggml_view_1d) - Creates a one-dimensional view of a tensor.
+- [ggml_view_2d(ctx, a, ne0, ne1, nb1, offset)](#ggml_view_2d) - Creates a two-dimensional view of a tensor.
+- [ggml_view_3d(ctx, a, ne0, ne1, ne2, nb1, nb2, offset)](#ggml_view_3d) - Creates a three-dimensional view of a tensor.
+- [ggml_view_4d(ctx, a, ne0, ne1, ne2, ne3, nb1, nb2, nb3, offset)](#ggml_view_4d) - Creates a four-dimensional view of a tensor.
+- [ggml_permute(ctx, a, axis0, axis1, axis2, axis3)](#ggml_permute) - Permutes the dimensions of a tensor.
+- [ggml_transpose(ctx, a)](#ggml_transpose) - Transposes a tensor.
 </details>
 
 
 <details>
 <summary>Indexing, Reduction & Repetition Operations</summary>
 
-- [ggml_sum(ctx, a)](#ggml-sum) - Sums all elements of a tensor.
-- [ggml_sum_rows(ctx, a)](#ggml-sum-rows) - Sums the elements across each row of a tensor.
-- [ggml_mean(ctx, a)](#ggml-mean) - Computes the mean value of a tensor.
-- [ggml_argmax(ctx, a)](#ggml-argmax) - Finds the index of the maximum element in a tensor.
-- [ggml_count_equal(ctx, a, b)](#ggml-count-equal) - Counts elements equal to a specified value in a tensor.
-- [ggml_repeat(ctx, a, b)](#ggml-repeat) - Repeats a tensor along specified dimensions.
-- [ggml_repeat_back(ctx, a, b)](#ggml-repeat-back) - Repeats a tensor in reverse along specified dimensions.
-- [ggml_concat(ctx, a, b, dim)](#ggml-concat) - Concatenates multiple tensors along a given dimension.
-- [ggml_get_rows(ctx, a, b)](#ggml-get-rows) - Retrieves specific rows from a tensor.
-- [ggml_get_rows_back(ctx, a, b, c)](#ggml-get-rows-back) - Retrieves rows from a tensor in reverse order.
-- [ggml_diag(ctx, a)](#ggml-diag) - Extracts the diagonal elements of a tensor.
-- [ggml_diag_mask_inf(ctx, a, n_past)](#ggml-diag-mask-inf) - Masks the diagonal of a tensor with negative infinity.
-- [ggml_diag_mask_inf_inplace(ctx, a, n_past)](#ggml-diag-mask-inf-inplace) - Masks the diagonal with negative infinity in-place.
-- [ggml_diag_mask_zero(ctx, a, n_past)](#ggml-diag-mask-zero) - Masks the diagonal of a tensor with zero.
-- [ggml_diag_mask_zero_inplace(ctx, a, n_past)](#ggml-diag-mask-zero-inplace) - Masks the diagonal with zero in-place.
-- [ggml_soft_max(ctx, a)](#ggml-soft-max) - Applies the softmax function to a tensor.
-- [ggml_soft_max_inplace(ctx, a)](#ggml-soft-max-inplace) - Applies the softmax function in-place on a tensor.
-- [ggml_soft_max_ext(ctx, a, mask, scale, max_bias)](#ggml-soft-max-ext) - Applies an extended softmax function to a tensor.
-- [ggml_soft_max_ext_back(ctx, a, b, scale, max_bias)](#ggml-soft-max-ext-back) - Computes the backward pass for the extended softmax.
-- [ggml_soft_max_ext_back_inplace(ctx, a, b, scale, max_bias)](#ggml-soft-max-ext-back-inplace) - Computes the backward pass for extended softmax in-place.
-- [ggml_argsort(ctx, a, order)](#ggml-argsort) - Returns indices that sort the tensor.
-- [ggml_arange(ctx, start, stop, step)](#ggml-arange) - Generates a tensor with sequential values.
-- [ggml_top_k(ctx, a, k)](#ggml-top-k) - Selects the top k elements from a tensor.
+- [ggml_sum(ctx, a)](#ggml_sum) - Sums all elements of a tensor.
+- [ggml_sum_rows(ctx, a)](#ggml_sum_rows) - Sums the elements across each row of a tensor.
+- [ggml_mean(ctx, a)](#ggml_mean) - Computes the mean value of a tensor.
+- [ggml_argmax(ctx, a)](#ggml_argmax) - Finds the index of the maximum element in a tensor.
+- [ggml_count_equal(ctx, a, b)](#ggml_count_equal) - Counts elements equal to a specified value in a tensor.
+- [ggml_repeat(ctx, a, b)](#ggml_repeat) - Repeats a tensor along specified dimensions.
+- [ggml_repeat_back(ctx, a, b)](#ggml_repeat_back) - Repeats a tensor in reverse along specified dimensions.
+- [ggml_concat(ctx, a, b, dim)](#ggml_concat) - Concatenates multiple tensors along a given dimension.
+- [ggml_get_rows(ctx, a, b)](#ggml_get_rows) - Retrieves specific rows from a tensor.
+- [ggml_get_rows_back(ctx, a, b, c)](#ggml_get_rows_back) - Retrieves rows from a tensor in reverse order.
+- [ggml_diag(ctx, a)](#ggml_diag) - Extracts the diagonal elements of a tensor.
+- [ggml_diag_mask_inf(ctx, a, n_past)](#ggml_diag_mask_inf) - Masks the diagonal of a tensor with negative infinity.
+- [ggml_diag_mask_inf_inplace(ctx, a, n_past)](#ggml_diag_mask_inf_inplace) - Masks the diagonal with negative infinity in-place.
+- [ggml_diag_mask_zero(ctx, a, n_past)](#ggml_diag_mask_zero) - Masks the diagonal of a tensor with zero.
+- [ggml_diag_mask_zero_inplace(ctx, a, n_past)](#ggml_diag_mask_zero_inplace) - Masks the diagonal with zero in-place.
+- [ggml_soft_max(ctx, a)](#ggml_soft_max) - Applies the softmax function to a tensor.
+- [ggml_soft_max_inplace(ctx, a)](#ggml_soft_max_inplace) - Applies the softmax function in-place on a tensor.
+- [ggml_soft_max_ext(ctx, a, mask, scale, max_bias)](#ggml_soft_max_ext) - Applies an extended softmax function to a tensor.
+- [ggml_soft_max_ext_back(ctx, a, b, scale, max_bias)](#ggml_soft_max_ext_back) - Computes the backward pass for the extended softmax.
+- [ggml_soft_max_ext_back_inplace(ctx, a, b, scale, max_bias)](#ggml_soft_max_ext_back_inplace) - Computes the backward pass for extended softmax in-place.
+- [ggml_argsort(ctx, a, order)](#ggml_argsort) - Returns indices that sort the tensor.
+- [ggml_arange(ctx, start, stop, step)](#ggml_arange) - Generates a tensor with sequential values.
+- [ggml_top_k(ctx, a, k)](#ggml_top_k) - Selects the top k elements from a tensor.
 </details>
 
 
 <details>
 <summary>Convolution, Pooling & Image Operations</summary>
 
-- [ggml_im2col(ctx, a, b, s0, s1, p0, p1, d0, d1, is_2D, dst_type)](#ggml-im2col) - Transforms image data into a columnar matrix format.
-- [ggml_im2col_back(ctx, a, b, ne, s0, s1, p0, p1, d0, d1, is_2D)](#ggml-im2col-back) - Reconstructs image data from its columnar representation.
-- [ggml_conv_1d(ctx, a, b, s0, p0, d0)](#ggml-conv-1d) - Performs a one-dimensional convolution operation.
-- [ggml_conv_1d_ph(ctx, a, b, s, d)](#ggml-conv-1d-ph) - Performs a phase-based one-dimensional convolution.
-- [ggml_conv_1d_dw(ctx, a, b, s0, p0, d0)](#ggml-conv-1d-dw) - Performs a depthwise one-dimensional convolution.
-- [ggml_conv_1d_dw_ph(ctx, a, b, s0, d0)](#ggml-conv-1d-dw-ph) - Performs a phase-based depthwise one-dimensional convolution.
-- [ggml_conv_transpose_1d(ctx, a, b, s0, p0, d0)](#ggml-conv-transpose-1d) - Performs a transposed one-dimensional convolution.
-- [ggml_conv_2d(ctx, a, b, s0, s1, p0, p1, d0, d1)](#ggml-conv-2d) - Performs a two-dimensional convolution operation.
-- [ggml_conv_2d_sk_p0(ctx, a, b)](#ggml-conv-2d-sk-p0) - Performs a two-dimensional convolution with stride kernel padding of 0.
-- [ggml_conv_2d_s1_ph(ctx, a, b)](#ggml-conv-2d-s1-ph) - Performs a phase-based two-dimensional convolution with stride 1.
-- [ggml_conv_2d_dw(ctx, a, b, s0, s1, p0, p1, d0, d1)](#ggml-conv-2d-dw) - Performs a depthwise two-dimensional convolution.
-- [ggml_conv_transpose_2d_p0(ctx, a, b, stride)](#ggml-conv-transpose-2d-p0) - Performs a transposed two-dimensional convolution with padding 0.
-- [ggml_pool_1d(ctx, a, op, k0, s0, p0)](#ggml-pool-1d) - Performs a one-dimensional pooling operation.
-- [ggml_pool_2d(ctx, a, op, k0, k1, s0, s1, p0, p1)](#ggml-pool-2d) - Performs a two-dimensional pooling operation.
-- [ggml_pool_2d_back(ctx, a, af, op, k0, k1, s0, s1, p0, p1)](#ggml-pool-2d-back) - Computes the backward pass for a two-dimensional pooling operation.
-- [ggml_upscale(ctx, a, scale_factor)](#ggml-upscale) - Upscales a tensor by a specified factor.
-- [ggml_upscale_ext(ctx, a, ne0, ne1, ne2, ne3)](#ggml-upscale-ext) - Upscales a tensor with extended options.
-- [ggml_pad(ctx, a, p0, p1, p2, p3)](#ggml-pad) - Pads a tensor with a specified value.
-- [ggml_pad_reflect_1d(ctx, a, p0, p1)](#ggml-pad-reflect-1d) - Pads a one-dimensional tensor using reflection.
+- [ggml_im2col(ctx, a, b, s0, s1, p0, p1, d0, d1, is_2D, dst_type)](#ggml_im2col) - Transforms image data into a columnar matrix format.
+- [ggml_im2col_back(ctx, a, b, ne, s0, s1, p0, p1, d0, d1, is_2D)](#ggml_im2col_back) - Reconstructs image data from its columnar representation.
+- [ggml_conv_1d(ctx, a, b, s0, p0, d0)](#ggml_conv_1d) - Performs a one-dimensional convolution operation.
+- [ggml_conv_1d_ph(ctx, a, b, s, d)](#ggml_conv_1d_ph) - Performs a phase-based one-dimensional convolution.
+- [ggml_conv_1d_dw(ctx, a, b, s0, p0, d0)](#ggml_conv_1d_dw) - Performs a depthwise one-dimensional convolution.
+- [ggml_conv_1d_dw_ph(ctx, a, b, s0, d0)](#ggml_conv_1d_dw_ph) - Performs a phase-based depthwise one-dimensional convolution.
+- [ggml_conv_transpose_1d(ctx, a, b, s0, p0, d0)](#ggml_conv_transpose_1d) - Performs a transposed one-dimensional convolution.
+- [ggml_conv_2d(ctx, a, b, s0, s1, p0, p1, d0, d1)](#ggml_conv_2d) - Performs a two-dimensional convolution operation.
+- [ggml_conv_2d_sk_p0(ctx, a, b)](#ggml_conv_2d_sk_p0) - Performs a two-dimensional convolution with stride kernel padding of 0.
+- [ggml_conv_2d_s1_ph(ctx, a, b)](#ggml_conv_2d_s1_ph) - Performs a phase-based two-dimensional convolution with stride 1.
+- [ggml_conv_2d_dw(ctx, a, b, s0, s1, p0, p1, d0, d1)](#ggml_conv_2d_dw) - Performs a depthwise two-dimensional convolution.
+- [ggml_conv_transpose_2d_p0(ctx, a, b, stride)](#ggml_conv_transpose_2d_p0) - Performs a transposed two-dimensional convolution with padding 0.
+- [ggml_pool_1d(ctx, a, op, k0, s0, p0)](#ggml_pool_1d) - Performs a one-dimensional pooling operation.
+- [ggml_pool_2d(ctx, a, op, k0, k1, s0, s1, p0, p1)](#ggml_pool_2d) - Performs a two-dimensional pooling operation.
+- [ggml_pool_2d_back(ctx, a, af, op, k0, k1, s0, s1, p0, p1)](#ggml_pool_2d_back) - Computes the backward pass for a two-dimensional pooling operation.
+- [ggml_upscale(ctx, a, scale_factor)](#ggml_upscale) - Upscales a tensor by a specified factor.
+- [ggml_upscale_ext(ctx, a, ne0, ne1, ne2, ne3)](#ggml_upscale_ext) - Upscales a tensor with extended options.
+- [ggml_pad(ctx, a, p0, p1, p2, p3)](#ggml_pad) - Pads a tensor with a specified value.
+- [ggml_pad_reflect_1d(ctx, a, p0, p1)](#ggml_pad_reflect_1d) - Pads a one-dimensional tensor using reflection.
 </details>
 
 
 <details>
 <summary>Sequence & Attention Operations</summary>
 
-- [ggml_timestep_embedding(ctx, timesteps, dim, max_period)](#ggml-timestep-embedding) - Generates timestep embeddings for a tensor.
-- [ggml_flash_attn_ext(ctx, q, k, v, mask, scale, max_bias, logit_softcap)](#ggml-flash-attn-ext) - Performs an extended flash attention operation.
-- [ggml_flash_attn_ext_set_prec(a, prec)](#ggml-flash-attn-ext-set-prec) - Sets the precision for extended flash attention.
-- [ggml_flash_attn_ext_get_prec(a)](#ggml-flash-attn-ext-get-prec) - Gets the current precision setting for extended flash attention.
-- [ggml_flash_attn_back(ctx, q, k, v, d, masked)](#ggml-flash-attn-back) - Computes the backward pass for flash attention.
-- [ggml_ssm_conv(ctx, sx, c)](#ggml-ssm-conv) - Performs a state-space model convolution.
-- [ggml_ssm_scan(ctx, s, x, dt, A, B, C)](#ggml-ssm-scan) - Performs a state-space model scan operation.
-- [ggml_win_part(ctx, a, w)](#ggml-win-part) - Partitions a tensor into windows.
-- [ggml_win_unpart(ctx, a, w0, h0, w)](#ggml-win-unpart) - Reassembles a tensor from its window partitions.
-- [ggml_unary(ctx, a, op)](#ggml-unary) - Applies a unary function to all tensor elements.
-- [ggml_unary_inplace(ctx, a, op)](#ggml-unary-inplace) - Applies a unary function to a tensor in-place.
-- [ggml_get_rel_pos(ctx, a, qh, kh)](#ggml-get-rel-pos) - Retrieves relative positional information from a tensor.
-- [ggml_add_rel_pos(ctx, a, pw, ph)](#ggml-add-rel-pos) - Adds relative positional embeddings to a tensor.
-- [ggml_add_rel_pos_inplace(ctx, a, pw, ph)](#ggml-add-rel-pos-inplace) - Adds relative positional embeddings in-place to a tensor.
-- [ggml_rwkv_wkv6(ctx, k, v, r, tf, td, state)](#ggml-rwkv-wkv6) - Computes the RWKV WKV6 operation on a tensor.
-- [ggml_gated_linear_attn(ctx, k, v, q, g, state, scale)](#ggml-gated-linear-attn) - Applies gated linear attention to a tensor.
+- [ggml_timestep_embedding(ctx, timesteps, dim, max_period)](#ggml_timestep_embedding) - Generates timestep embeddings for a tensor.
+- [ggml_flash_attn_ext(ctx, q, k, v, mask, scale, max_bias, logit_softcap)](#ggml_flash_attn_ext) - Performs an extended flash attention operation.
+- [ggml_flash_attn_ext_set_prec(a, prec)](#ggml_flash_attn_ext_set_prec) - Sets the precision for extended flash attention.
+- [ggml_flash_attn_ext_get_prec(a)](#ggml_flash_attn_ext_get_prec) - Gets the current precision setting for extended flash attention.
+- [ggml_flash_attn_back(ctx, q, k, v, d, masked)](#ggml_flash_attn_back) - Computes the backward pass for flash attention.
+- [ggml_ssm_conv(ctx, sx, c)](#ggml_ssm_conv) - Performs a state-space model convolution.
+- [ggml_ssm_scan(ctx, s, x, dt, A, B, C)](#ggml_ssm_scan) - Performs a state-space model scan operation.
+- [ggml_win_part(ctx, a, w)](#ggml_win_part) - Partitions a tensor into windows.
+- [ggml_win_unpart(ctx, a, w0, h0, w)](#ggml_win_unpart) - Reassembles a tensor from its window partitions.
+- [ggml_unary(ctx, a, op)](#ggml_unary) - Applies a unary function to all tensor elements.
+- [ggml_unary_inplace(ctx, a, op)](#ggml_unary_inplace) - Applies a unary function to a tensor in-place.
+- [ggml_get_rel_pos(ctx, a, qh, kh)](#ggml_get_rel_pos) - Retrieves relative positional information from a tensor.
+- [ggml_add_rel_pos(ctx, a, pw, ph)](#ggml_add_rel_pos) - Adds relative positional embeddings to a tensor.
+- [ggml_add_rel_pos_inplace(ctx, a, pw, ph)](#ggml_add_rel_pos_inplace) - Adds relative positional embeddings in-place to a tensor.
+- [ggml_rwkv_wkv6(ctx, k, v, r, tf, td, state)](#ggml_rwkv_wkv6) - Computes the RWKV WKV6 operation on a tensor.
+- [ggml_gated_linear_attn(ctx, k, v, q, g, state, scale)](#ggml_gated_linear_attn) - Applies gated linear attention to a tensor.
 </details>
 
 
 <details>
 <summary>Backend Buffer Management</summary>
 
-- [ggml_backend_buft_name(buft)](#ggml-backend-buft-name) - Retrieves the name of a backend buffer type.
-- [ggml_backend_buft_alloc_buffer(buft, size)](#ggml-backend-buft-alloc-buffer) - Allocates a buffer for a backend buffer type.
-- [ggml_backend_buft_get_alignment(buft)](#ggml-backend-buft-get-alignment) - Gets the memory alignment for a backend buffer type.
-- [ggml_backend_buft_get_max_size(buft)](#ggml-backend-buft-get-max-size) - Returns the maximum size allowed for a backend buffer type.
-- [ggml_backend_buft_get_alloc_size(buft, tensor)](#ggml-backend-buft-get-alloc-size) - Retrieves the allocation size for a backend buffer type.
-- [ggml_backend_buft_is_host(buft)](#ggml-backend-buft-is-host) - Checks if the backend buffer type resides in host memory.
-- [ggml_backend_buft_get_device(buft)](#ggml-backend-buft-get-device) - Gets the device associated with a backend buffer type.
-- [ggml_backend_buffer_name(buffer)](#ggml-backend-buffer-name) - Retrieves the name of a backend buffer.
-- [ggml_backend_buffer_free(buffer)](#ggml-backend-buffer-free) - Frees a previously allocated backend buffer.
-- [ggml_backend_buffer_get_base(buffer)](#ggml-backend-buffer-get-base) - Returns the base pointer of a backend buffer.
-- [ggml_backend_buffer_get_size(buffer)](#ggml-backend-buffer-get-size) - Retrieves the size of a backend buffer.
-- [ggml_backend_buffer_init_tensor(buffer, tensor)](#ggml-backend-buffer-init-tensor) - Initializes a tensor within a backend buffer.
-- [ggml_backend_buffer_get_alignment(buffer)](#ggml-backend-buffer-get-alignment) - Gets the alignment property of a backend buffer.
-- [ggml_backend_buffer_get_max_size(buffer)](#ggml-backend-buffer-get-max-size) - Returns the maximum size supported by a backend buffer.
-- [ggml_backend_buffer_get_alloc_size(buffer, tensor)](#ggml-backend-buffer-get-alloc-size) - Retrieves the allocated size of a backend buffer.
-- [ggml_backend_buffer_clear(buffer, value)](#ggml-backend-buffer-clear) - Clears the data stored in a backend buffer.
-- [ggml_backend_buffer_is_host(buffer)](#ggml-backend-buffer-is-host) - Checks if a backend buffer is located in host memory.
-- [ggml_backend_buffer_set_usage(buffer, usage)](#ggml-backend-buffer-set-usage) - Sets the usage flags for a backend buffer.
-- [ggml_backend_buffer_get_usage(buffer)](#ggml-backend-buffer-get-usage) - Retrieves the usage flags of a backend buffer.
-- [ggml_backend_buffer_get_type(buffer)](#ggml-backend-buffer-get-type) - Returns the type of a backend buffer.
-- [ggml_backend_buffer_reset(buffer)](#ggml-backend-buffer-reset) - Resets a backend buffer to its initial state.
+- [ggml_backend_buft_name(buft)](#ggml_backend_buft_name) - Retrieves the name of a backend buffer type.
+- [ggml_backend_buft_alloc_buffer(buft, size)](#ggml_backend_buft_alloc_buffer) - Allocates a buffer for a backend buffer type.
+- [ggml_backend_buft_get_alignment(buft)](#ggml_backend_buft_get_alignment) - Gets the memory alignment for a backend buffer type.
+- [ggml_backend_buft_get_max_size(buft)](#ggml_backend_buft_get_max_size) - Returns the maximum size allowed for a backend buffer type.
+- [ggml_backend_buft_get_alloc_size(buft, tensor)](#ggml_backend_buft_get_alloc_size) - Retrieves the allocation size for a backend buffer type.
+- [ggml_backend_buft_is_host(buft)](#ggml_backend_buft_is_host) - Checks if the backend buffer type resides in host memory.
+- [ggml_backend_buft_get_device(buft)](#ggml_backend_buft_get_device) - Gets the device associated with a backend buffer type.
+- [ggml_backend_buffer_name(buffer)](#ggml_backend_buffer_name) - Retrieves the name of a backend buffer.
+- [ggml_backend_buffer_free(buffer)](#ggml_backend_buffer_free) - Frees a previously allocated backend buffer.
+- [ggml_backend_buffer_get_base(buffer)](#ggml_backend_buffer_get_base) - Returns the base pointer of a backend buffer.
+- [ggml_backend_buffer_get_size(buffer)](#ggml_backend_buffer_get_size) - Retrieves the size of a backend buffer.
+- [ggml_backend_buffer_init_tensor(buffer, tensor)](#ggml_backend_buffer_init_tensor) - Initializes a tensor within a backend buffer.
+- [ggml_backend_buffer_get_alignment(buffer)](#ggml_backend_buffer_get_alignment) - Gets the alignment property of a backend buffer.
+- [ggml_backend_buffer_get_max_size(buffer)](#ggml_backend_buffer_get_max_size) - Returns the maximum size supported by a backend buffer.
+- [ggml_backend_buffer_get_alloc_size(buffer, tensor)](#ggml_backend_buffer_get_alloc_size) - Retrieves the allocated size of a backend buffer.
+- [ggml_backend_buffer_clear(buffer, value)](#ggml_backend_buffer_clear) - Clears the data stored in a backend buffer.
+- [ggml_backend_buffer_is_host(buffer)](#ggml_backend_buffer_is_host) - Checks if a backend buffer is located in host memory.
+- [ggml_backend_buffer_set_usage(buffer, usage)](#ggml_backend_buffer_set_usage) - Sets the usage flags for a backend buffer.
+- [ggml_backend_buffer_get_usage(buffer)](#ggml_backend_buffer_get_usage) - Retrieves the usage flags of a backend buffer.
+- [ggml_backend_buffer_get_type(buffer)](#ggml_backend_buffer_get_type) - Returns the type of a backend buffer.
+- [ggml_backend_buffer_reset(buffer)](#ggml_backend_buffer_reset) - Resets a backend buffer to its initial state.
 </details>
 
 
 <details>
 <summary>Tensor Optimization & Training</summary>
 
-- [ggml_opt_dataset_init(ne_datapoint, ne_label, ndata, ndata_shard)](#ggml-opt-dataset-init) - Initializes an optimization dataset.
-- [ggml_opt_dataset_free(dataset)](#ggml-opt-dataset-free) - Frees an optimization dataset.
-- [ggml_opt_dataset_data(dataset)](#ggml-opt-dataset-data) - Retrieves the data from an optimization dataset.
-- [ggml_opt_dataset_labels(dataset)](#ggml-opt-dataset-labels) - Retrieves the labels from an optimization dataset.
-- [ggml_opt_dataset_shuffle(opt_ctx, dataset, idata)](#ggml-opt-dataset-shuffle) - Shuffles the entries in an optimization dataset.
-- [ggml_opt_dataset_get_batch(dataset, data_batch, labels_batch, ibatch)](#ggml-opt-dataset-get-batch) - Gets a batch of data from an optimization dataset.
-- [ggml_opt_get_default_optimizer_params(userdata)](#ggml-opt-get-default-optimizer-params) - Retrieves the default parameters for the optimizer.
-- [ggml_opt_default_params(backend_sched, ctx_compute, inputs, outputs, loss_type)](#ggml-opt-default-params) - Returns default optimization parameters.
-- [ggml_opt_init(params)](#ggml-opt-init) - Initializes an optimizer instance.
-- [ggml_opt_free(opt_ctx)](#ggml-opt-free) - Frees an optimizer instance.
-- [ggml_opt_reset(opt_ctx, optimizer)](#ggml-opt-reset) - Resets the optimizer to its initial state.
-- [ggml_opt_inputs(opt_ctx)](#ggml-opt-inputs) - Retrieves the input tensors for the optimizer.
-- [ggml_opt_outputs(opt_ctx)](#ggml-opt-outputs) - Retrieves the output tensors for the optimizer.
-- [ggml_opt_labels(opt_ctx)](#ggml-opt-labels) - Retrieves the label tensors used in optimization.
-- [ggml_opt_loss(opt_ctx)](#ggml-opt-loss) - Returns the computed loss from the optimizer.
-- [ggml_opt_pred(opt_ctx)](#ggml-opt-pred) - Retrieves prediction outputs from the optimizer.
-- [ggml_opt_ncorrect(opt_ctx)](#ggml-opt-ncorrect) - Returns the number of correct predictions.
-- [ggml_opt_grad_acc(opt_ctx, node)](#ggml-opt-grad-acc) - Retrieves the accumulated gradients from the optimizer.
-- [ggml_opt_result_init()](#ggml-opt-result-init) - Initializes a structure for storing optimizer results.
-- [ggml_opt_result_free(result)](#ggml-opt-result-free) - Frees an optimizer result structure.
-- [ggml_opt_result_reset(result)](#ggml-opt-result-reset) - Resets the optimizer result structure.
-- [ggml_opt_result_ndata(result, ndata)](#ggml-opt-result-ndata) - Returns the number of data points in the optimizer results.
-- [ggml_opt_result_loss(result, loss, unc)](#ggml-opt-result-loss) - Retrieves the loss value from the optimizer results.
-- [ggml_opt_result_pred(result, pred)](#ggml-opt-result-pred) - Retrieves predictions from the optimizer results.
-- [ggml_opt_result_accuracy(result, accuracy, unc)](#ggml-opt-result-accuracy) - Calculates accuracy from the optimizer results.
-- [ggml_opt_forward(opt_ctx, result)](#ggml-opt-forward) - Performs a forward pass using the optimizer.
-- [ggml_opt_forward_backward(opt_ctx, result)](#ggml-opt-forward-backward) - Performs both forward and backward passes in optimization.
-- [ggml_opt_epoch(opt_ctx, dataset, result_train, result_eval, idata_split, callback_train, callback_eval)](#ggml-opt-epoch) - Executes one optimization epoch.
-- [ggml_opt_epoch_callback_progress_bar(train, opt_ctx, dataset, result, ibatch, ibatch_max, t_start_us)](#ggml-opt-epoch-callback-progress-bar) - Updates a progress bar during an optimization epoch.
-- [ggml_opt_fit(backend_sched, ctx_compute, inputs, outputs, dataset, loss_type, get_opt_pars, nepoch, nbatch_logical, val_split, silent)](#ggml-opt-fit) - Trains a model using the optimizer.
-- [ggml_opt_step_adamw(ctx, a, grad, m, v, adamw_params)](#ggml-opt-step-adamw) - Performs an optimization step using the AdamW algorithm.
+- [ggml_opt_dataset_init(ne_datapoint, ne_label, ndata, ndata_shard)](#ggml_opt_dataset_init) - Initializes an optimization dataset.
+- [ggml_opt_dataset_free(dataset)](#ggml_opt_dataset_free) - Frees an optimization dataset.
+- [ggml_opt_dataset_data(dataset)](#ggml_opt_dataset_data) - Retrieves the data from an optimization dataset.
+- [ggml_opt_dataset_labels(dataset)](#ggml_opt_dataset_labels) - Retrieves the labels from an optimization dataset.
+- [ggml_opt_dataset_shuffle(opt_ctx, dataset, idata)](#ggml_opt_dataset_shuffle) - Shuffles the entries in an optimization dataset.
+- [ggml_opt_dataset_get_batch(dataset, data_batch, labels_batch, ibatch)](#ggml_opt_dataset_get_batch) - Gets a batch of data from an optimization dataset.
+- [ggml_opt_get_default_optimizer_params(userdata)](#ggml_opt_get_default_optimizer_params) - Retrieves the default parameters for the optimizer.
+- [ggml_opt_default_params(backend_sched, ctx_compute, inputs, outputs, loss_type)](#ggml_opt_default_params) - Returns default optimization parameters.
+- [ggml_opt_init(params)](#ggml_opt_init) - Initializes an optimizer instance.
+- [ggml_opt_free(opt_ctx)](#ggml_opt_free) - Frees an optimizer instance.
+- [ggml_opt_reset(opt_ctx, optimizer)](#ggml_opt_reset) - Resets the optimizer to its initial state.
+- [ggml_opt_inputs(opt_ctx)](#ggml_opt_inputs) - Retrieves the input tensors for the optimizer.
+- [ggml_opt_outputs(opt_ctx)](#ggml_opt_outputs) - Retrieves the output tensors for the optimizer.
+- [ggml_opt_labels(opt_ctx)](#ggml_opt_labels) - Retrieves the label tensors used in optimization.
+- [ggml_opt_loss(opt_ctx)](#ggml_opt_loss) - Returns the computed loss from the optimizer.
+- [ggml_opt_pred(opt_ctx)](#ggml_opt_pred) - Retrieves prediction outputs from the optimizer.
+- [ggml_opt_ncorrect(opt_ctx)](#ggml_opt_ncorrect) - Returns the number of correct predictions.
+- [ggml_opt_grad_acc(opt_ctx, node)](#ggml_opt_grad_acc) - Retrieves the accumulated gradients from the optimizer.
+- [ggml_opt_result_init()](#ggml_opt_result_init) - Initializes a structure for storing optimizer results.
+- [ggml_opt_result_free(result)](#ggml_opt_result_free) - Frees an optimizer result structure.
+- [ggml_opt_result_reset(result)](#ggml_opt_result_reset) - Resets the optimizer result structure.
+- [ggml_opt_result_ndata(result, ndata)](#ggml_opt_result_ndata) - Returns the number of data points in the optimizer results.
+- [ggml_opt_result_loss(result, loss, unc)](#ggml_opt_result_loss) - Retrieves the loss value from the optimizer results.
+- [ggml_opt_result_pred(result, pred)](#ggml_opt_result_pred) - Retrieves predictions from the optimizer results.
+- [ggml_opt_result_accuracy(result, accuracy, unc)](#ggml_opt_result_accuracy) - Calculates accuracy from the optimizer results.
+- [ggml_opt_forward(opt_ctx, result)](#ggml_opt_forward) - Performs a forward pass using the optimizer.
+- [ggml_opt_forward_backward(opt_ctx, result)](#ggml_opt_forward_backward) - Performs both forward and backward passes in optimization.
+- [ggml_opt_epoch(opt_ctx, dataset, result_train, result_eval, idata_split, callback_train, callback_eval)](#ggml_opt_epoch) - Executes one optimization epoch.
+- [ggml_opt_epoch_callback_progress_bar(train, opt_ctx, dataset, result, ibatch, ibatch_max, t_start_us)](#ggml_opt_epoch_callback_progress_bar) - Updates a progress bar during an optimization epoch.
+- [ggml_opt_fit(backend_sched, ctx_compute, inputs, outputs, dataset, loss_type, get_opt_pars, nepoch, nbatch_logical, val_split, silent)](#ggml_opt_fit) - Trains a model using the optimizer.
+- [ggml_opt_step_adamw(ctx, a, grad, m, v, adamw_params)](#ggml_opt_step_adamw) - Performs an optimization step using the AdamW algorithm.
 </details>
 
 
 <details>
 <summary>Custom Mapping & Loss Functions</summary>
 
-- [ggml_map_unary_f32(ctx, a, fun)](#ggml-map-unary-f32) - Maps a unary function over a float tensor.
-- [ggml_map_unary_inplace_f32(ctx, a, fun)](#ggml-map-unary-inplace-f32) - Applies a unary function to a float tensor in-place.
-- [ggml_map_binary_f32(ctx, a, b, fun)](#ggml-map-binary-f32) - Applies a binary function to two float tensors.
-- [ggml_map_binary_inplace_f32(ctx, a, b, fun)](#ggml-map-binary-inplace-f32) - Applies a binary function in-place on two float tensors.
-- [ggml_map_custom1_f32(ctx, a, fun)](#ggml-map-custom1-f32) - Applies a custom unary function on a float tensor.
-- [ggml_map_custom1_inplace_f32(ctx, a, fun)](#ggml-map-custom1-inplace-f32) - Applies a custom unary function on a float tensor in-place.
-- [ggml_map_custom2_f32(ctx, a, b, fun)](#ggml-map-custom2-f32) - Applies a custom binary function on a float tensor.
-- [ggml_map_custom2_inplace_f32(ctx, a, b, fun)](#ggml-map-custom2-inplace-f32) - Applies a custom binary function on a float tensor in-place.
-- [ggml_map_custom3_f32(ctx, a, b, c, fun)](#ggml-map-custom3-f32) - Applies a custom ternary function on a float tensor.
-- [ggml_map_custom3_inplace_f32(ctx, a, b, c, fun)](#ggml-map-custom3-inplace-f32) - Applies a custom ternary function on a float tensor in-place.
-- [ggml_map_custom1(ctx, a, fun, n_tasks, userdata)](#ggml-map-custom1) - Applies a custom unary function to a tensor.
-- [ggml_map_custom1_inplace(ctx, a, fun, n_tasks, userdata)](#ggml-map-custom1-inplace) - Applies a custom unary function to a tensor in-place.
-- [ggml_map_custom2(ctx, a, b, fun, n_tasks, userdata)](#ggml-map-custom2) - Applies a custom binary function to a tensor.
-- [ggml_map_custom2_inplace(ctx, a, b, fun, n_tasks, userdata)](#ggml-map-custom2-inplace) - Applies a custom binary function to a tensor in-place.
-- [ggml_map_custom3(ctx, a, b, c, fun, n_tasks, userdata)](#ggml-map-custom3) - Applies a custom ternary function to a tensor.
-- [ggml_map_custom3_inplace(ctx, a, b, c, fun, n_tasks, userdata)](#ggml-map-custom3-inplace) - Applies a custom ternary function to a tensor in-place.
-- [ggml_cross_entropy_loss(ctx, a, b)](#ggml-cross-entropy-loss) - Computes the cross-entropy loss for a tensor.
-- [ggml_cross_entropy_loss_back(ctx, a, b, c)](#ggml-cross-entropy-loss-back) - Computes the backward pass for cross-entropy loss.
+- [ggml_map_unary_f32(ctx, a, fun)](#ggml_map_unary_f32) - Maps a unary function over a float tensor.
+- [ggml_map_unary_inplace_f32(ctx, a, fun)](#ggml_map_unary_inplace_f32) - Applies a unary function to a float tensor in-place.
+- [ggml_map_binary_f32(ctx, a, b, fun)](#ggml_map_binary_f32) - Applies a binary function to two float tensors.
+- [ggml_map_binary_inplace_f32(ctx, a, b, fun)](#ggml_map_binary_inplace_f32) - Applies a binary function in-place on two float tensors.
+- [ggml_map_custom1_f32(ctx, a, fun)](#ggml_map_custom1_f32) - Applies a custom unary function on a float tensor.
+- [ggml_map_custom1_inplace_f32(ctx, a, fun)](#ggml_map_custom1_inplace_f32) - Applies a custom unary function on a float tensor in-place.
+- [ggml_map_custom2_f32(ctx, a, b, fun)](#ggml_map_custom2_f32) - Applies a custom binary function on a float tensor.
+- [ggml_map_custom2_inplace_f32(ctx, a, b, fun)](#ggml_map_custom2_inplace_f32) - Applies a custom binary function on a float tensor in-place.
+- [ggml_map_custom3_f32(ctx, a, b, c, fun)](#ggml_map_custom3_f32) - Applies a custom ternary function on a float tensor.
+- [ggml_map_custom3_inplace_f32(ctx, a, b, c, fun)](#ggml_map_custom3_inplace_f32) - Applies a custom ternary function on a float tensor in-place.
+- [ggml_map_custom1(ctx, a, fun, n_tasks, userdata)](#ggml_map_custom1) - Applies a custom unary function to a tensor.
+- [ggml_map_custom1_inplace(ctx, a, fun, n_tasks, userdata)](#ggml_map_custom1_inplace) - Applies a custom unary function to a tensor in-place.
+- [ggml_map_custom2(ctx, a, b, fun, n_tasks, userdata)](#ggml_map_custom2) - Applies a custom binary function to a tensor.
+- [ggml_map_custom2_inplace(ctx, a, b, fun, n_tasks, userdata)](#ggml_map_custom2_inplace) - Applies a custom binary function to a tensor in-place.
+- [ggml_map_custom3(ctx, a, b, c, fun, n_tasks, userdata)](#ggml_map_custom3) - Applies a custom ternary function to a tensor.
+- [ggml_map_custom3_inplace(ctx, a, b, c, fun, n_tasks, userdata)](#ggml_map_custom3_inplace) - Applies a custom ternary function to a tensor in-place.
+- [ggml_cross_entropy_loss(ctx, a, b)](#ggml_cross_entropy_loss) - Computes the cross-entropy loss for a tensor.
+- [ggml_cross_entropy_loss_back(ctx, a, b, c)](#ggml_cross_entropy_loss_back) - Computes the backward pass for cross-entropy loss.
 </details>
 
 
 <details>
 <summary>Utility & Information Functions</summary>
 
-- [ggml_fp16_to_fp32()](#ggml-fp16-to-fp32) - Converts half-precision floats to single-precision.
-- [ggml_fp32_to_fp16()](#ggml-fp32-to-fp16) - Converts single-precision floats to half-precision.
-- [ggml_fp16_to_fp32_row(, , )](#ggml-fp16-to-fp32-row) - Converts a row of half-precision floats to single-precision.
-- [ggml_fp32_to_fp16_row(, , )](#ggml-fp32-to-fp16-row) - Converts a row of single-precision floats to half-precision.
-- [ggml_fp32_to_bf16()](#ggml-fp32-to-bf16) - Converts single-precision floats to bfloat16 format.
-- [ggml_bf16_to_fp32()](#ggml-bf16-to-fp32) - Converts bfloat16 values to single-precision floats.
-- [ggml_bf16_to_fp32_row(, , )](#ggml-bf16-to-fp32-row) - Converts a row of bfloat16 values to single-precision.
-- [ggml_fp32_to_bf16_row_ref(, , )](#ggml-fp32-to-bf16-row-ref) - Converts a reference row of single-precision floats to bfloat16.
-- [ggml_fp32_to_bf16_row(, , )](#ggml-fp32-to-bf16-row) - Converts a row of single-precision floats to bfloat16.
-- [ggml_guid_matches(guid_a, guid_b)](#ggml-guid-matches) - Checks if two GUIDs match.
-- [ggml_time_init()](#ggml-time-init) - Initializes the ggml timing system.
-- [ggml_time_ms()](#ggml-time-ms) - Returns the current time in milliseconds.
-- [ggml_time_us()](#ggml-time-us) - Returns the current time in microseconds.
-- [ggml_cycles()](#ggml-cycles) - Returns the current CPU cycle count.
-- [ggml_cycles_per_ms()](#ggml-cycles-per-ms) - Calculates the number of CPU cycles per millisecond.
-- [ggml_fopen(fname, mode)](#ggml-fopen) - Opens a file with ggml-specific settings.
-- [ggml_print_object(obj)](#ggml-print-object) - Prints detailed information of a ggml object.
-- [ggml_print_objects(ctx)](#ggml-print-objects) - Prints details of multiple ggml objects.
-- [ggml_nelements(tensor)](#ggml-nelements) - Returns the number of elements in a tensor.
-- [ggml_nrows(tensor)](#ggml-nrows) - Returns the number of rows in a tensor.
-- [ggml_nbytes(tensor)](#ggml-nbytes) - Returns the total number of bytes occupied by a tensor.
-- [ggml_nbytes_pad(tensor)](#ggml-nbytes-pad) - Returns the padded byte size of a tensor.
-- [ggml_blck_size(type)](#ggml-blck-size) - Returns the block size used in tensor operations.
-- [ggml_type_size(type)](#ggml-type-size) - Returns the size in bytes of a tensor type.
-- [ggml_row_size(type, ne)](#ggml-row-size) - Returns the size of a tensor row in bytes.
-- [ggml_type_sizef(type)](#ggml-type-sizef) - Returns the floating-point size in bytes for a tensor type.
-- [ggml_type_name(type)](#ggml-type-name) - Returns the name of a tensor type.
-- [ggml_op_name(op)](#ggml-op-name) - Returns the name of an operation.
-- [ggml_op_symbol(op)](#ggml-op-symbol) - Returns the symbol representing an operation.
-- [ggml_unary_op_name(op)](#ggml-unary-op-name) - Returns the name of a unary operation.
-- [ggml_op_desc(t)](#ggml-op-desc) - Provides a description of an operation.
-- [ggml_element_size(tensor)](#ggml-element-size) - Returns the size in bytes of a single tensor element.
-- [ggml_is_quantized(type)](#ggml-is-quantized) - Checks if a tensor is quantized.
-- [ggml_ftype_to_ggml_type(ftype)](#ggml-ftype-to-ggml-type) - Converts a file type to a ggml tensor type.
-- [ggml_is_transposed(tensor)](#ggml-is-transposed) - Checks if a tensor has been transposed.
-- [ggml_is_permuted(tensor)](#ggml-is-permuted) - Checks if a tensor's dimensions are permuted.
-- [ggml_is_empty(tensor)](#ggml-is-empty) - Checks if a tensor contains no data.
-- [ggml_is_scalar(tensor)](#ggml-is-scalar) - Checks if a tensor represents a scalar.
-- [ggml_is_vector(tensor)](#ggml-is-vector) - Checks if a tensor is a vector.
-- [ggml_is_matrix(tensor)](#ggml-is-matrix) - Checks if a tensor is a matrix.
-- [ggml_is_3d(tensor)](#ggml-is-3d) - Checks if a tensor is three-dimensional.
-- [ggml_n_dims(tensor)](#ggml-n-dims) - Returns the number of dimensions of a tensor.
-- [ggml_is_contiguous(tensor)](#ggml-is-contiguous) - Checks if a tensor is stored contiguously in memory.
-- [ggml_is_contiguous_0(tensor)](#ggml-is-contiguous-0) - Checks if the first dimension of a tensor is contiguous.
-- [ggml_is_contiguous_1(tensor)](#ggml-is-contiguous-1) - Checks if the second dimension of a tensor is contiguous.
-- [ggml_is_contiguous_2(tensor)](#ggml-is-contiguous-2) - Checks if the third dimension of a tensor is contiguous.
-- [ggml_are_same_shape(t0, t1)](#ggml-are-same-shape) - Checks if two tensors have identical shapes.
-- [ggml_are_same_stride(t0, t1)](#ggml-are-same-stride) - Checks if two tensors have identical memory strides.
-- [ggml_can_repeat(t0, t1)](#ggml-can-repeat) - Checks if a tensor can be repeated along its dimensions.
-- [ggml_tensor_overhead()](#ggml-tensor-overhead) - Returns the memory overhead of a tensor.
-- [ggml_validate_row_data(type, data, nbytes)](#ggml-validate-row-data) - Validates the data contained in a tensor row.
-- [ggml_used_mem(ctx)](#ggml-used-mem) - Returns the amount of memory currently used by ggml.
-- [ggml_get_mem_buffer(ctx)](#ggml-get-mem-buffer) - Retrieves the current memory buffer pointer used by ggml.
-- [ggml_get_mem_size(ctx)](#ggml-get-mem-size) - Returns the size of the allocated memory buffer in ggml.
-- [ggml_get_max_tensor_size(ctx)](#ggml-get-max-tensor-size) - Returns the maximum allowable size for a tensor.
-- [ggml_get_data(tensor)](#ggml-get-data) - Returns a pointer to the raw data of a tensor.
-- [ggml_get_data_f32(tensor)](#ggml-get-data-f32) - Returns a pointer to the float data of a tensor.
-- [ggml_get_name(tensor)](#ggml-get-name) - Retrieves the name of a tensor.
-- [ggml_set_name(tensor, name)](#ggml-set-name) - Assigns a name to a tensor.
-- [ggml_format_name(tensor, fmt)](#ggml-format-name) - Formats a tensor name for display purposes.
-- [ggml_log_set(log_callback, user_data)](#ggml-log-set) - Sets the logging level or output for ggml.
-- [ggml_set_zero(tensor)](#ggml-set-zero) - Sets all elements of a tensor to zero.
+- [ggml_fp16_to_fp32()](#ggml_fp16_to_fp32) - Converts half-precision floats to single-precision.
+- [ggml_fp32_to_fp16()](#ggml_fp32_to_fp16) - Converts single-precision floats to half-precision.
+- [ggml_fp16_to_fp32_row(, , )](#ggml_fp16_to_fp32_row) - Converts a row of half-precision floats to single-precision.
+- [ggml_fp32_to_fp16_row(, , )](#ggml_fp32_to_fp16_row) - Converts a row of single-precision floats to half-precision.
+- [ggml_fp32_to_bf16()](#ggml_fp32_to_bf16) - Converts single-precision floats to bfloat16 format.
+- [ggml_bf16_to_fp32()](#ggml_bf16_to_fp32) - Converts bfloat16 values to single-precision floats.
+- [ggml_bf16_to_fp32_row(, , )](#ggml_bf16_to_fp32_row) - Converts a row of bfloat16 values to single-precision.
+- [ggml_fp32_to_bf16_row_ref(, , )](#ggml_fp32_to_bf16_row_ref) - Converts a reference row of single-precision floats to bfloat16.
+- [ggml_fp32_to_bf16_row(, , )](#ggml_fp32_to_bf16_row) - Converts a row of single-precision floats to bfloat16.
+- [ggml_guid_matches(guid_a, guid_b)](#ggml_guid_matches) - Checks if two GUIDs match.
+- [ggml_time_init()](#ggml_time_init) - Initializes the ggml timing system.
+- [ggml_time_ms()](#ggml_time_ms) - Returns the current time in milliseconds.
+- [ggml_time_us()](#ggml_time_us) - Returns the current time in microseconds.
+- [ggml_cycles()](#ggml_cycles) - Returns the current CPU cycle count.
+- [ggml_cycles_per_ms()](#ggml_cycles_per_ms) - Calculates the number of CPU cycles per millisecond.
+- [ggml_fopen(fname, mode)](#ggml_fopen) - Opens a file with ggml-specific settings.
+- [ggml_print_object(obj)](#ggml_print_object) - Prints detailed information of a ggml object.
+- [ggml_print_objects(ctx)](#ggml_print_objects) - Prints details of multiple ggml objects.
+- [ggml_nelements(tensor)](#ggml_nelements) - Returns the number of elements in a tensor.
+- [ggml_nrows(tensor)](#ggml_nrows) - Returns the number of rows in a tensor.
+- [ggml_nbytes(tensor)](#ggml_nbytes) - Returns the total number of bytes occupied by a tensor.
+- [ggml_nbytes_pad(tensor)](#ggml_nbytes_pad) - Returns the padded byte size of a tensor.
+- [ggml_blck_size(type)](#ggml_blck_size) - Returns the block size used in tensor operations.
+- [ggml_type_size(type)](#ggml_type_size) - Returns the size in bytes of a tensor type.
+- [ggml_row_size(type, ne)](#ggml_row_size) - Returns the size of a tensor row in bytes.
+- [ggml_type_sizef(type)](#ggml_type_sizef) - Returns the floating-point size in bytes for a tensor type.
+- [ggml_type_name(type)](#ggml_type_name) - Returns the name of a tensor type.
+- [ggml_op_name(op)](#ggml_op_name) - Returns the name of an operation.
+- [ggml_op_symbol(op)](#ggml_op_symbol) - Returns the symbol representing an operation.
+- [ggml_unary_op_name(op)](#ggml_unary_op_name) - Returns the name of a unary operation.
+- [ggml_op_desc(t)](#ggml_op_desc) - Provides a description of an operation.
+- [ggml_element_size(tensor)](#ggml_element_size) - Returns the size in bytes of a single tensor element.
+- [ggml_is_quantized(type)](#ggml_is_quantized) - Checks if a tensor is quantized.
+- [ggml_ftype_to_ggml_type(ftype)](#ggml_ftype_to_ggml_type) - Converts a file type to a ggml tensor type.
+- [ggml_is_transposed(tensor)](#ggml_is_transposed) - Checks if a tensor has been transposed.
+- [ggml_is_permuted(tensor)](#ggml_is_permuted) - Checks if a tensor's dimensions are permuted.
+- [ggml_is_empty(tensor)](#ggml_is_empty) - Checks if a tensor contains no data.
+- [ggml_is_scalar(tensor)](#ggml_is_scalar) - Checks if a tensor represents a scalar.
+- [ggml_is_vector(tensor)](#ggml_is_vector) - Checks if a tensor is a vector.
+- [ggml_is_matrix(tensor)](#ggml_is_matrix) - Checks if a tensor is a matrix.
+- [ggml_is_3d(tensor)](#ggml_is_3d) - Checks if a tensor is three-dimensional.
+- [ggml_n_dims(tensor)](#ggml_n_dims) - Returns the number of dimensions of a tensor.
+- [ggml_is_contiguous(tensor)](#ggml_is_contiguous) - Checks if a tensor is stored contiguously in memory.
+- [ggml_is_contiguous_0(tensor)](#ggml_is_contiguous_0) - Checks if the first dimension of a tensor is contiguous.
+- [ggml_is_contiguous_1(tensor)](#ggml_is_contiguous_1) - Checks if the second dimension of a tensor is contiguous.
+- [ggml_is_contiguous_2(tensor)](#ggml_is_contiguous_2) - Checks if the third dimension of a tensor is contiguous.
+- [ggml_are_same_shape(t0, t1)](#ggml_are_same_shape) - Checks if two tensors have identical shapes.
+- [ggml_are_same_stride(t0, t1)](#ggml_are_same_stride) - Checks if two tensors have identical memory strides.
+- [ggml_can_repeat(t0, t1)](#ggml_can_repeat) - Checks if a tensor can be repeated along its dimensions.
+- [ggml_tensor_overhead()](#ggml_tensor_overhead) - Returns the memory overhead of a tensor.
+- [ggml_validate_row_data(type, data, nbytes)](#ggml_validate_row_data) - Validates the data contained in a tensor row.
+- [ggml_used_mem(ctx)](#ggml_used_mem) - Returns the amount of memory currently used by ggml.
+- [ggml_get_mem_buffer(ctx)](#ggml_get_mem_buffer) - Retrieves the current memory buffer pointer used by ggml.
+- [ggml_get_mem_size(ctx)](#ggml_get_mem_size) - Returns the size of the allocated memory buffer in ggml.
+- [ggml_get_max_tensor_size(ctx)](#ggml_get_max_tensor_size) - Returns the maximum allowable size for a tensor.
+- [ggml_get_data(tensor)](#ggml_get_data) - Returns a pointer to the raw data of a tensor.
+- [ggml_get_data_f32(tensor)](#ggml_get_data_f32) - Returns a pointer to the float data of a tensor.
+- [ggml_get_name(tensor)](#ggml_get_name) - Retrieves the name of a tensor.
+- [ggml_set_name(tensor, name)](#ggml_set_name) - Assigns a name to a tensor.
+- [ggml_format_name(tensor, fmt)](#ggml_format_name) - Formats a tensor name for display purposes.
+- [ggml_log_set(log_callback, user_data)](#ggml_log_set) - Sets the logging level or output for ggml.
+- [ggml_set_zero(tensor)](#ggml_set_zero) - Sets all elements of a tensor to zero.
 </details>
 
 
 <details>
 <summary>Quantization</summary>
 
-- [ggml_quantize_init(type)](#ggml-quantize-init) - Initializes quantization parameters for tensors.
-- [ggml_quantize_free()](#ggml-quantize-free) - Frees resources used for quantization.
-- [ggml_quantize_requires_imatrix(type)](#ggml-quantize-requires-imatrix) - Checks if quantization requires an integer matrix.
-- [ggml_quantize_chunk(type, src, dst, start, nrows, n_per_row, imatrix)](#ggml-quantize-chunk) - Quantizes a chunk of tensor data.
+- [ggml_quantize_init(type)](#ggml_quantize_init) - Initializes quantization parameters for tensors.
+- [ggml_quantize_free()](#ggml_quantize_free) - Frees resources used for quantization.
+- [ggml_quantize_requires_imatrix(type)](#ggml_quantize_requires_imatrix) - Checks if quantization requires an integer matrix.
+- [ggml_quantize_chunk(type, src, dst, start, nrows, n_per_row, imatrix)](#ggml_quantize_chunk) - Quantizes a chunk of tensor data.
 </details>
 
 
 <details>
 <summary>GGUF File Operations</summary>
 
-- [gguf_init_empty()](#gguf-init-empty) - Initializes an empty GGUF structure.
-- [gguf_init_from_file(fname, params)](#gguf-init-from-file) - Initializes a GGUF structure from a file.
-- [gguf_free(ctx)](#gguf-free) - Frees a GGUF structure.
-- [gguf_type_name(type)](#gguf-type-name) - Returns the name of a GGUF type.
-- [gguf_get_version(ctx)](#gguf-get-version) - Retrieves the version of the GGUF format.
-- [gguf_get_alignment(ctx)](#gguf-get-alignment) - Returns the alignment requirement for GGUF data.
-- [gguf_get_data_offset(ctx)](#gguf-get-data-offset) - Retrieves the data offset within a GGUF file.
-- [gguf_get_n_kv(ctx)](#gguf-get-n-kv) - Returns the number of key-value pairs in a GGUF structure.
-- [gguf_find_key(ctx, key)](#gguf-find-key) - Searches for a key within a GGUF structure.
-- [gguf_get_key(ctx, key_id)](#gguf-get-key) - Retrieves a key from a GGUF structure.
-- [gguf_get_kv_type(ctx, key_id)](#gguf-get-kv-type) - Returns the type of a key-value pair in GGUF.
-- [gguf_get_arr_type(ctx, key_id)](#gguf-get-arr-type) - Returns the array type for a GGUF structure.
-- [gguf_get_val_u8(ctx, key_id)](#gguf-get-val-u8) - Retrieves an unsigned 8-bit value from GGUF.
-- [gguf_get_val_i8(ctx, key_id)](#gguf-get-val-i8) - Retrieves a signed 8-bit value from GGUF.
-- [gguf_get_val_u16(ctx, key_id)](#gguf-get-val-u16) - Retrieves an unsigned 16-bit value from GGUF.
-- [gguf_get_val_i16(ctx, key_id)](#gguf-get-val-i16) - Retrieves a signed 16-bit value from GGUF.
-- [gguf_get_val_u32(ctx, key_id)](#gguf-get-val-u32) - Retrieves an unsigned 32-bit value from GGUF.
-- [gguf_get_val_i32(ctx, key_id)](#gguf-get-val-i32) - Retrieves a signed 32-bit value from GGUF.
-- [gguf_get_val_f32(ctx, key_id)](#gguf-get-val-f32) - Retrieves a 32-bit floating-point value from GGUF.
-- [gguf_get_val_u64(ctx, key_id)](#gguf-get-val-u64) - Retrieves an unsigned 64-bit value from GGUF.
-- [gguf_get_val_i64(ctx, key_id)](#gguf-get-val-i64) - Retrieves a signed 64-bit value from GGUF.
-- [gguf_get_val_f64(ctx, key_id)](#gguf-get-val-f64) - Retrieves a 64-bit floating-point value from GGUF.
-- [gguf_get_val_bool(ctx, key_id)](#gguf-get-val-bool) - Retrieves a boolean value from GGUF.
-- [gguf_get_val_str(ctx, key_id)](#gguf-get-val-str) - Retrieves a string value from GGUF.
-- [gguf_get_val_data(ctx, key_id)](#gguf-get-val-data) - Retrieves raw data associated with a key in GGUF.
-- [gguf_get_arr_n(ctx, key_id)](#gguf-get-arr-n) - Returns the number of elements in a GGUF array.
-- [gguf_get_arr_data(ctx, key_id)](#gguf-get-arr-data) - Retrieves the data from a GGUF array.
-- [gguf_get_arr_str(ctx, key_id, i)](#gguf-get-arr-str) - Retrieves an array of strings from GGUF.
-- [gguf_get_n_tensors(ctx)](#gguf-get-n-tensors) - Returns the number of tensors stored in a GGUF file.
-- [gguf_find_tensor(ctx, name)](#gguf-find-tensor) - Searches for a tensor by name in a GGUF structure.
-- [gguf_get_tensor_offset(ctx, tensor_id)](#gguf-get-tensor-offset) - Retrieves the data offset for a tensor in GGUF.
-- [gguf_get_tensor_name(ctx, tensor_id)](#gguf-get-tensor-name) - Retrieves the name of a tensor from GGUF.
-- [gguf_get_tensor_type(ctx, tensor_id)](#gguf-get-tensor-type) - Returns the type of a tensor stored in GGUF.
-- [gguf_get_tensor_size(ctx, tensor_id)](#gguf-get-tensor-size) - Returns the size of a tensor in a GGUF file.
-- [gguf_remove_key(ctx, key)](#gguf-remove-key) - Removes a key-value pair from a GGUF structure.
-- [gguf_set_val_u8(ctx, key, val)](#gguf-set-val-u8) - Sets an unsigned 8-bit value in GGUF.
-- [gguf_set_val_i8(ctx, key, val)](#gguf-set-val-i8) - Sets a signed 8-bit value in GGUF.
-- [gguf_set_val_u16(ctx, key, val)](#gguf-set-val-u16) - Sets an unsigned 16-bit value in GGUF.
-- [gguf_set_val_i16(ctx, key, val)](#gguf-set-val-i16) - Sets a signed 16-bit value in GGUF.
-- [gguf_set_val_u32(ctx, key, val)](#gguf-set-val-u32) - Sets an unsigned 32-bit value in GGUF.
-- [gguf_set_val_i32(ctx, key, val)](#gguf-set-val-i32) - Sets a signed 32-bit value in GGUF.
-- [gguf_set_val_f32(ctx, key, val)](#gguf-set-val-f32) - Sets a 32-bit floating-point value in GGUF.
-- [gguf_set_val_u64(ctx, key, val)](#gguf-set-val-u64) - Sets an unsigned 64-bit value in GGUF.
-- [gguf_set_val_i64(ctx, key, val)](#gguf-set-val-i64) - Sets a signed 64-bit value in GGUF.
-- [gguf_set_val_f64(ctx, key, val)](#gguf-set-val-f64) - Sets a 64-bit floating-point value in GGUF.
-- [gguf_set_val_bool(ctx, key, val)](#gguf-set-val-bool) - Sets a boolean value in GGUF.
-- [gguf_set_val_str(ctx, key, val)](#gguf-set-val-str) - Sets a string value in GGUF.
-- [gguf_set_arr_data(ctx, key, type, data, n)](#gguf-set-arr-data) - Sets the data for an array in GGUF.
-- [gguf_set_arr_str(ctx, key, data, n)](#gguf-set-arr-str) - Sets an array of strings in GGUF.
-- [gguf_set_kv(ctx, src)](#gguf-set-kv) - Sets a key-value pair in GGUF.
-- [gguf_add_tensor(ctx, tensor)](#gguf-add-tensor) - Adds a tensor to a GGUF structure.
-- [gguf_set_tensor_type(ctx, name, type)](#gguf-set-tensor-type) - Sets the type for a tensor in GGUF.
-- [gguf_set_tensor_data(ctx, name, data)](#gguf-set-tensor-data) - Sets the data for a tensor in GGUF.
-- [gguf_write_to_file(ctx, fname, only_meta)](#gguf-write-to-file) - Writes a GGUF structure to a file.
-- [gguf_get_meta_size(ctx)](#gguf-get-meta-size) - Returns the size of the metadata in a GGUF file.
-- [gguf_get_meta_data(ctx, data)](#gguf-get-meta-data) - Retrieves the metadata from a GGUF file.
+- [gguf_init_empty()](#gguf_init_empty) - Initializes an empty GGUF structure.
+- [gguf_init_from_file(fname, params)](#gguf_init_from_file) - Initializes a GGUF structure from a file.
+- [gguf_free(ctx)](#gguf_free) - Frees a GGUF structure.
+- [gguf_type_name(type)](#gguf_type_name) - Returns the name of a GGUF type.
+- [gguf_get_version(ctx)](#gguf_get_version) - Retrieves the version of the GGUF format.
+- [gguf_get_alignment(ctx)](#gguf_get_alignment) - Returns the alignment requirement for GGUF data.
+- [gguf_get_data_offset(ctx)](#gguf_get_data_offset) - Retrieves the data offset within a GGUF file.
+- [gguf_get_n_kv(ctx)](#gguf_get_n_kv) - Returns the number of key-value pairs in a GGUF structure.
+- [gguf_find_key(ctx, key)](#gguf_find_key) - Searches for a key within a GGUF structure.
+- [gguf_get_key(ctx, key_id)](#gguf_get_key) - Retrieves a key from a GGUF structure.
+- [gguf_get_kv_type(ctx, key_id)](#gguf_get_kv_type) - Returns the type of a key-value pair in GGUF.
+- [gguf_get_arr_type(ctx, key_id)](#gguf_get_arr_type) - Returns the array type for a GGUF structure.
+- [gguf_get_val_u8(ctx, key_id)](#gguf_get_val_u8) - Retrieves an unsigned 8-bit value from GGUF.
+- [gguf_get_val_i8(ctx, key_id)](#gguf_get_val_i8) - Retrieves a signed 8-bit value from GGUF.
+- [gguf_get_val_u16(ctx, key_id)](#gguf_get_val_u16) - Retrieves an unsigned 16-bit value from GGUF.
+- [gguf_get_val_i16(ctx, key_id)](#gguf_get_val_i16) - Retrieves a signed 16-bit value from GGUF.
+- [gguf_get_val_u32(ctx, key_id)](#gguf_get_val_u32) - Retrieves an unsigned 32-bit value from GGUF.
+- [gguf_get_val_i32(ctx, key_id)](#gguf_get_val_i32) - Retrieves a signed 32-bit value from GGUF.
+- [gguf_get_val_f32(ctx, key_id)](#gguf_get_val_f32) - Retrieves a 32-bit floating-point value from GGUF.
+- [gguf_get_val_u64(ctx, key_id)](#gguf_get_val_u64) - Retrieves an unsigned 64-bit value from GGUF.
+- [gguf_get_val_i64(ctx, key_id)](#gguf_get_val_i64) - Retrieves a signed 64-bit value from GGUF.
+- [gguf_get_val_f64(ctx, key_id)](#gguf_get_val_f64) - Retrieves a 64-bit floating-point value from GGUF.
+- [gguf_get_val_bool(ctx, key_id)](#gguf_get_val_bool) - Retrieves a boolean value from GGUF.
+- [gguf_get_val_str(ctx, key_id)](#gguf_get_val_str) - Retrieves a string value from GGUF.
+- [gguf_get_val_data(ctx, key_id)](#gguf_get_val_data) - Retrieves raw data associated with a key in GGUF.
+- [gguf_get_arr_n(ctx, key_id)](#gguf_get_arr_n) - Returns the number of elements in a GGUF array.
+- [gguf_get_arr_data(ctx, key_id)](#gguf_get_arr_data) - Retrieves the data from a GGUF array.
+- [gguf_get_arr_str(ctx, key_id, i)](#gguf_get_arr_str) - Retrieves an array of strings from GGUF.
+- [gguf_get_n_tensors(ctx)](#gguf_get_n_tensors) - Returns the number of tensors stored in a GGUF file.
+- [gguf_find_tensor(ctx, name)](#gguf_find_tensor) - Searches for a tensor by name in a GGUF structure.
+- [gguf_get_tensor_offset(ctx, tensor_id)](#gguf_get_tensor_offset) - Retrieves the data offset for a tensor in GGUF.
+- [gguf_get_tensor_name(ctx, tensor_id)](#gguf_get_tensor_name) - Retrieves the name of a tensor from GGUF.
+- [gguf_get_tensor_type(ctx, tensor_id)](#gguf_get_tensor_type) - Returns the type of a tensor stored in GGUF.
+- [gguf_get_tensor_size(ctx, tensor_id)](#gguf_get_tensor_size) - Returns the size of a tensor in a GGUF file.
+- [gguf_remove_key(ctx, key)](#gguf_remove_key) - Removes a key-value pair from a GGUF structure.
+- [gguf_set_val_u8(ctx, key, val)](#gguf_set_val_u8) - Sets an unsigned 8-bit value in GGUF.
+- [gguf_set_val_i8(ctx, key, val)](#gguf_set_val_i8) - Sets a signed 8-bit value in GGUF.
+- [gguf_set_val_u16(ctx, key, val)](#gguf_set_val_u16) - Sets an unsigned 16-bit value in GGUF.
+- [gguf_set_val_i16(ctx, key, val)](#gguf_set_val_i16) - Sets a signed 16-bit value in GGUF.
+- [gguf_set_val_u32(ctx, key, val)](#gguf_set_val_u32) - Sets an unsigned 32-bit value in GGUF.
+- [gguf_set_val_i32(ctx, key, val)](#gguf_set_val_i32) - Sets a signed 32-bit value in GGUF.
+- [gguf_set_val_f32(ctx, key, val)](#gguf_set_val_f32) - Sets a 32-bit floating-point value in GGUF.
+- [gguf_set_val_u64(ctx, key, val)](#gguf_set_val_u64) - Sets an unsigned 64-bit value in GGUF.
+- [gguf_set_val_i64(ctx, key, val)](#gguf_set_val_i64) - Sets a signed 64-bit value in GGUF.
+- [gguf_set_val_f64(ctx, key, val)](#gguf_set_val_f64) - Sets a 64-bit floating-point value in GGUF.
+- [gguf_set_val_bool(ctx, key, val)](#gguf_set_val_bool) - Sets a boolean value in GGUF.
+- [gguf_set_val_str(ctx, key, val)](#gguf_set_val_str) - Sets a string value in GGUF.
+- [gguf_set_arr_data(ctx, key, type, data, n)](#gguf_set_arr_data) - Sets the data for an array in GGUF.
+- [gguf_set_arr_str(ctx, key, data, n)](#gguf_set_arr_str) - Sets an array of strings in GGUF.
+- [gguf_set_kv(ctx, src)](#gguf_set_kv) - Sets a key-value pair in GGUF.
+- [gguf_add_tensor(ctx, tensor)](#gguf_add_tensor) - Adds a tensor to a GGUF structure.
+- [gguf_set_tensor_type(ctx, name, type)](#gguf_set_tensor_type) - Sets the type for a tensor in GGUF.
+- [gguf_set_tensor_data(ctx, name, data)](#gguf_set_tensor_data) - Sets the data for a tensor in GGUF.
+- [gguf_write_to_file(ctx, fname, only_meta)](#gguf_write_to_file) - Writes a GGUF structure to a file.
+- [gguf_get_meta_size(ctx)](#gguf_get_meta_size) - Returns the size of the metadata in a GGUF file.
+- [gguf_get_meta_data(ctx, data)](#gguf_get_meta_data) - Retrieves the metadata from a GGUF file.
 </details>
 
 
 <details>
 <summary>Threadpool Management</summary>
 
-- [ggml_threadpool_new(params)](#ggml-threadpool-new) - Creates a new thread pool for parallel operations.
-- [ggml_threadpool_free(threadpool)](#ggml-threadpool-free) - Frees a previously created thread pool.
-- [ggml_threadpool_get_n_threads(threadpool)](#ggml-threadpool-get-n-threads) - Returns the number of threads in the thread pool.
-- [ggml_threadpool_pause(threadpool)](#ggml-threadpool-pause) - Pauses execution of the thread pool.
-- [ggml_threadpool_resume(threadpool)](#ggml-threadpool-resume) - Resumes execution of the thread pool.
-- [ggml_threadpool_params_default(n_threads)](#ggml-threadpool-params-default) - Returns default parameters for thread pool configuration.
-- [ggml_threadpool_params_init(p, n_threads)](#ggml-threadpool-params-init) - Initializes parameters for a thread pool.
-- [ggml_threadpool_params_match(p0, p1)](#ggml-threadpool-params-match) - Checks if two thread pool parameter sets match.
+- [ggml_threadpool_new(params)](#ggml_threadpool_new) - Creates a new thread pool for parallel operations.
+- [ggml_threadpool_free(threadpool)](#ggml_threadpool_free) - Frees a previously created thread pool.
+- [ggml_threadpool_get_n_threads(threadpool)](#ggml_threadpool_get_n_threads) - Returns the number of threads in the thread pool.
+- [ggml_threadpool_pause(threadpool)](#ggml_threadpool_pause) - Pauses execution of the thread pool.
+- [ggml_threadpool_resume(threadpool)](#ggml_threadpool_resume) - Resumes execution of the thread pool.
+- [ggml_threadpool_params_default(n_threads)](#ggml_threadpool_params_default) - Returns default parameters for thread pool configuration.
+- [ggml_threadpool_params_init(p, n_threads)](#ggml_threadpool_params_init) - Initializes parameters for a thread pool.
+- [ggml_threadpool_params_match(p0, p1)](#ggml_threadpool_params_match) - Checks if two thread pool parameter sets match.
 </details>
 
 
 <details>
 <summary>CPU Backend Operations</summary>
 
-- [ggml_cpu_has_sse3()](#ggml-cpu-has-sse3) - Checks if the CPU supports SSE3 instructions.
-- [ggml_cpu_has_ssse3()](#ggml-cpu-has-ssse3) - Checks if the CPU supports SSSE3 instructions.
-- [ggml_cpu_has_avx()](#ggml-cpu-has-avx) - Checks if the CPU supports AVX instructions.
-- [ggml_cpu_has_avx_vnni()](#ggml-cpu-has-avx-vnni) - Checks if the CPU supports AVX VNNI instructions.
-- [ggml_cpu_has_avx2()](#ggml-cpu-has-avx2) - Checks if the CPU supports AVX2 instructions.
-- [ggml_cpu_has_f16c()](#ggml-cpu-has-f16c) - Checks if the CPU supports F16C instructions.
-- [ggml_cpu_has_fma()](#ggml-cpu-has-fma) - Checks if the CPU supports FMA (Fused Multiply-Add) instructions.
-- [ggml_cpu_has_avx512()](#ggml-cpu-has-avx512) - Checks if the CPU supports AVX512 instructions.
-- [ggml_cpu_has_avx512_vbmi()](#ggml-cpu-has-avx512-vbmi) - Checks if the CPU supports AVX512 VBMI instructions.
-- [ggml_cpu_has_avx512_vnni()](#ggml-cpu-has-avx512-vnni) - Checks if the CPU supports AVX512 VNNI instructions.
-- [ggml_cpu_has_avx512_bf16()](#ggml-cpu-has-avx512-bf16) - Checks if the CPU supports AVX512 BF16 instructions.
-- [ggml_cpu_has_amx_int8()](#ggml-cpu-has-amx-int8) - Checks if the CPU supports AMX INT8 instructions.
-- [ggml_cpu_has_neon()](#ggml-cpu-has-neon) - Checks if the CPU supports NEON instructions.
-- [ggml_cpu_has_arm_fma()](#ggml-cpu-has-arm-fma) - Checks if the CPU supports ARM FMA instructions.
-- [ggml_cpu_has_fp16_va()](#ggml-cpu-has-fp16-va) - Checks if the CPU supports FP16 vector arithmetic.
-- [ggml_cpu_has_dotprod()](#ggml-cpu-has-dotprod) - Checks if the CPU supports dot product operations.
-- [ggml_cpu_has_matmul_int8()](#ggml-cpu-has-matmul-int8) - Checks if the CPU supports int8 matrix multiplication.
-- [ggml_cpu_has_sve()](#ggml-cpu-has-sve) - Checks if the CPU supports SVE (Scalable Vector Extension).
-- [ggml_cpu_get_sve_cnt()](#ggml-cpu-get-sve-cnt) - Returns the number of SVE registers available on the CPU.
-- [ggml_cpu_has_riscv_v()](#ggml-cpu-has-riscv-v) - Checks if a RISC-V CPU supports vector instructions.
-- [ggml_cpu_has_vsx()](#ggml-cpu-has-vsx) - Checks if the CPU supports VSX instructions.
-- [ggml_cpu_has_wasm_simd()](#ggml-cpu-has-wasm-simd) - Checks if the CPU supports WebAssembly SIMD.
-- [ggml_cpu_has_llamafile()](#ggml-cpu-has-llamafile) - Checks if the CPU supports llama file optimizations.
-- [ggml_get_type_traits_cpu(type)](#ggml-get-type-traits-cpu) - Retrieves CPU type traits for tensor operations.
-- [ggml_cpu_init()](#ggml-cpu-init) - Initializes CPU-specific settings for ggml.
-- [ggml_backend_cpu_init()](#ggml-backend-cpu-init) - Initializes the CPU backend.
-- [ggml_backend_is_cpu(backend)](#ggml-backend-is-cpu) - Checks if the active backend is CPU-based.
-- [ggml_backend_cpu_set_n_threads(backend_cpu, n_threads)](#ggml-backend-cpu-set-n-threads) - Sets the number of threads for the CPU backend.
-- [ggml_backend_cpu_set_threadpool(backend_cpu, threadpool)](#ggml-backend-cpu-set-threadpool) - Assigns a thread pool to the CPU backend.
-- [ggml_backend_cpu_set_abort_callback(backend_cpu, abort_callback, abort_callback_data)](#ggml-backend-cpu-set-abort-callback) - Sets an abort callback for CPU backend operations.
-- [ggml_backend_cpu_reg()](#ggml-backend-cpu-reg) - Registers the CPU backend.
-- [ggml_backend_cpu_buffer_from_ptr(ptr, size)](#ggml-backend-cpu-buffer-from-ptr) - Creates a CPU backend buffer from an existing pointer.
-- [ggml_backend_cpu_buffer_type()](#ggml-backend-cpu-buffer-type) - Returns the buffer type used by the CPU backend.
+- [ggml_cpu_has_sse3()](#ggml_cpu_has_sse3) - Checks if the CPU supports SSE3 instructions.
+- [ggml_cpu_has_ssse3()](#ggml_cpu_has_ssse3) - Checks if the CPU supports SSSE3 instructions.
+- [ggml_cpu_has_avx()](#ggml_cpu_has_avx) - Checks if the CPU supports AVX instructions.
+- [ggml_cpu_has_avx_vnni()](#ggml_cpu_has_avx_vnni) - Checks if the CPU supports AVX VNNI instructions.
+- [ggml_cpu_has_avx2()](#ggml_cpu_has_avx2) - Checks if the CPU supports AVX2 instructions.
+- [ggml_cpu_has_f16c()](#ggml_cpu_has_f16c) - Checks if the CPU supports F16C instructions.
+- [ggml_cpu_has_fma()](#ggml_cpu_has_fma) - Checks if the CPU supports FMA (Fused Multiply-Add) instructions.
+- [ggml_cpu_has_avx512()](#ggml_cpu_has_avx512) - Checks if the CPU supports AVX512 instructions.
+- [ggml_cpu_has_avx512_vbmi()](#ggml_cpu_has_avx512_vbmi) - Checks if the CPU supports AVX512 VBMI instructions.
+- [ggml_cpu_has_avx512_vnni()](#ggml_cpu_has_avx512_vnni) - Checks if the CPU supports AVX512 VNNI instructions.
+- [ggml_cpu_has_avx512_bf16()](#ggml_cpu_has_avx512_bf16) - Checks if the CPU supports AVX512 BF16 instructions.
+- [ggml_cpu_has_amx_int8()](#ggml_cpu_has_amx_int8) - Checks if the CPU supports AMX INT8 instructions.
+- [ggml_cpu_has_neon()](#ggml_cpu_has_neon) - Checks if the CPU supports NEON instructions.
+- [ggml_cpu_has_arm_fma()](#ggml_cpu_has_arm_fma) - Checks if the CPU supports ARM FMA instructions.
+- [ggml_cpu_has_fp16_va()](#ggml_cpu_has_fp16_va) - Checks if the CPU supports FP16 vector arithmetic.
+- [ggml_cpu_has_dotprod()](#ggml_cpu_has_dotprod) - Checks if the CPU supports dot product operations.
+- [ggml_cpu_has_matmul_int8()](#ggml_cpu_has_matmul_int8) - Checks if the CPU supports int8 matrix multiplication.
+- [ggml_cpu_has_sve()](#ggml_cpu_has_sve) - Checks if the CPU supports SVE (Scalable Vector Extension).
+- [ggml_cpu_get_sve_cnt()](#ggml_cpu_get_sve_cnt) - Returns the number of SVE registers available on the CPU.
+- [ggml_cpu_has_riscv_v()](#ggml_cpu_has_riscv_v) - Checks if a RISC-V CPU supports vector instructions.
+- [ggml_cpu_has_vsx()](#ggml_cpu_has_vsx) - Checks if the CPU supports VSX instructions.
+- [ggml_cpu_has_wasm_simd()](#ggml_cpu_has_wasm_simd) - Checks if the CPU supports WebAssembly SIMD.
+- [ggml_cpu_has_llamafile()](#ggml_cpu_has_llamafile) - Checks if the CPU supports llama file optimizations.
+- [ggml_get_type_traits_cpu(type)](#ggml_get_type_traits_cpu) - Retrieves CPU type traits for tensor operations.
+- [ggml_cpu_init()](#ggml_cpu_init) - Initializes CPU-specific settings for ggml.
+- [ggml_backend_cpu_init()](#ggml_backend_cpu_init) - Initializes the CPU backend.
+- [ggml_backend_is_cpu(backend)](#ggml_backend_is_cpu) - Checks if the active backend is CPU-based.
+- [ggml_backend_cpu_set_n_threads(backend_cpu, n_threads)](#ggml_backend_cpu_set_n_threads) - Sets the number of threads for the CPU backend.
+- [ggml_backend_cpu_set_threadpool(backend_cpu, threadpool)](#ggml_backend_cpu_set_threadpool) - Assigns a thread pool to the CPU backend.
+- [ggml_backend_cpu_set_abort_callback(backend_cpu, abort_callback, abort_callback_data)](#ggml_backend_cpu_set_abort_callback) - Sets an abort callback for CPU backend operations.
+- [ggml_backend_cpu_reg()](#ggml_backend_cpu_reg) - Registers the CPU backend.
+- [ggml_backend_cpu_buffer_from_ptr(ptr, size)](#ggml_backend_cpu_buffer_from_ptr) - Creates a CPU backend buffer from an existing pointer.
+- [ggml_backend_cpu_buffer_type()](#ggml_backend_cpu_buffer_type) - Returns the buffer type used by the CPU backend.
 </details>
 
 
 <details>
 <summary>CUDA Backend Operations</summary>
 
-- [ggml_backend_cuda_init(device)](#ggml-backend-cuda-init) - Initializes the CUDA backend.
-- [ggml_backend_is_cuda(backend)](#ggml-backend-is-cuda) - Checks if the active backend is CUDA.
-- [ggml_backend_cuda_buffer_type(device)](#ggml-backend-cuda-buffer-type) - Returns the buffer type for the CUDA backend.
-- [ggml_backend_cuda_split_buffer_type(main_device, tensor_split)](#ggml-backend-cuda-split-buffer-type) - Returns the split buffer type for CUDA operations.
-- [ggml_backend_cuda_host_buffer_type()](#ggml-backend-cuda-host-buffer-type) - Returns the host buffer type for the CUDA backend.
-- [ggml_backend_cuda_get_device_count()](#ggml-backend-cuda-get-device-count) - Returns the number of available CUDA devices.
-- [ggml_backend_cuda_get_device_description(device, description, description_size)](#ggml-backend-cuda-get-device-description) - Retrieves the description of a CUDA device.
-- [ggml_backend_cuda_get_device_memory(device, free, total)](#ggml-backend-cuda-get-device-memory) - Returns the memory capacity of a CUDA device.
-- [ggml_backend_cuda_register_host_buffer(buffer, size)](#ggml-backend-cuda-register-host-buffer) - Registers a host buffer with the CUDA backend.
-- [ggml_backend_cuda_unregister_host_buffer(buffer)](#ggml-backend-cuda-unregister-host-buffer) - Unregisters a host buffer from the CUDA backend.
-- [ggml_backend_cuda_reg()](#ggml-backend-cuda-reg) - Registers the CUDA backend.
+- [ggml_backend_cuda_init(device)](#ggml_backend_cuda_init) - Initializes the CUDA backend.
+- [ggml_backend_is_cuda(backend)](#ggml_backend_is_cuda) - Checks if the active backend is CUDA.
+- [ggml_backend_cuda_buffer_type(device)](#ggml_backend_cuda_buffer_type) - Returns the buffer type for the CUDA backend.
+- [ggml_backend_cuda_split_buffer_type(main_device, tensor_split)](#ggml_backend_cuda_split_buffer_type) - Returns the split buffer type for CUDA operations.
+- [ggml_backend_cuda_host_buffer_type()](#ggml_backend_cuda_host_buffer_type) - Returns the host buffer type for the CUDA backend.
+- [ggml_backend_cuda_get_device_count()](#ggml_backend_cuda_get_device_count) - Returns the number of available CUDA devices.
+- [ggml_backend_cuda_get_device_description(device, description, description_size)](#ggml_backend_cuda_get_device_description) - Retrieves the description of a CUDA device.
+- [ggml_backend_cuda_get_device_memory(device, free, total)](#ggml_backend_cuda_get_device_memory) - Returns the memory capacity of a CUDA device.
+- [ggml_backend_cuda_register_host_buffer(buffer, size)](#ggml_backend_cuda_register_host_buffer) - Registers a host buffer with the CUDA backend.
+- [ggml_backend_cuda_unregister_host_buffer(buffer)](#ggml_backend_cuda_unregister_host_buffer) - Unregisters a host buffer from the CUDA backend.
+- [ggml_backend_cuda_reg()](#ggml_backend_cuda_reg) - Registers the CUDA backend.
 </details>
 
 
 <details>
 <summary>Vulkan Backend Operations</summary>
 
-- [ggml_vk_available_devices(memoryRequired, count)](#ggml-vk-available-devices) - Lists the available Vulkan devices.
-- [ggml_vk_get_device(device, memoryRequired, name)](#ggml-vk-get-device) - Retrieves a Vulkan device by index.
-- [ggml_vk_has_vulkan()](#ggml-vk-has-vulkan) - Checks if Vulkan is supported on the system.
-- [ggml_vk_has_device()](#ggml-vk-has-device) - Checks if a specific Vulkan device is available.
-- [ggml_vk_current_device()](#ggml-vk-current-device) - Returns the currently active Vulkan device.
-- [ggml_backend_vk_init(dev_num)](#ggml-backend-vk-init) - Initializes the Vulkan backend.
-- [ggml_backend_is_vk(backend)](#ggml-backend-is-vk) - Checks if the active backend is Vulkan.
-- [ggml_backend_vk_get_device_count()](#ggml-backend-vk-get-device-count) - Returns the number of available Vulkan devices.
-- [ggml_backend_vk_get_device_description(device, description, description_size)](#ggml-backend-vk-get-device-description) - Retrieves the description of a Vulkan device.
-- [ggml_backend_vk_get_device_memory(device, free, total)](#ggml-backend-vk-get-device-memory) - Returns the memory capacity of a Vulkan device.
-- [ggml_backend_vk_buffer_type(dev_num)](#ggml-backend-vk-buffer-type) - Returns the buffer type for the Vulkan backend.
-- [ggml_backend_vk_host_buffer_type()](#ggml-backend-vk-host-buffer-type) - Returns the host buffer type for the Vulkan backend.
-- [ggml_backend_vk_reg()](#ggml-backend-vk-reg) - Registers the Vulkan backend.
+- [ggml_vk_available_devices(memoryRequired, count)](#ggml_vk_available_devices) - Lists the available Vulkan devices.
+- [ggml_vk_get_device(device, memoryRequired, name)](#ggml_vk_get_device) - Retrieves a Vulkan device by index.
+- [ggml_vk_has_vulkan()](#ggml_vk_has_vulkan) - Checks if Vulkan is supported on the system.
+- [ggml_vk_has_device()](#ggml_vk_has_device) - Checks if a specific Vulkan device is available.
+- [ggml_vk_current_device()](#ggml_vk_current_device) - Returns the currently active Vulkan device.
+- [ggml_backend_vk_init(dev_num)](#ggml_backend_vk_init) - Initializes the Vulkan backend.
+- [ggml_backend_is_vk(backend)](#ggml_backend_is_vk) - Checks if the active backend is Vulkan.
+- [ggml_backend_vk_get_device_count()](#ggml_backend_vk_get_device_count) - Returns the number of available Vulkan devices.
+- [ggml_backend_vk_get_device_description(device, description, description_size)](#ggml_backend_vk_get_device_description) - Retrieves the description of a Vulkan device.
+- [ggml_backend_vk_get_device_memory(device, free, total)](#ggml_backend_vk_get_device_memory) - Returns the memory capacity of a Vulkan device.
+- [ggml_backend_vk_buffer_type(dev_num)](#ggml_backend_vk_buffer_type) - Returns the buffer type for the Vulkan backend.
+- [ggml_backend_vk_host_buffer_type()](#ggml_backend_vk_host_buffer_type) - Returns the host buffer type for the Vulkan backend.
+- [ggml_backend_vk_reg()](#ggml_backend_vk_reg) - Registers the Vulkan backend.
 </details>
 
 
 <details>
 <summary>Metal Backend Operations</summary>
 
-- [ggml_backend_metal_init()](#ggml-backend-metal-init) - Initializes the Metal backend.
-- [ggml_backend_is_metal(backend)](#ggml-backend-is-metal) - Checks if the active backend is Metal.
-- [ggml_backend_metal_buffer_from_ptr(data, size, max_size)](#ggml-backend-metal-buffer-from-ptr) - Creates a Metal buffer from a host pointer.
-- [ggml_backend_metal_set_abort_callback(backend, abort_callback, user_data)](#ggml-backend-metal-set-abort-callback) - Sets an abort callback for Metal operations.
-- [ggml_backend_metal_buffer_type()](#ggml-backend-metal-buffer-type) - Returns the buffer type for the Metal backend.
-- [ggml_backend_metal_supports_family(backend, family)](#ggml-backend-metal-supports-family) - Checks if the Metal backend supports a specific family.
-- [ggml_backend_metal_capture_next_compute(backend)](#ggml-backend-metal-capture-next-compute) - Captures the next compute command in Metal.
-- [ggml_backend_metal_reg()](#ggml-backend-metal-reg) - Registers the Metal backend.
+- [ggml_backend_metal_init()](#ggml_backend_metal_init) - Initializes the Metal backend.
+- [ggml_backend_is_metal(backend)](#ggml_backend_is_metal) - Checks if the active backend is Metal.
+- [ggml_backend_metal_buffer_from_ptr(data, size, max_size)](#ggml_backend_metal_buffer_from_ptr) - Creates a Metal buffer from a host pointer.
+- [ggml_backend_metal_set_abort_callback(backend, abort_callback, user_data)](#ggml_backend_metal_set_abort_callback) - Sets an abort callback for Metal operations.
+- [ggml_backend_metal_buffer_type()](#ggml_backend_metal_buffer_type) - Returns the buffer type for the Metal backend.
+- [ggml_backend_metal_supports_family(backend, family)](#ggml_backend_metal_supports_family) - Checks if the Metal backend supports a specific family.
+- [ggml_backend_metal_capture_next_compute(backend)](#ggml_backend_metal_capture_next_compute) - Captures the next compute command in Metal.
+- [ggml_backend_metal_reg()](#ggml_backend_metal_reg) - Registers the Metal backend.
 </details>
 
 
 <details>
 <summary>OpenCL Backend Operations</summary>
 
-- [ggml_backend_opencl_init()](#ggml-backend-opencl-init) - Initializes the OpenCL backend.
-- [ggml_backend_is_opencl(backend)](#ggml-backend-is-opencl) - Checks if the active backend is OpenCL.
-- [ggml_backend_opencl_buffer_type()](#ggml-backend-opencl-buffer-type) - Returns the buffer type for the OpenCL backend.
-- [ggml_backend_opencl_host_buffer_type()](#ggml-backend-opencl-host-buffer-type) - Returns the host buffer type for OpenCL.
-- [ggml_backend_opencl_reg()](#ggml-backend-opencl-reg) - Registers the OpenCL backend.
+- [ggml_backend_opencl_init()](#ggml_backend_opencl_init) - Initializes the OpenCL backend.
+- [ggml_backend_is_opencl(backend)](#ggml_backend_is_opencl) - Checks if the active backend is OpenCL.
+- [ggml_backend_opencl_buffer_type()](#ggml_backend_opencl_buffer_type) - Returns the buffer type for the OpenCL backend.
+- [ggml_backend_opencl_host_buffer_type()](#ggml_backend_opencl_host_buffer_type) - Returns the host buffer type for OpenCL.
+- [ggml_backend_opencl_reg()](#ggml_backend_opencl_reg) - Registers the OpenCL backend.
 </details>
 
 
 <details>
 <summary>CANN Backend Operations</summary>
 
-- [ggml_backend_cann_reg()](#ggml-backend-cann-reg) - Registers the CANN backend.
-- [ggml_backend_cann_init(device)](#ggml-backend-cann-init) - Initializes the CANN backend.
-- [ggml_backend_is_cann(backend)](#ggml-backend-is-cann) - Checks if the CANN backend is active.
-- [ggml_backend_cann_buffer_type(device)](#ggml-backend-cann-buffer-type) - Returns the buffer type for the CANN backend.
-- [ggml_backend_cann_get_device_count()](#ggml-backend-cann-get-device-count) - Returns the number of CANN devices available.
-- [ggml_backend_cann_host_buffer_type()](#ggml-backend-cann-host-buffer-type) - Returns the host buffer type for the CANN backend.
-- [ggml_backend_cann_get_device_description(device, description, description_size)](#ggml-backend-cann-get-device-description) - Retrieves the description of a CANN device.
-- [ggml_backend_cann_get_device_memory(device, free, total)](#ggml-backend-cann-get-device-memory) - Returns the memory capacity of a CANN device.
+- [ggml_backend_cann_reg()](#ggml_backend_cann_reg) - Registers the CANN backend.
+- [ggml_backend_cann_init(device)](#ggml_backend_cann_init) - Initializes the CANN backend.
+- [ggml_backend_is_cann(backend)](#ggml_backend_is_cann) - Checks if the CANN backend is active.
+- [ggml_backend_cann_buffer_type(device)](#ggml_backend_cann_buffer_type) - Returns the buffer type for the CANN backend.
+- [ggml_backend_cann_get_device_count()](#ggml_backend_cann_get_device_count) - Returns the number of CANN devices available.
+- [ggml_backend_cann_host_buffer_type()](#ggml_backend_cann_host_buffer_type) - Returns the host buffer type for the CANN backend.
+- [ggml_backend_cann_get_device_description(device, description, description_size)](#ggml_backend_cann_get_device_description) - Retrieves the description of a CANN device.
+- [ggml_backend_cann_get_device_memory(device, free, total)](#ggml_backend_cann_get_device_memory) - Returns the memory capacity of a CANN device.
 </details>
 
 
 <details>
 <summary>Kompute Backend Operations</summary>
 
-- [ggml_backend_kompute_init(device)](#ggml-backend-kompute-init) - Initializes the Kompute backend.
-- [ggml_backend_is_kompute(backend)](#ggml-backend-is-kompute) - Checks if the active backend is Kompute.
-- [ggml_backend_kompute_buffer_type(device)](#ggml-backend-kompute-buffer-type) - Returns the buffer type for the Kompute backend.
-- [ggml_backend_kompute_reg()](#ggml-backend-kompute-reg) - Registers the Kompute backend.
+- [ggml_backend_kompute_init(device)](#ggml_backend_kompute_init) - Initializes the Kompute backend.
+- [ggml_backend_is_kompute(backend)](#ggml_backend_is_kompute) - Checks if the active backend is Kompute.
+- [ggml_backend_kompute_buffer_type(device)](#ggml_backend_kompute_buffer_type) - Returns the buffer type for the Kompute backend.
+- [ggml_backend_kompute_reg()](#ggml_backend_kompute_reg) - Registers the Kompute backend.
 </details>
 
 
 <details>
 <summary>RPC Backend Operations</summary>
 
-- [ggml_backend_rpc_init(endpoint)](#ggml-backend-rpc-init) - Initializes the RPC backend.
-- [ggml_backend_is_rpc(backend)](#ggml-backend-is-rpc) - Checks if the active backend is RPC.
-- [ggml_backend_rpc_buffer_type(endpoint)](#ggml-backend-rpc-buffer-type) - Returns the buffer type for the RPC backend.
-- [ggml_backend_rpc_get_device_memory(endpoint, free, total)](#ggml-backend-rpc-get-device-memory) - Returns the device memory for an RPC backend device.
-- [ggml_backend_rpc_start_server(backend, endpoint, free_mem, total_mem)](#ggml-backend-rpc-start-server) - Starts an RPC server for backend communication.
-- [ggml_backend_rpc_reg()](#ggml-backend-rpc-reg) - Registers the RPC backend.
-- [ggml_backend_rpc_add_device(endpoint)](#ggml-backend-rpc-add-device) - Adds a device to the RPC backend.
+- [ggml_backend_rpc_init(endpoint)](#ggml_backend_rpc_init) - Initializes the RPC backend.
+- [ggml_backend_is_rpc(backend)](#ggml_backend_is_rpc) - Checks if the active backend is RPC.
+- [ggml_backend_rpc_buffer_type(endpoint)](#ggml_backend_rpc_buffer_type) - Returns the buffer type for the RPC backend.
+- [ggml_backend_rpc_get_device_memory(endpoint, free, total)](#ggml_backend_rpc_get_device_memory) - Returns the device memory for an RPC backend device.
+- [ggml_backend_rpc_start_server(backend, endpoint, free_mem, total_mem)](#ggml_backend_rpc_start_server) - Starts an RPC server for backend communication.
+- [ggml_backend_rpc_reg()](#ggml_backend_rpc_reg) - Registers the RPC backend.
+- [ggml_backend_rpc_add_device(endpoint)](#ggml_backend_rpc_add_device) - Adds a device to the RPC backend.
 </details>
 
 
 <details>
 <summary>SYCL Backend Operations</summary>
 
-- [ggml_backend_sycl_init(device)](#ggml-backend-sycl-init) - Initializes the SYCL backend.
-- [ggml_backend_is_sycl(backend)](#ggml-backend-is-sycl) - Checks if the active backend is SYCL.
-- [ggml_backend_sycl_buffer_type(device)](#ggml-backend-sycl-buffer-type) - Returns the buffer type for the SYCL backend.
-- [ggml_backend_sycl_split_buffer_type(tensor_split)](#ggml-backend-sycl-split-buffer-type) - Returns the split buffer type for SYCL operations.
-- [ggml_backend_sycl_host_buffer_type()](#ggml-backend-sycl-host-buffer-type) - Returns the host buffer type for the SYCL backend.
-- [ggml_backend_sycl_print_sycl_devices()](#ggml-backend-sycl-print-sycl-devices) - Prints available SYCL devices.
-- [ggml_backend_sycl_get_gpu_list(id_list, max_len)](#ggml-backend-sycl-get-gpu-list) - Retrieves a list of SYCL GPU devices.
-- [ggml_backend_sycl_get_device_description(device, description, description_size)](#ggml-backend-sycl-get-device-description) - Gets the description of a SYCL device.
-- [ggml_backend_sycl_get_device_count()](#ggml-backend-sycl-get-device-count) - Returns the number of available SYCL devices.
-- [ggml_backend_sycl_get_device_memory(device, free, total)](#ggml-backend-sycl-get-device-memory) - Returns the memory capacity of a SYCL device.
-- [ggml_backend_sycl_reg()](#ggml-backend-sycl-reg) - Registers the SYCL backend.
+- [ggml_backend_sycl_init(device)](#ggml_backend_sycl_init) - Initializes the SYCL backend.
+- [ggml_backend_is_sycl(backend)](#ggml_backend_is_sycl) - Checks if the active backend is SYCL.
+- [ggml_backend_sycl_buffer_type(device)](#ggml_backend_sycl_buffer_type) - Returns the buffer type for the SYCL backend.
+- [ggml_backend_sycl_split_buffer_type(tensor_split)](#ggml_backend_sycl_split_buffer_type) - Returns the split buffer type for SYCL operations.
+- [ggml_backend_sycl_host_buffer_type()](#ggml_backend_sycl_host_buffer_type) - Returns the host buffer type for the SYCL backend.
+- [ggml_backend_sycl_print_sycl_devices()](#ggml_backend_sycl_print_sycl_devices) - Prints available SYCL devices.
+- [ggml_backend_sycl_get_gpu_list(id_list, max_len)](#ggml_backend_sycl_get_gpu_list) - Retrieves a list of SYCL GPU devices.
+- [ggml_backend_sycl_get_device_description(device, description, description_size)](#ggml_backend_sycl_get_device_description) - Gets the description of a SYCL device.
+- [ggml_backend_sycl_get_device_count()](#ggml_backend_sycl_get_device_count) - Returns the number of available SYCL devices.
+- [ggml_backend_sycl_get_device_memory(device, free, total)](#ggml_backend_sycl_get_device_memory) - Returns the memory capacity of a SYCL device.
+- [ggml_backend_sycl_reg()](#ggml_backend_sycl_reg) - Registers the SYCL backend.
 </details>
 
 
