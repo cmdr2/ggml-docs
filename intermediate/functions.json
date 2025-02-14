@@ -1,0 +1,3102 @@
+{
+  "ggml_tallocr_new": {
+    "signature": "struct ggml_tallocr ggml_tallocr_new(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_tallocr_new(buffer)",
+    "location": "ggml-alloc.h#L21"
+  },
+  "ggml_tallocr_alloc": {
+    "signature": "void ggml_tallocr_alloc(struct ggml_tallocr * talloc, struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_tallocr_alloc(talloc, tensor)",
+    "location": "ggml-alloc.h#L22"
+  },
+  "ggml_gallocr_new": {
+    "signature": "ggml_gallocr_t ggml_gallocr_new(ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_gallocr_new(buft)",
+    "location": "ggml-alloc.h#L48"
+  },
+  "ggml_gallocr_new_n": {
+    "signature": "ggml_gallocr_t ggml_gallocr_new_n(ggml_backend_buffer_type_t * bufts, int n_bufs)",
+    "signatureShort": "ggml_gallocr_new_n(bufts, n_bufs)",
+    "location": "ggml-alloc.h#L49"
+  },
+  "ggml_gallocr_free": {
+    "signature": "void ggml_gallocr_free(ggml_gallocr_t galloc)",
+    "signatureShort": "ggml_gallocr_free(galloc)",
+    "location": "ggml-alloc.h#L50"
+  },
+  "ggml_gallocr_reserve": {
+    "signature": "int ggml_gallocr_reserve(ggml_gallocr_t galloc, struct ggml_cgraph * graph)",
+    "signatureShort": "ggml_gallocr_reserve(galloc, graph)",
+    "location": "ggml-alloc.h#L56"
+  },
+  "ggml_gallocr_reserve_n": {
+    "signature": "int ggml_gallocr_reserve_n(ggml_gallocr_t galloc, struct ggml_cgraph * graph, const int * node_buffer_ids, const int * leaf_buffer_ids)",
+    "signatureShort": "ggml_gallocr_reserve_n(galloc, graph, node_buffer_ids, leaf_buffer_ids)",
+    "location": "ggml-alloc.h#L57"
+  },
+  "ggml_gallocr_alloc_graph": {
+    "signature": "int ggml_gallocr_alloc_graph(ggml_gallocr_t galloc, struct ggml_cgraph * graph)",
+    "signatureShort": "ggml_gallocr_alloc_graph(galloc, graph)",
+    "location": "ggml-alloc.h#L65"
+  },
+  "ggml_gallocr_get_buffer_size": {
+    "signature": "int ggml_gallocr_get_buffer_size(ggml_gallocr_t galloc, int buffer_id)",
+    "signatureShort": "ggml_gallocr_get_buffer_size(galloc, buffer_id)",
+    "location": "ggml-alloc.h#L67"
+  },
+  "ggml_backend_alloc_ctx_tensors_from_buft": {
+    "signature": "struct ggml_backend_buffer * ggml_backend_alloc_ctx_tensors_from_buft(struct ggml_context * ctx, ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_backend_alloc_ctx_tensors_from_buft(ctx, buft)",
+    "location": "ggml-alloc.h#L71"
+  },
+  "ggml_backend_alloc_ctx_tensors": {
+    "signature": "struct ggml_backend_buffer * ggml_backend_alloc_ctx_tensors(struct ggml_context * ctx, ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_alloc_ctx_tensors(ctx, backend)",
+    "location": "ggml-alloc.h#L72"
+  },
+  "ggml_backend_buft_name": {
+    "signature": "const char * ggml_backend_buft_name(ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_backend_buft_name(buft)",
+    "location": "ggml-backend.h#L37"
+  },
+  "ggml_backend_buft_alloc_buffer": {
+    "signature": "ggml_backend_buffer_t ggml_backend_buft_alloc_buffer(ggml_backend_buffer_type_t buft, int size)",
+    "signatureShort": "ggml_backend_buft_alloc_buffer(buft, size)",
+    "location": "ggml-backend.h#L38"
+  },
+  "ggml_backend_buft_get_alignment": {
+    "signature": "int ggml_backend_buft_get_alignment(ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_backend_buft_get_alignment(buft)",
+    "location": "ggml-backend.h#L39"
+  },
+  "ggml_backend_buft_get_max_size": {
+    "signature": "int ggml_backend_buft_get_max_size(ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_backend_buft_get_max_size(buft)",
+    "location": "ggml-backend.h#L40"
+  },
+  "ggml_backend_buft_get_alloc_size": {
+    "signature": "int ggml_backend_buft_get_alloc_size(ggml_backend_buffer_type_t buft, struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_backend_buft_get_alloc_size(buft, tensor)",
+    "location": "ggml-backend.h#L41"
+  },
+  "ggml_backend_buft_is_host": {
+    "signature": "int ggml_backend_buft_is_host(ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_backend_buft_is_host(buft)",
+    "location": "ggml-backend.h#L42"
+  },
+  "ggml_backend_buft_get_device": {
+    "signature": "ggml_backend_dev_t ggml_backend_buft_get_device(ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_backend_buft_get_device(buft)",
+    "location": "ggml-backend.h#L43"
+  },
+  "ggml_backend_buffer_name": {
+    "signature": "const char * ggml_backend_buffer_name(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_name(buffer)",
+    "location": "ggml-backend.h#L55"
+  },
+  "ggml_backend_buffer_free": {
+    "signature": "void ggml_backend_buffer_free(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_free(buffer)",
+    "location": "ggml-backend.h#L56"
+  },
+  "ggml_backend_buffer_get_base": {
+    "signature": "void * ggml_backend_buffer_get_base(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_get_base(buffer)",
+    "location": "ggml-backend.h#L57"
+  },
+  "ggml_backend_buffer_get_size": {
+    "signature": "int ggml_backend_buffer_get_size(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_get_size(buffer)",
+    "location": "ggml-backend.h#L58"
+  },
+  "ggml_backend_buffer_init_tensor": {
+    "signature": "void ggml_backend_buffer_init_tensor(ggml_backend_buffer_t buffer, struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_backend_buffer_init_tensor(buffer, tensor)",
+    "location": "ggml-backend.h#L59"
+  },
+  "ggml_backend_buffer_get_alignment": {
+    "signature": "int ggml_backend_buffer_get_alignment(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_get_alignment(buffer)",
+    "location": "ggml-backend.h#L60"
+  },
+  "ggml_backend_buffer_get_max_size": {
+    "signature": "int ggml_backend_buffer_get_max_size(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_get_max_size(buffer)",
+    "location": "ggml-backend.h#L61"
+  },
+  "ggml_backend_buffer_get_alloc_size": {
+    "signature": "int ggml_backend_buffer_get_alloc_size(ggml_backend_buffer_t buffer, struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_backend_buffer_get_alloc_size(buffer, tensor)",
+    "location": "ggml-backend.h#L62"
+  },
+  "ggml_backend_buffer_clear": {
+    "signature": "void ggml_backend_buffer_clear(ggml_backend_buffer_t buffer, uint8_t value)",
+    "signatureShort": "ggml_backend_buffer_clear(buffer, value)",
+    "location": "ggml-backend.h#L63"
+  },
+  "ggml_backend_buffer_is_host": {
+    "signature": "int ggml_backend_buffer_is_host(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_is_host(buffer)",
+    "location": "ggml-backend.h#L64"
+  },
+  "ggml_backend_buffer_set_usage": {
+    "signature": "void ggml_backend_buffer_set_usage(ggml_backend_buffer_t buffer, enum ggml_backend_buffer_usage usage)",
+    "signatureShort": "ggml_backend_buffer_set_usage(buffer, usage)",
+    "location": "ggml-backend.h#L65"
+  },
+  "ggml_backend_buffer_get_usage": {
+    "signature": "enum ggml_backend_buffer_usage ggml_backend_buffer_get_usage(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_get_usage(buffer)",
+    "location": "ggml-backend.h#L66"
+  },
+  "ggml_backend_buffer_get_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_buffer_get_type(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_get_type(buffer)",
+    "location": "ggml-backend.h#L67"
+  },
+  "ggml_backend_buffer_reset": {
+    "signature": "void ggml_backend_buffer_reset(ggml_backend_buffer_t buffer)",
+    "signatureShort": "ggml_backend_buffer_reset(buffer)",
+    "location": "ggml-backend.h#L68"
+  },
+  "ggml_backend_tensor_copy": {
+    "signature": "void ggml_backend_tensor_copy(struct ggml_tensor * src, struct ggml_tensor * dst)",
+    "signatureShort": "ggml_backend_tensor_copy(src, dst)",
+    "location": "ggml-backend.h#L71"
+  },
+  "ggml_backend_guid": {
+    "signature": "ggml_guid_t ggml_backend_guid(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_guid(backend)",
+    "location": "ggml-backend.h#L77"
+  },
+  "ggml_backend_name": {
+    "signature": "const char * ggml_backend_name(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_name(backend)",
+    "location": "ggml-backend.h#L78"
+  },
+  "ggml_backend_free": {
+    "signature": "void ggml_backend_free(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_free(backend)",
+    "location": "ggml-backend.h#L79"
+  },
+  "ggml_backend_get_default_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_get_default_buffer_type(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_get_default_buffer_type(backend)",
+    "location": "ggml-backend.h#L81"
+  },
+  "ggml_backend_alloc_buffer": {
+    "signature": "ggml_backend_buffer_t ggml_backend_alloc_buffer(ggml_backend_t backend, int size)",
+    "signatureShort": "ggml_backend_alloc_buffer(backend, size)",
+    "location": "ggml-backend.h#L82"
+  },
+  "ggml_backend_get_alignment": {
+    "signature": "int ggml_backend_get_alignment(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_get_alignment(backend)",
+    "location": "ggml-backend.h#L83"
+  },
+  "ggml_backend_get_max_size": {
+    "signature": "int ggml_backend_get_max_size(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_get_max_size(backend)",
+    "location": "ggml-backend.h#L84"
+  },
+  "ggml_backend_tensor_set_async": {
+    "signature": "void ggml_backend_tensor_set_async(ggml_backend_t backend, struct ggml_tensor * tensor, const void * data, int offset, int size)",
+    "signatureShort": "ggml_backend_tensor_set_async(backend, tensor, data, offset, size)",
+    "location": "ggml-backend.h#L86"
+  },
+  "ggml_backend_tensor_get_async": {
+    "signature": "void ggml_backend_tensor_get_async(ggml_backend_t backend, const struct ggml_tensor * tensor, void * data, int offset, int size)",
+    "signatureShort": "ggml_backend_tensor_get_async(backend, tensor, data, offset, size)",
+    "location": "ggml-backend.h#L87"
+  },
+  "ggml_backend_tensor_set": {
+    "signature": "void ggml_backend_tensor_set(struct ggml_tensor * tensor, const void * data, int offset, int size)",
+    "signatureShort": "ggml_backend_tensor_set(tensor, data, offset, size)",
+    "location": "ggml-backend.h#L90"
+  },
+  "ggml_backend_tensor_get": {
+    "signature": "void ggml_backend_tensor_get(const struct ggml_tensor * tensor, void * data, int offset, int size)",
+    "signatureShort": "ggml_backend_tensor_get(tensor, data, offset, size)",
+    "location": "ggml-backend.h#L91"
+  },
+  "ggml_backend_tensor_memset": {
+    "signature": "void ggml_backend_tensor_memset(struct ggml_tensor * tensor, uint8_t value, int offset, int size)",
+    "signatureShort": "ggml_backend_tensor_memset(tensor, value, offset, size)",
+    "location": "ggml-backend.h#L92"
+  },
+  "ggml_backend_synchronize": {
+    "signature": "void ggml_backend_synchronize(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_synchronize(backend)",
+    "location": "ggml-backend.h#L94"
+  },
+  "ggml_backend_graph_plan_create": {
+    "signature": "ggml_backend_graph_plan_t ggml_backend_graph_plan_create(ggml_backend_t backend, struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_backend_graph_plan_create(backend, cgraph)",
+    "location": "ggml-backend.h#L96"
+  },
+  "ggml_backend_graph_plan_free": {
+    "signature": "void ggml_backend_graph_plan_free(ggml_backend_t backend, ggml_backend_graph_plan_t plan)",
+    "signatureShort": "ggml_backend_graph_plan_free(backend, plan)",
+    "location": "ggml-backend.h#L97"
+  },
+  "ggml_backend_graph_plan_compute": {
+    "signature": "enum ggml_status ggml_backend_graph_plan_compute(ggml_backend_t backend, ggml_backend_graph_plan_t plan)",
+    "signatureShort": "ggml_backend_graph_plan_compute(backend, plan)",
+    "location": "ggml-backend.h#L99"
+  },
+  "ggml_backend_graph_compute": {
+    "signature": "enum ggml_status ggml_backend_graph_compute(ggml_backend_t backend, struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_backend_graph_compute(backend, cgraph)",
+    "location": "ggml-backend.h#L100"
+  },
+  "ggml_backend_graph_compute_async": {
+    "signature": "enum ggml_status ggml_backend_graph_compute_async(ggml_backend_t backend, struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_backend_graph_compute_async(backend, cgraph)",
+    "location": "ggml-backend.h#L101"
+  },
+  "ggml_backend_supports_op": {
+    "signature": "int ggml_backend_supports_op(ggml_backend_t backend, const struct ggml_tensor * op)",
+    "signatureShort": "ggml_backend_supports_op(backend, op)",
+    "location": "ggml-backend.h#L104"
+  },
+  "ggml_backend_supports_buft": {
+    "signature": "int ggml_backend_supports_buft(ggml_backend_t backend, ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_backend_supports_buft(backend, buft)",
+    "location": "ggml-backend.h#L105"
+  },
+  "ggml_backend_offload_op": {
+    "signature": "int ggml_backend_offload_op(ggml_backend_t backend, const struct ggml_tensor * op)",
+    "signatureShort": "ggml_backend_offload_op(backend, op)",
+    "location": "ggml-backend.h#L106"
+  },
+  "ggml_backend_tensor_copy_async": {
+    "signature": "void ggml_backend_tensor_copy_async(ggml_backend_t backend_src, ggml_backend_t backend_dst, struct ggml_tensor * src, struct ggml_tensor * dst)",
+    "signatureShort": "ggml_backend_tensor_copy_async(backend_src, backend_dst, src, dst)",
+    "location": "ggml-backend.h#L112"
+  },
+  "ggml_backend_get_device": {
+    "signature": "ggml_backend_dev_t ggml_backend_get_device(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_get_device(backend)",
+    "location": "ggml-backend.h#L114"
+  },
+  "ggml_backend_event_new": {
+    "signature": "ggml_backend_event_t ggml_backend_event_new(ggml_backend_dev_t device)",
+    "signatureShort": "ggml_backend_event_new(device)",
+    "location": "ggml-backend.h#L120"
+  },
+  "ggml_backend_event_free": {
+    "signature": "void ggml_backend_event_free(ggml_backend_event_t event)",
+    "signatureShort": "ggml_backend_event_free(event)",
+    "location": "ggml-backend.h#L121"
+  },
+  "ggml_backend_event_record": {
+    "signature": "void ggml_backend_event_record(ggml_backend_event_t event, ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_event_record(event, backend)",
+    "location": "ggml-backend.h#L122"
+  },
+  "ggml_backend_event_synchronize": {
+    "signature": "void ggml_backend_event_synchronize(ggml_backend_event_t event)",
+    "signatureShort": "ggml_backend_event_synchronize(event)",
+    "location": "ggml-backend.h#L123"
+  },
+  "ggml_backend_event_wait": {
+    "signature": "void ggml_backend_event_wait(ggml_backend_t backend, ggml_backend_event_t event)",
+    "signatureShort": "ggml_backend_event_wait(backend, event)",
+    "location": "ggml-backend.h#L124"
+  },
+  "ggml_backend_dev_name": {
+    "signature": "const char * ggml_backend_dev_name(ggml_backend_dev_t device)",
+    "signatureShort": "ggml_backend_dev_name(device)",
+    "location": "ggml-backend.h#L161"
+  },
+  "ggml_backend_dev_description": {
+    "signature": "const char * ggml_backend_dev_description(ggml_backend_dev_t device)",
+    "signatureShort": "ggml_backend_dev_description(device)",
+    "location": "ggml-backend.h#L162"
+  },
+  "ggml_backend_dev_memory": {
+    "signature": "void ggml_backend_dev_memory(ggml_backend_dev_t device, int * free, int * total)",
+    "signatureShort": "ggml_backend_dev_memory(device, free, total)",
+    "location": "ggml-backend.h#L163"
+  },
+  "ggml_backend_dev_type": {
+    "signature": "enum ggml_backend_dev_type ggml_backend_dev_type(ggml_backend_dev_t device)",
+    "signatureShort": "ggml_backend_dev_type(device)",
+    "location": "ggml-backend.h#L164"
+  },
+  "ggml_backend_dev_get_props": {
+    "signature": "void ggml_backend_dev_get_props(ggml_backend_dev_t device, struct ggml_backend_dev_props * props)",
+    "signatureShort": "ggml_backend_dev_get_props(device, props)",
+    "location": "ggml-backend.h#L165"
+  },
+  "ggml_backend_dev_backend_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_dev_backend_reg(ggml_backend_dev_t device)",
+    "signatureShort": "ggml_backend_dev_backend_reg(device)",
+    "location": "ggml-backend.h#L166"
+  },
+  "ggml_backend_dev_init": {
+    "signature": "ggml_backend_t ggml_backend_dev_init(ggml_backend_dev_t device, const char * params)",
+    "signatureShort": "ggml_backend_dev_init(device, params)",
+    "location": "ggml-backend.h#L167"
+  },
+  "ggml_backend_dev_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_dev_buffer_type(ggml_backend_dev_t device)",
+    "signatureShort": "ggml_backend_dev_buffer_type(device)",
+    "location": "ggml-backend.h#L168"
+  },
+  "ggml_backend_dev_host_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_dev_host_buffer_type(ggml_backend_dev_t device)",
+    "signatureShort": "ggml_backend_dev_host_buffer_type(device)",
+    "location": "ggml-backend.h#L169"
+  },
+  "ggml_backend_dev_buffer_from_host_ptr": {
+    "signature": "ggml_backend_buffer_t ggml_backend_dev_buffer_from_host_ptr(ggml_backend_dev_t device, void * ptr, int size, int max_tensor_size)",
+    "signatureShort": "ggml_backend_dev_buffer_from_host_ptr(device, ptr, size, max_tensor_size)",
+    "location": "ggml-backend.h#L170"
+  },
+  "ggml_backend_dev_supports_op": {
+    "signature": "int ggml_backend_dev_supports_op(ggml_backend_dev_t device, const struct ggml_tensor * op)",
+    "signatureShort": "ggml_backend_dev_supports_op(device, op)",
+    "location": "ggml-backend.h#L172"
+  },
+  "ggml_backend_dev_supports_buft": {
+    "signature": "int ggml_backend_dev_supports_buft(ggml_backend_dev_t device, ggml_backend_buffer_type_t buft)",
+    "signatureShort": "ggml_backend_dev_supports_buft(device, buft)",
+    "location": "ggml-backend.h#L173"
+  },
+  "ggml_backend_dev_offload_op": {
+    "signature": "int ggml_backend_dev_offload_op(ggml_backend_dev_t device, const struct ggml_tensor * op)",
+    "signatureShort": "ggml_backend_dev_offload_op(device, op)",
+    "location": "ggml-backend.h#L174"
+  },
+  "ggml_backend_reg_name": {
+    "signature": "const char * ggml_backend_reg_name(ggml_backend_reg_t reg)",
+    "signatureShort": "ggml_backend_reg_name(reg)",
+    "location": "ggml-backend.h#L180"
+  },
+  "ggml_backend_reg_dev_count": {
+    "signature": "int ggml_backend_reg_dev_count(ggml_backend_reg_t reg)",
+    "signatureShort": "ggml_backend_reg_dev_count(reg)",
+    "location": "ggml-backend.h#L181"
+  },
+  "ggml_backend_reg_dev_get": {
+    "signature": "ggml_backend_dev_t ggml_backend_reg_dev_get(ggml_backend_reg_t reg, int index)",
+    "signatureShort": "ggml_backend_reg_dev_get(reg, index)",
+    "location": "ggml-backend.h#L182"
+  },
+  "ggml_backend_reg_get_proc_address": {
+    "signature": "void * ggml_backend_reg_get_proc_address(ggml_backend_reg_t reg, const char * name)",
+    "signatureShort": "ggml_backend_reg_get_proc_address(reg, name)",
+    "location": "ggml-backend.h#L183"
+  },
+  "ggml_backend_device_register": {
+    "signature": "void ggml_backend_device_register(ggml_backend_dev_t device)",
+    "signatureShort": "ggml_backend_device_register(device)",
+    "location": "ggml-backend.h#L206"
+  },
+  "ggml_backend_reg_count": {
+    "signature": "int ggml_backend_reg_count()",
+    "signatureShort": "ggml_backend_reg_count()",
+    "location": "ggml-backend.h#L209"
+  },
+  "ggml_backend_reg_get": {
+    "signature": "ggml_backend_reg_t ggml_backend_reg_get(int index)",
+    "signatureShort": "ggml_backend_reg_get(index)",
+    "location": "ggml-backend.h#L210"
+  },
+  "ggml_backend_reg_by_name": {
+    "signature": "ggml_backend_reg_t ggml_backend_reg_by_name(const char * name)",
+    "signatureShort": "ggml_backend_reg_by_name(name)",
+    "location": "ggml-backend.h#L211"
+  },
+  "ggml_backend_dev_count": {
+    "signature": "int ggml_backend_dev_count()",
+    "signatureShort": "ggml_backend_dev_count()",
+    "location": "ggml-backend.h#L214"
+  },
+  "ggml_backend_dev_get": {
+    "signature": "ggml_backend_dev_t ggml_backend_dev_get(int index)",
+    "signatureShort": "ggml_backend_dev_get(index)",
+    "location": "ggml-backend.h#L215"
+  },
+  "ggml_backend_dev_by_name": {
+    "signature": "ggml_backend_dev_t ggml_backend_dev_by_name(const char * name)",
+    "signatureShort": "ggml_backend_dev_by_name(name)",
+    "location": "ggml-backend.h#L216"
+  },
+  "ggml_backend_dev_by_type": {
+    "signature": "ggml_backend_dev_t ggml_backend_dev_by_type(enum ggml_backend_dev_type type)",
+    "signatureShort": "ggml_backend_dev_by_type(type)",
+    "location": "ggml-backend.h#L217"
+  },
+  "ggml_backend_init_by_name": {
+    "signature": "ggml_backend_t ggml_backend_init_by_name(const char * name, const char * params)",
+    "signatureShort": "ggml_backend_init_by_name(name, params)",
+    "location": "ggml-backend.h#L221"
+  },
+  "ggml_backend_init_by_type": {
+    "signature": "ggml_backend_t ggml_backend_init_by_type(enum ggml_backend_dev_type type, const char * params)",
+    "signatureShort": "ggml_backend_init_by_type(type, params)",
+    "location": "ggml-backend.h#L223"
+  },
+  "ggml_backend_init_best": {
+    "signature": "ggml_backend_t ggml_backend_init_best()",
+    "signatureShort": "ggml_backend_init_best()",
+    "location": "ggml-backend.h#L225"
+  },
+  "ggml_backend_load": {
+    "signature": "ggml_backend_reg_t ggml_backend_load(const char * path)",
+    "signatureShort": "ggml_backend_load(path)",
+    "location": "ggml-backend.h#L228"
+  },
+  "ggml_backend_unload": {
+    "signature": "void ggml_backend_unload(ggml_backend_reg_t reg)",
+    "signatureShort": "ggml_backend_unload(reg)",
+    "location": "ggml-backend.h#L230"
+  },
+  "ggml_backend_load_all": {
+    "signature": "void ggml_backend_load_all()",
+    "signatureShort": "ggml_backend_load_all()",
+    "location": "ggml-backend.h#L232"
+  },
+  "ggml_backend_load_all_from_path": {
+    "signature": "void ggml_backend_load_all_from_path(const char * dir_path)",
+    "signatureShort": "ggml_backend_load_all_from_path(dir_path)",
+    "location": "ggml-backend.h#L233"
+  },
+  "ggml_backend_sched_new": {
+    "signature": "ggml_backend_sched_t ggml_backend_sched_new(ggml_backend_t * backends, ggml_backend_buffer_type_t * bufts, int n_backends, int graph_size, bool parallel)",
+    "signatureShort": "ggml_backend_sched_new(backends, bufts, n_backends, graph_size, parallel)",
+    "location": "ggml-backend.h#L292"
+  },
+  "ggml_backend_sched_free": {
+    "signature": "void ggml_backend_sched_free(ggml_backend_sched_t sched)",
+    "signatureShort": "ggml_backend_sched_free(sched)",
+    "location": "ggml-backend.h#L293"
+  },
+  "ggml_backend_sched_reserve": {
+    "signature": "int ggml_backend_sched_reserve(ggml_backend_sched_t sched, struct ggml_cgraph * measure_graph)",
+    "signatureShort": "ggml_backend_sched_reserve(sched, measure_graph)",
+    "location": "ggml-backend.h#L296"
+  },
+  "ggml_backend_sched_get_n_backends": {
+    "signature": "int ggml_backend_sched_get_n_backends(ggml_backend_sched_t sched)",
+    "signatureShort": "ggml_backend_sched_get_n_backends(sched)",
+    "location": "ggml-backend.h#L298"
+  },
+  "ggml_backend_sched_get_backend": {
+    "signature": "ggml_backend_t ggml_backend_sched_get_backend(ggml_backend_sched_t sched, int i)",
+    "signatureShort": "ggml_backend_sched_get_backend(sched, i)",
+    "location": "ggml-backend.h#L299"
+  },
+  "ggml_backend_sched_get_n_splits": {
+    "signature": "int ggml_backend_sched_get_n_splits(ggml_backend_sched_t sched)",
+    "signatureShort": "ggml_backend_sched_get_n_splits(sched)",
+    "location": "ggml-backend.h#L302"
+  },
+  "ggml_backend_sched_get_n_copies": {
+    "signature": "int ggml_backend_sched_get_n_copies(ggml_backend_sched_t sched)",
+    "signatureShort": "ggml_backend_sched_get_n_copies(sched)",
+    "location": "ggml-backend.h#L303"
+  },
+  "ggml_backend_sched_get_buffer_size": {
+    "signature": "int ggml_backend_sched_get_buffer_size(ggml_backend_sched_t sched, ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_sched_get_buffer_size(sched, backend)",
+    "location": "ggml-backend.h#L305"
+  },
+  "ggml_backend_sched_set_tensor_backend": {
+    "signature": "void ggml_backend_sched_set_tensor_backend(ggml_backend_sched_t sched, struct ggml_tensor * node, ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_sched_set_tensor_backend(sched, node, backend)",
+    "location": "ggml-backend.h#L307"
+  },
+  "ggml_backend_sched_get_tensor_backend": {
+    "signature": "ggml_backend_t ggml_backend_sched_get_tensor_backend(ggml_backend_sched_t sched, struct ggml_tensor * node)",
+    "signatureShort": "ggml_backend_sched_get_tensor_backend(sched, node)",
+    "location": "ggml-backend.h#L308"
+  },
+  "ggml_backend_sched_alloc_graph": {
+    "signature": "int ggml_backend_sched_alloc_graph(ggml_backend_sched_t sched, struct ggml_cgraph * graph)",
+    "signatureShort": "ggml_backend_sched_alloc_graph(sched, graph)",
+    "location": "ggml-backend.h#L311"
+  },
+  "ggml_backend_sched_graph_compute": {
+    "signature": "enum ggml_status ggml_backend_sched_graph_compute(ggml_backend_sched_t sched, struct ggml_cgraph * graph)",
+    "signatureShort": "ggml_backend_sched_graph_compute(sched, graph)",
+    "location": "ggml-backend.h#L312"
+  },
+  "ggml_backend_sched_graph_compute_async": {
+    "signature": "enum ggml_status ggml_backend_sched_graph_compute_async(ggml_backend_sched_t sched, struct ggml_cgraph * graph)",
+    "signatureShort": "ggml_backend_sched_graph_compute_async(sched, graph)",
+    "location": "ggml-backend.h#L313"
+  },
+  "ggml_backend_sched_synchronize": {
+    "signature": "void ggml_backend_sched_synchronize(ggml_backend_sched_t sched)",
+    "signatureShort": "ggml_backend_sched_synchronize(sched)",
+    "location": "ggml-backend.h#L314"
+  },
+  "ggml_backend_sched_reset": {
+    "signature": "void ggml_backend_sched_reset(ggml_backend_sched_t sched)",
+    "signatureShort": "ggml_backend_sched_reset(sched)",
+    "location": "ggml-backend.h#L319"
+  },
+  "ggml_backend_sched_set_eval_callback": {
+    "signature": "void ggml_backend_sched_set_eval_callback(ggml_backend_sched_t sched, ggml_backend_sched_eval_callback callback, void * user_data)",
+    "signatureShort": "ggml_backend_sched_set_eval_callback(sched, callback, user_data)",
+    "location": "ggml-backend.h#L322"
+  },
+  "ggml_backend_graph_copy": {
+    "signature": "struct ggml_backend_graph_copy ggml_backend_graph_copy(ggml_backend_t backend, struct ggml_cgraph * graph)",
+    "signatureShort": "ggml_backend_graph_copy(backend, graph)",
+    "location": "ggml-backend.h#L336"
+  },
+  "ggml_backend_graph_copy_free": {
+    "signature": "void ggml_backend_graph_copy_free(struct ggml_backend_graph_copy copy)",
+    "signatureShort": "ggml_backend_graph_copy_free(copy)",
+    "location": "ggml-backend.h#L337"
+  },
+  "ggml_backend_compare_graph_backend": {
+    "signature": "int ggml_backend_compare_graph_backend(ggml_backend_t backend1, ggml_backend_t backend2, struct ggml_cgraph * graph, ggml_backend_eval_callback callback, void * user_data)",
+    "signatureShort": "ggml_backend_compare_graph_backend(backend1, backend2, graph, callback, user_data)",
+    "location": "ggml-backend.h#L342"
+  },
+  "ggml_backend_tensor_alloc": {
+    "signature": "void ggml_backend_tensor_alloc(ggml_backend_buffer_t buffer, struct ggml_tensor * tensor, void * addr)",
+    "signatureShort": "ggml_backend_tensor_alloc(buffer, tensor, addr)",
+    "location": "ggml-backend.h#L345"
+  },
+  "ggml_backend_view_init": {
+    "signature": "void ggml_backend_view_init(struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_backend_view_init(tensor)",
+    "location": "ggml-backend.h#L346"
+  },
+  "ggml_backend_cpu_buffer_from_ptr": {
+    "signature": "ggml_backend_buffer_t ggml_backend_cpu_buffer_from_ptr(void * ptr, int size)",
+    "signatureShort": "ggml_backend_cpu_buffer_from_ptr(ptr, size)",
+    "location": "ggml-backend.h#L349"
+  },
+  "ggml_backend_cpu_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_cpu_buffer_type()",
+    "signatureShort": "ggml_backend_cpu_buffer_type()",
+    "location": "ggml-backend.h#L350"
+  },
+  "ggml_backend_blas_init": {
+    "signature": "ggml_backend_t ggml_backend_blas_init()",
+    "signatureShort": "ggml_backend_blas_init()",
+    "location": "ggml-blas.h#L12"
+  },
+  "ggml_backend_is_blas": {
+    "signature": "int ggml_backend_is_blas(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_blas(backend)",
+    "location": "ggml-blas.h#L14"
+  },
+  "ggml_backend_blas_set_n_threads": {
+    "signature": "void ggml_backend_blas_set_n_threads(ggml_backend_t backend_blas, int n_threads)",
+    "signatureShort": "ggml_backend_blas_set_n_threads(backend_blas, n_threads)",
+    "location": "ggml-blas.h#L18"
+  },
+  "ggml_backend_blas_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_blas_reg()",
+    "signatureShort": "ggml_backend_blas_reg()",
+    "location": "ggml-blas.h#L20"
+  },
+  "ggml_backend_cann_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_cann_reg()",
+    "signatureShort": "ggml_backend_cann_reg()",
+    "location": "ggml-cann.h#L37"
+  },
+  "ggml_backend_cann_init": {
+    "signature": "ggml_backend_t ggml_backend_cann_init(int32_t device)",
+    "signatureShort": "ggml_backend_cann_init(device)",
+    "location": "ggml-cann.h#L49"
+  },
+  "ggml_backend_is_cann": {
+    "signature": "int ggml_backend_is_cann(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_cann(backend)",
+    "location": "ggml-cann.h#L60"
+  },
+  "ggml_backend_cann_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_cann_buffer_type(int32_t device)",
+    "signatureShort": "ggml_backend_cann_buffer_type(device)",
+    "location": "ggml-cann.h#L73"
+  },
+  "ggml_backend_cann_get_device_count": {
+    "signature": "int32_t ggml_backend_cann_get_device_count()",
+    "signatureShort": "ggml_backend_cann_get_device_count()",
+    "location": "ggml-cann.h#L83"
+  },
+  "ggml_backend_cann_host_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_cann_host_buffer_type()",
+    "signatureShort": "ggml_backend_cann_host_buffer_type()",
+    "location": "ggml-cann.h#L90"
+  },
+  "ggml_backend_cann_get_device_description": {
+    "signature": "void ggml_backend_cann_get_device_description(int32_t device, char * description, int description_size)",
+    "signatureShort": "ggml_backend_cann_get_device_description(device, description, description_size)",
+    "location": "ggml-cann.h#L102"
+  },
+  "ggml_backend_cann_get_device_memory": {
+    "signature": "void ggml_backend_cann_get_device_memory(int32_t device, int * free, int * total)",
+    "signatureShort": "ggml_backend_cann_get_device_memory(device, free, total)",
+    "location": "ggml-cann.h#L117"
+  },
+  "ggml_numa_init": {
+    "signature": "void ggml_numa_init(enum ggml_numa_strategy numa)",
+    "signatureShort": "ggml_numa_init(numa)",
+    "location": "ggml-cpu.h#L34"
+  },
+  "ggml_is_numa": {
+    "signature": "int ggml_is_numa()",
+    "signatureShort": "ggml_is_numa()",
+    "location": "ggml-cpu.h#L35"
+  },
+  "ggml_new_i32": {
+    "signature": "struct ggml_tensor * ggml_new_i32(struct ggml_context * ctx, int32_t value)",
+    "signatureShort": "ggml_new_i32(ctx, value)",
+    "location": "ggml-cpu.h#L37"
+  },
+  "ggml_new_f32": {
+    "signature": "struct ggml_tensor * ggml_new_f32(struct ggml_context * ctx, float value)",
+    "signatureShort": "ggml_new_f32(ctx, value)",
+    "location": "ggml-cpu.h#L38"
+  },
+  "ggml_set_i32": {
+    "signature": "struct ggml_tensor * ggml_set_i32(struct ggml_tensor * tensor, int32_t value)",
+    "signatureShort": "ggml_set_i32(tensor, value)",
+    "location": "ggml-cpu.h#L40"
+  },
+  "ggml_set_f32": {
+    "signature": "struct ggml_tensor * ggml_set_f32(struct ggml_tensor * tensor, float value)",
+    "signatureShort": "ggml_set_f32(tensor, value)",
+    "location": "ggml-cpu.h#L41"
+  },
+  "ggml_get_i32_1d": {
+    "signature": "int32_t ggml_get_i32_1d(const struct ggml_tensor * tensor, int i)",
+    "signatureShort": "ggml_get_i32_1d(tensor, i)",
+    "location": "ggml-cpu.h#L43"
+  },
+  "ggml_set_i32_1d": {
+    "signature": "void ggml_set_i32_1d(const struct ggml_tensor * tensor, int i, int32_t value)",
+    "signatureShort": "ggml_set_i32_1d(tensor, i, value)",
+    "location": "ggml-cpu.h#L44"
+  },
+  "ggml_get_i32_nd": {
+    "signature": "int32_t ggml_get_i32_nd(const struct ggml_tensor * tensor, int i0, int i1, int i2, int i3)",
+    "signatureShort": "ggml_get_i32_nd(tensor, i0, i1, i2, i3)",
+    "location": "ggml-cpu.h#L46"
+  },
+  "ggml_set_i32_nd": {
+    "signature": "void ggml_set_i32_nd(const struct ggml_tensor * tensor, int i0, int i1, int i2, int i3, int32_t value)",
+    "signatureShort": "ggml_set_i32_nd(tensor, i0, i1, i2, i3, value)",
+    "location": "ggml-cpu.h#L47"
+  },
+  "ggml_get_f32_1d": {
+    "signature": "float ggml_get_f32_1d(const struct ggml_tensor * tensor, int i)",
+    "signatureShort": "ggml_get_f32_1d(tensor, i)",
+    "location": "ggml-cpu.h#L49"
+  },
+  "ggml_set_f32_1d": {
+    "signature": "void ggml_set_f32_1d(const struct ggml_tensor * tensor, int i, float value)",
+    "signatureShort": "ggml_set_f32_1d(tensor, i, value)",
+    "location": "ggml-cpu.h#L50"
+  },
+  "ggml_get_f32_nd": {
+    "signature": "float ggml_get_f32_nd(const struct ggml_tensor * tensor, int i0, int i1, int i2, int i3)",
+    "signatureShort": "ggml_get_f32_nd(tensor, i0, i1, i2, i3)",
+    "location": "ggml-cpu.h#L52"
+  },
+  "ggml_set_f32_nd": {
+    "signature": "void ggml_set_f32_nd(const struct ggml_tensor * tensor, int i0, int i1, int i2, int i3, float value)",
+    "signatureShort": "ggml_set_f32_nd(tensor, i0, i1, i2, i3, value)",
+    "location": "ggml-cpu.h#L53"
+  },
+  "ggml_threadpool_new": {
+    "signature": "struct ggml_threadpool * ggml_threadpool_new(struct ggml_threadpool_params * params)",
+    "signatureShort": "ggml_threadpool_new(params)",
+    "location": "ggml-cpu.h#L55"
+  },
+  "ggml_threadpool_free": {
+    "signature": "void ggml_threadpool_free(struct ggml_threadpool * threadpool)",
+    "signatureShort": "ggml_threadpool_free(threadpool)",
+    "location": "ggml-cpu.h#L56"
+  },
+  "ggml_threadpool_get_n_threads": {
+    "signature": "int ggml_threadpool_get_n_threads(struct ggml_threadpool * threadpool)",
+    "signatureShort": "ggml_threadpool_get_n_threads(threadpool)",
+    "location": "ggml-cpu.h#L57"
+  },
+  "ggml_threadpool_pause": {
+    "signature": "void ggml_threadpool_pause(struct ggml_threadpool * threadpool)",
+    "signatureShort": "ggml_threadpool_pause(threadpool)",
+    "location": "ggml-cpu.h#L58"
+  },
+  "ggml_threadpool_resume": {
+    "signature": "void ggml_threadpool_resume(struct ggml_threadpool * threadpool)",
+    "signatureShort": "ggml_threadpool_resume(threadpool)",
+    "location": "ggml-cpu.h#L59"
+  },
+  "ggml_graph_plan": {
+    "signature": "struct ggml_cplan ggml_graph_plan(const struct ggml_cgraph * cgraph, int n_threads, struct ggml_threadpool * threadpool)",
+    "signatureShort": "ggml_graph_plan(cgraph, n_threads, threadpool)",
+    "location": "ggml-cpu.h#L63"
+  },
+  "ggml_graph_compute": {
+    "signature": "enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cplan * cplan)",
+    "signatureShort": "ggml_graph_compute(cgraph, cplan)",
+    "location": "ggml-cpu.h#L67"
+  },
+  "ggml_graph_compute_with_ctx": {
+    "signature": "enum ggml_status ggml_graph_compute_with_ctx(struct ggml_context * ctx, struct ggml_cgraph * cgraph, int n_threads)",
+    "signatureShort": "ggml_graph_compute_with_ctx(ctx, cgraph, n_threads)",
+    "location": "ggml-cpu.h#L71"
+  },
+  "ggml_cpu_has_sse3": {
+    "signature": "int ggml_cpu_has_sse3()",
+    "signatureShort": "ggml_cpu_has_sse3()",
+    "location": "ggml-cpu.h#L78"
+  },
+  "ggml_cpu_has_ssse3": {
+    "signature": "int ggml_cpu_has_ssse3()",
+    "signatureShort": "ggml_cpu_has_ssse3()",
+    "location": "ggml-cpu.h#L79"
+  },
+  "ggml_cpu_has_avx": {
+    "signature": "int ggml_cpu_has_avx()",
+    "signatureShort": "ggml_cpu_has_avx()",
+    "location": "ggml-cpu.h#L80"
+  },
+  "ggml_cpu_has_avx_vnni": {
+    "signature": "int ggml_cpu_has_avx_vnni()",
+    "signatureShort": "ggml_cpu_has_avx_vnni()",
+    "location": "ggml-cpu.h#L81"
+  },
+  "ggml_cpu_has_avx2": {
+    "signature": "int ggml_cpu_has_avx2()",
+    "signatureShort": "ggml_cpu_has_avx2()",
+    "location": "ggml-cpu.h#L82"
+  },
+  "ggml_cpu_has_f16c": {
+    "signature": "int ggml_cpu_has_f16c()",
+    "signatureShort": "ggml_cpu_has_f16c()",
+    "location": "ggml-cpu.h#L83"
+  },
+  "ggml_cpu_has_fma": {
+    "signature": "int ggml_cpu_has_fma()",
+    "signatureShort": "ggml_cpu_has_fma()",
+    "location": "ggml-cpu.h#L84"
+  },
+  "ggml_cpu_has_avx512": {
+    "signature": "int ggml_cpu_has_avx512()",
+    "signatureShort": "ggml_cpu_has_avx512()",
+    "location": "ggml-cpu.h#L85"
+  },
+  "ggml_cpu_has_avx512_vbmi": {
+    "signature": "int ggml_cpu_has_avx512_vbmi()",
+    "signatureShort": "ggml_cpu_has_avx512_vbmi()",
+    "location": "ggml-cpu.h#L86"
+  },
+  "ggml_cpu_has_avx512_vnni": {
+    "signature": "int ggml_cpu_has_avx512_vnni()",
+    "signatureShort": "ggml_cpu_has_avx512_vnni()",
+    "location": "ggml-cpu.h#L87"
+  },
+  "ggml_cpu_has_avx512_bf16": {
+    "signature": "int ggml_cpu_has_avx512_bf16()",
+    "signatureShort": "ggml_cpu_has_avx512_bf16()",
+    "location": "ggml-cpu.h#L88"
+  },
+  "ggml_cpu_has_amx_int8": {
+    "signature": "int ggml_cpu_has_amx_int8()",
+    "signatureShort": "ggml_cpu_has_amx_int8()",
+    "location": "ggml-cpu.h#L89"
+  },
+  "ggml_cpu_has_neon": {
+    "signature": "int ggml_cpu_has_neon()",
+    "signatureShort": "ggml_cpu_has_neon()",
+    "location": "ggml-cpu.h#L91"
+  },
+  "ggml_cpu_has_arm_fma": {
+    "signature": "int ggml_cpu_has_arm_fma()",
+    "signatureShort": "ggml_cpu_has_arm_fma()",
+    "location": "ggml-cpu.h#L92"
+  },
+  "ggml_cpu_has_fp16_va": {
+    "signature": "int ggml_cpu_has_fp16_va()",
+    "signatureShort": "ggml_cpu_has_fp16_va()",
+    "location": "ggml-cpu.h#L93"
+  },
+  "ggml_cpu_has_dotprod": {
+    "signature": "int ggml_cpu_has_dotprod()",
+    "signatureShort": "ggml_cpu_has_dotprod()",
+    "location": "ggml-cpu.h#L94"
+  },
+  "ggml_cpu_has_matmul_int8": {
+    "signature": "int ggml_cpu_has_matmul_int8()",
+    "signatureShort": "ggml_cpu_has_matmul_int8()",
+    "location": "ggml-cpu.h#L95"
+  },
+  "ggml_cpu_has_sve": {
+    "signature": "int ggml_cpu_has_sve()",
+    "signatureShort": "ggml_cpu_has_sve()",
+    "location": "ggml-cpu.h#L96"
+  },
+  "ggml_cpu_get_sve_cnt": {
+    "signature": "int ggml_cpu_get_sve_cnt()",
+    "signatureShort": "ggml_cpu_get_sve_cnt()",
+    "location": "ggml-cpu.h#L97"
+  },
+  "ggml_cpu_has_riscv_v": {
+    "signature": "int ggml_cpu_has_riscv_v()",
+    "signatureShort": "ggml_cpu_has_riscv_v()",
+    "location": "ggml-cpu.h#L99"
+  },
+  "ggml_cpu_has_vsx": {
+    "signature": "int ggml_cpu_has_vsx()",
+    "signatureShort": "ggml_cpu_has_vsx()",
+    "location": "ggml-cpu.h#L100"
+  },
+  "ggml_cpu_has_wasm_simd": {
+    "signature": "int ggml_cpu_has_wasm_simd()",
+    "signatureShort": "ggml_cpu_has_wasm_simd()",
+    "location": "ggml-cpu.h#L101"
+  },
+  "ggml_cpu_has_llamafile": {
+    "signature": "int ggml_cpu_has_llamafile()",
+    "signatureShort": "ggml_cpu_has_llamafile()",
+    "location": "ggml-cpu.h#L102"
+  },
+  "ggml_get_type_traits_cpu": {
+    "signature": "const struct ggml_type_traits_cpu * ggml_get_type_traits_cpu(enum ggml_type type)",
+    "signatureShort": "ggml_get_type_traits_cpu(type)",
+    "location": "ggml-cpu.h#L116"
+  },
+  "ggml_cpu_init": {
+    "signature": "void ggml_cpu_init()",
+    "signatureShort": "ggml_cpu_init()",
+    "location": "ggml-cpu.h#L118"
+  },
+  "ggml_backend_cpu_init": {
+    "signature": "ggml_backend_t ggml_backend_cpu_init()",
+    "signatureShort": "ggml_backend_cpu_init()",
+    "location": "ggml-cpu.h#L124"
+  },
+  "ggml_backend_is_cpu": {
+    "signature": "int ggml_backend_is_cpu(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_cpu(backend)",
+    "location": "ggml-cpu.h#L126"
+  },
+  "ggml_backend_cpu_set_n_threads": {
+    "signature": "void ggml_backend_cpu_set_n_threads(ggml_backend_t backend_cpu, int n_threads)",
+    "signatureShort": "ggml_backend_cpu_set_n_threads(backend_cpu, n_threads)",
+    "location": "ggml-cpu.h#L127"
+  },
+  "ggml_backend_cpu_set_threadpool": {
+    "signature": "void ggml_backend_cpu_set_threadpool(ggml_backend_t backend_cpu, ggml_threadpool_t threadpool)",
+    "signatureShort": "ggml_backend_cpu_set_threadpool(backend_cpu, threadpool)",
+    "location": "ggml-cpu.h#L128"
+  },
+  "ggml_backend_cpu_set_abort_callback": {
+    "signature": "void ggml_backend_cpu_set_abort_callback(ggml_backend_t backend_cpu, int abort_callback, void * abort_callback_data)",
+    "signatureShort": "ggml_backend_cpu_set_abort_callback(backend_cpu, abort_callback, abort_callback_data)",
+    "location": "ggml-cpu.h#L129"
+  },
+  "ggml_backend_cpu_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_cpu_reg()",
+    "signatureShort": "ggml_backend_cpu_reg()",
+    "location": "ggml-cpu.h#L131"
+  },
+  "ggml_backend_cuda_init": {
+    "signature": "ggml_backend_t ggml_backend_cuda_init(int device)",
+    "signatureShort": "ggml_backend_cuda_init(device)",
+    "location": "ggml-cuda.h#L23"
+  },
+  "ggml_backend_is_cuda": {
+    "signature": "int ggml_backend_is_cuda(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_cuda(backend)",
+    "location": "ggml-cuda.h#L25"
+  },
+  "ggml_backend_cuda_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_cuda_buffer_type(int device)",
+    "signatureShort": "ggml_backend_cuda_buffer_type(device)",
+    "location": "ggml-cuda.h#L28"
+  },
+  "ggml_backend_cuda_split_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_cuda_split_buffer_type(int main_device, const float * tensor_split)",
+    "signatureShort": "ggml_backend_cuda_split_buffer_type(main_device, tensor_split)",
+    "location": "ggml-cuda.h#L31"
+  },
+  "ggml_backend_cuda_host_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_cuda_host_buffer_type()",
+    "signatureShort": "ggml_backend_cuda_host_buffer_type()",
+    "location": "ggml-cuda.h#L34"
+  },
+  "ggml_backend_cuda_get_device_count": {
+    "signature": "int ggml_backend_cuda_get_device_count()",
+    "signatureShort": "ggml_backend_cuda_get_device_count()",
+    "location": "ggml-cuda.h#L36"
+  },
+  "ggml_backend_cuda_get_device_description": {
+    "signature": "void ggml_backend_cuda_get_device_description(int device, char * description, int description_size)",
+    "signatureShort": "ggml_backend_cuda_get_device_description(device, description, description_size)",
+    "location": "ggml-cuda.h#L37"
+  },
+  "ggml_backend_cuda_get_device_memory": {
+    "signature": "void ggml_backend_cuda_get_device_memory(int device, int * free, int * total)",
+    "signatureShort": "ggml_backend_cuda_get_device_memory(device, free, total)",
+    "location": "ggml-cuda.h#L38"
+  },
+  "ggml_backend_cuda_register_host_buffer": {
+    "signature": "int ggml_backend_cuda_register_host_buffer(void * buffer, int size)",
+    "signatureShort": "ggml_backend_cuda_register_host_buffer(buffer, size)",
+    "location": "ggml-cuda.h#L40"
+  },
+  "ggml_backend_cuda_unregister_host_buffer": {
+    "signature": "void ggml_backend_cuda_unregister_host_buffer(void * buffer)",
+    "signatureShort": "ggml_backend_cuda_unregister_host_buffer(buffer)",
+    "location": "ggml-cuda.h#L41"
+  },
+  "ggml_backend_cuda_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_cuda_reg()",
+    "signatureShort": "ggml_backend_cuda_reg()",
+    "location": "ggml-cuda.h#L43"
+  },
+  "ggml_vk_available_devices": {
+    "signature": "struct ggml_vk_device * ggml_vk_available_devices(int memoryRequired, int * count)",
+    "signatureShort": "ggml_vk_available_devices(memoryRequired, count)",
+    "location": "ggml-kompute.h#L27"
+  },
+  "ggml_vk_get_device": {
+    "signature": "int ggml_vk_get_device(struct ggml_vk_device * device, int memoryRequired, const char * name)",
+    "signatureShort": "ggml_vk_get_device(device, memoryRequired, name)",
+    "location": "ggml-kompute.h#L28"
+  },
+  "ggml_vk_has_vulkan": {
+    "signature": "int ggml_vk_has_vulkan()",
+    "signatureShort": "ggml_vk_has_vulkan()",
+    "location": "ggml-kompute.h#L29"
+  },
+  "ggml_vk_has_device": {
+    "signature": "int ggml_vk_has_device()",
+    "signatureShort": "ggml_vk_has_device()",
+    "location": "ggml-kompute.h#L30"
+  },
+  "ggml_vk_current_device": {
+    "signature": "struct ggml_vk_device ggml_vk_current_device()",
+    "signatureShort": "ggml_vk_current_device()",
+    "location": "ggml-kompute.h#L31"
+  },
+  "ggml_backend_kompute_init": {
+    "signature": "ggml_backend_t ggml_backend_kompute_init(int device)",
+    "signatureShort": "ggml_backend_kompute_init(device)",
+    "location": "ggml-kompute.h#L40"
+  },
+  "ggml_backend_is_kompute": {
+    "signature": "int ggml_backend_is_kompute(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_kompute(backend)",
+    "location": "ggml-kompute.h#L42"
+  },
+  "ggml_backend_kompute_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_kompute_buffer_type(int device)",
+    "signatureShort": "ggml_backend_kompute_buffer_type(device)",
+    "location": "ggml-kompute.h#L44"
+  },
+  "ggml_backend_kompute_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_kompute_reg()",
+    "signatureShort": "ggml_backend_kompute_reg()",
+    "location": "ggml-kompute.h#L46"
+  },
+  "ggml_backend_metal_init": {
+    "signature": "ggml_backend_t ggml_backend_metal_init()",
+    "signatureShort": "ggml_backend_metal_init()",
+    "location": "ggml-metal.h#L42"
+  },
+  "ggml_backend_is_metal": {
+    "signature": "int ggml_backend_is_metal(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_metal(backend)",
+    "location": "ggml-metal.h#L44"
+  },
+  "ggml_backend_metal_buffer_from_ptr": {
+    "signature": "ggml_backend_buffer_t ggml_backend_metal_buffer_from_ptr(void * data, int size, int max_size)",
+    "signatureShort": "ggml_backend_metal_buffer_from_ptr(data, size, max_size)",
+    "location": "ggml-metal.h#L46"
+  },
+  "ggml_backend_metal_set_abort_callback": {
+    "signature": "void ggml_backend_metal_set_abort_callback(ggml_backend_t backend, int abort_callback, void * user_data)",
+    "signatureShort": "ggml_backend_metal_set_abort_callback(backend, abort_callback, user_data)",
+    "location": "ggml-metal.h#L50"
+  },
+  "ggml_backend_metal_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_metal_buffer_type()",
+    "signatureShort": "ggml_backend_metal_buffer_type()",
+    "location": "ggml-metal.h#L52"
+  },
+  "ggml_backend_metal_supports_family": {
+    "signature": "int ggml_backend_metal_supports_family(ggml_backend_t backend, int family)",
+    "signatureShort": "ggml_backend_metal_supports_family(backend, family)",
+    "location": "ggml-metal.h#L57"
+  },
+  "ggml_backend_metal_capture_next_compute": {
+    "signature": "void ggml_backend_metal_capture_next_compute(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_metal_capture_next_compute(backend)",
+    "location": "ggml-metal.h#L60"
+  },
+  "ggml_backend_metal_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_metal_reg()",
+    "signatureShort": "ggml_backend_metal_reg()",
+    "location": "ggml-metal.h#L62"
+  },
+  "ggml_backend_opencl_init": {
+    "signature": "ggml_backend_t ggml_backend_opencl_init()",
+    "signatureShort": "ggml_backend_opencl_init()",
+    "location": "ggml-opencl.h#L14"
+  },
+  "ggml_backend_is_opencl": {
+    "signature": "int ggml_backend_is_opencl(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_opencl(backend)",
+    "location": "ggml-opencl.h#L15"
+  },
+  "ggml_backend_opencl_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_opencl_buffer_type()",
+    "signatureShort": "ggml_backend_opencl_buffer_type()",
+    "location": "ggml-opencl.h#L17"
+  },
+  "ggml_backend_opencl_host_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_opencl_host_buffer_type()",
+    "signatureShort": "ggml_backend_opencl_host_buffer_type()",
+    "location": "ggml-opencl.h#L18"
+  },
+  "ggml_backend_opencl_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_opencl_reg()",
+    "signatureShort": "ggml_backend_opencl_reg()",
+    "location": "ggml-opencl.h#L20"
+  },
+  "ggml_opt_dataset_init": {
+    "signature": "ggml_opt_dataset_t ggml_opt_dataset_init(int64_t ne_datapoint, int64_t ne_label, int64_t ndata, int64_t ndata_shard)",
+    "signatureShort": "ggml_opt_dataset_init(ne_datapoint, ne_label, ndata, ndata_shard)",
+    "location": "ggml-opt.h#L39"
+  },
+  "ggml_opt_dataset_free": {
+    "signature": "void ggml_opt_dataset_free(ggml_opt_dataset_t dataset)",
+    "signatureShort": "ggml_opt_dataset_free(dataset)",
+    "location": "ggml-opt.h#L44"
+  },
+  "ggml_opt_dataset_data": {
+    "signature": "struct ggml_tensor * ggml_opt_dataset_data(ggml_opt_dataset_t dataset)",
+    "signatureShort": "ggml_opt_dataset_data(dataset)",
+    "location": "ggml-opt.h#L47"
+  },
+  "ggml_opt_dataset_labels": {
+    "signature": "struct ggml_tensor * ggml_opt_dataset_labels(ggml_opt_dataset_t dataset)",
+    "signatureShort": "ggml_opt_dataset_labels(dataset)",
+    "location": "ggml-opt.h#L48"
+  },
+  "ggml_opt_dataset_shuffle": {
+    "signature": "void ggml_opt_dataset_shuffle(ggml_opt_context_t opt_ctx, ggml_opt_dataset_t dataset, int64_t idata)",
+    "signatureShort": "ggml_opt_dataset_shuffle(opt_ctx, dataset, idata)",
+    "location": "ggml-opt.h#L51"
+  },
+  "ggml_opt_dataset_get_batch": {
+    "signature": "void ggml_opt_dataset_get_batch(ggml_opt_dataset_t dataset, struct ggml_tensor * data_batch, struct ggml_tensor * labels_batch, int64_t ibatch)",
+    "signatureShort": "ggml_opt_dataset_get_batch(dataset, data_batch, labels_batch, ibatch)",
+    "location": "ggml-opt.h#L54"
+  },
+  "ggml_opt_get_default_optimizer_params": {
+    "signature": "struct ggml_opt_optimizer_params ggml_opt_get_default_optimizer_params(void * userdata)",
+    "signatureShort": "ggml_opt_get_default_optimizer_params(userdata)",
+    "location": "ggml-opt.h#L86"
+  },
+  "ggml_opt_default_params": {
+    "signature": "struct ggml_opt_params ggml_opt_default_params(ggml_backend_sched_t backend_sched, struct ggml_context * ctx_compute, struct ggml_tensor * inputs, struct ggml_tensor * outputs, enum ggml_opt_loss_type loss_type)",
+    "signatureShort": "ggml_opt_default_params(backend_sched, ctx_compute, inputs, outputs, loss_type)",
+    "location": "ggml-opt.h#L110"
+  },
+  "ggml_opt_init": {
+    "signature": "ggml_opt_context_t ggml_opt_init(struct ggml_opt_params params)",
+    "signatureShort": "ggml_opt_init(params)",
+    "location": "ggml-opt.h#L117"
+  },
+  "ggml_opt_free": {
+    "signature": "void ggml_opt_free(ggml_opt_context_t opt_ctx)",
+    "signatureShort": "ggml_opt_free(opt_ctx)",
+    "location": "ggml-opt.h#L118"
+  },
+  "ggml_opt_reset": {
+    "signature": "void ggml_opt_reset(ggml_opt_context_t opt_ctx, bool optimizer)",
+    "signatureShort": "ggml_opt_reset(opt_ctx, optimizer)",
+    "location": "ggml-opt.h#L121"
+  },
+  "ggml_opt_inputs": {
+    "signature": "struct ggml_tensor * ggml_opt_inputs(ggml_opt_context_t opt_ctx)",
+    "signatureShort": "ggml_opt_inputs(opt_ctx)",
+    "location": "ggml-opt.h#L124"
+  },
+  "ggml_opt_outputs": {
+    "signature": "struct ggml_tensor * ggml_opt_outputs(ggml_opt_context_t opt_ctx)",
+    "signatureShort": "ggml_opt_outputs(opt_ctx)",
+    "location": "ggml-opt.h#L125"
+  },
+  "ggml_opt_labels": {
+    "signature": "struct ggml_tensor * ggml_opt_labels(ggml_opt_context_t opt_ctx)",
+    "signatureShort": "ggml_opt_labels(opt_ctx)",
+    "location": "ggml-opt.h#L126"
+  },
+  "ggml_opt_loss": {
+    "signature": "struct ggml_tensor * ggml_opt_loss(ggml_opt_context_t opt_ctx)",
+    "signatureShort": "ggml_opt_loss(opt_ctx)",
+    "location": "ggml-opt.h#L127"
+  },
+  "ggml_opt_pred": {
+    "signature": "struct ggml_tensor * ggml_opt_pred(ggml_opt_context_t opt_ctx)",
+    "signatureShort": "ggml_opt_pred(opt_ctx)",
+    "location": "ggml-opt.h#L128"
+  },
+  "ggml_opt_ncorrect": {
+    "signature": "struct ggml_tensor * ggml_opt_ncorrect(ggml_opt_context_t opt_ctx)",
+    "signatureShort": "ggml_opt_ncorrect(opt_ctx)",
+    "location": "ggml-opt.h#L129"
+  },
+  "ggml_opt_grad_acc": {
+    "signature": "struct ggml_tensor * ggml_opt_grad_acc(ggml_opt_context_t opt_ctx, struct ggml_tensor * node)",
+    "signatureShort": "ggml_opt_grad_acc(opt_ctx, node)",
+    "location": "ggml-opt.h#L131"
+  },
+  "ggml_opt_result_init": {
+    "signature": "ggml_opt_result_t ggml_opt_result_init()",
+    "signatureShort": "ggml_opt_result_init()",
+    "location": "ggml-opt.h#L135"
+  },
+  "ggml_opt_result_free": {
+    "signature": "void ggml_opt_result_free(ggml_opt_result_t result)",
+    "signatureShort": "ggml_opt_result_free(result)",
+    "location": "ggml-opt.h#L136"
+  },
+  "ggml_opt_result_reset": {
+    "signature": "void ggml_opt_result_reset(ggml_opt_result_t result)",
+    "signatureShort": "ggml_opt_result_reset(result)",
+    "location": "ggml-opt.h#L137"
+  },
+  "ggml_opt_result_ndata": {
+    "signature": "void ggml_opt_result_ndata(ggml_opt_result_t result, int64_t * ndata)",
+    "signatureShort": "ggml_opt_result_ndata(result, ndata)",
+    "location": "ggml-opt.h#L140"
+  },
+  "ggml_opt_result_loss": {
+    "signature": "void ggml_opt_result_loss(ggml_opt_result_t result, double * loss, double * unc)",
+    "signatureShort": "ggml_opt_result_loss(result, loss, unc)",
+    "location": "ggml-opt.h#L141"
+  },
+  "ggml_opt_result_pred": {
+    "signature": "void ggml_opt_result_pred(ggml_opt_result_t result, int32_t * pred)",
+    "signatureShort": "ggml_opt_result_pred(result, pred)",
+    "location": "ggml-opt.h#L142"
+  },
+  "ggml_opt_result_accuracy": {
+    "signature": "void ggml_opt_result_accuracy(ggml_opt_result_t result, double * accuracy, double * unc)",
+    "signatureShort": "ggml_opt_result_accuracy(result, accuracy, unc)",
+    "location": "ggml-opt.h#L143"
+  },
+  "ggml_opt_forward": {
+    "signature": "void ggml_opt_forward(ggml_opt_context_t opt_ctx, ggml_opt_result_t result)",
+    "signatureShort": "ggml_opt_forward(opt_ctx, result)",
+    "location": "ggml-opt.h#L148"
+  },
+  "ggml_opt_forward_backward": {
+    "signature": "void ggml_opt_forward_backward(ggml_opt_context_t opt_ctx, ggml_opt_result_t result)",
+    "signatureShort": "ggml_opt_forward_backward(opt_ctx, result)",
+    "location": "ggml-opt.h#L151"
+  },
+  "ggml_opt_epoch": {
+    "signature": "void ggml_opt_epoch(ggml_opt_context_t opt_ctx, ggml_opt_dataset_t dataset, ggml_opt_result_t result_train, ggml_opt_result_t result_eval, int64_t idata_split, ggml_opt_epoch_callback callback_train, ggml_opt_epoch_callback callback_eval)",
+    "signatureShort": "ggml_opt_epoch(opt_ctx, dataset, result_train, result_eval, idata_split, callback_train, callback_eval)",
+    "location": "ggml-opt.h#L181"
+  },
+  "ggml_opt_epoch_callback_progress_bar": {
+    "signature": "void ggml_opt_epoch_callback_progress_bar(bool train, ggml_opt_context_t opt_ctx, ggml_opt_dataset_t dataset, ggml_opt_result_t result, int64_t ibatch, int64_t ibatch_max, int64_t t_start_us)",
+    "signatureShort": "ggml_opt_epoch_callback_progress_bar(train, opt_ctx, dataset, result, ibatch, ibatch_max, t_start_us)",
+    "location": "ggml-opt.h#L191"
+  },
+  "ggml_opt_fit": {
+    "signature": "void ggml_opt_fit(ggml_backend_sched_t backend_sched, struct ggml_context * ctx_compute, struct ggml_tensor * inputs, struct ggml_tensor * outputs, ggml_opt_dataset_t dataset, enum ggml_opt_loss_type loss_type, ggml_opt_get_optimizer_params get_opt_pars, int64_t nepoch, int64_t nbatch_logical, float val_split, bool silent)",
+    "signatureShort": "ggml_opt_fit(backend_sched, ctx_compute, inputs, outputs, dataset, loss_type, get_opt_pars, nepoch, nbatch_logical, val_split, silent)",
+    "location": "ggml-opt.h#L201"
+  },
+  "ggml_backend_rpc_init": {
+    "signature": "ggml_backend_t ggml_backend_rpc_init(const char * endpoint)",
+    "signatureShort": "ggml_backend_rpc_init(endpoint)",
+    "location": "ggml-rpc.h#L13"
+  },
+  "ggml_backend_is_rpc": {
+    "signature": "int ggml_backend_is_rpc(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_rpc(backend)",
+    "location": "ggml-rpc.h#L14"
+  },
+  "ggml_backend_rpc_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_rpc_buffer_type(const char * endpoint)",
+    "signatureShort": "ggml_backend_rpc_buffer_type(endpoint)",
+    "location": "ggml-rpc.h#L16"
+  },
+  "ggml_backend_rpc_get_device_memory": {
+    "signature": "void ggml_backend_rpc_get_device_memory(const char * endpoint, int * free, int * total)",
+    "signatureShort": "ggml_backend_rpc_get_device_memory(endpoint, free, total)",
+    "location": "ggml-rpc.h#L18"
+  },
+  "ggml_backend_rpc_start_server": {
+    "signature": "void ggml_backend_rpc_start_server(ggml_backend_t backend, const char * endpoint, int free_mem, int total_mem)",
+    "signatureShort": "ggml_backend_rpc_start_server(backend, endpoint, free_mem, total_mem)",
+    "location": "ggml-rpc.h#L20"
+  },
+  "ggml_backend_rpc_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_rpc_reg()",
+    "signatureShort": "ggml_backend_rpc_reg()",
+    "location": "ggml-rpc.h#L22"
+  },
+  "ggml_backend_rpc_add_device": {
+    "signature": "ggml_backend_dev_t ggml_backend_rpc_add_device(const char * endpoint)",
+    "signatureShort": "ggml_backend_rpc_add_device(endpoint)",
+    "location": "ggml-rpc.h#L24"
+  },
+  "ggml_backend_sycl_init": {
+    "signature": "ggml_backend_t ggml_backend_sycl_init(int device)",
+    "signatureShort": "ggml_backend_sycl_init(device)",
+    "location": "ggml-sycl.h#L20"
+  },
+  "ggml_backend_is_sycl": {
+    "signature": "int ggml_backend_is_sycl(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_sycl(backend)",
+    "location": "ggml-sycl.h#L22"
+  },
+  "ggml_backend_sycl_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_sycl_buffer_type(int device)",
+    "signatureShort": "ggml_backend_sycl_buffer_type(device)",
+    "location": "ggml-sycl.h#L25"
+  },
+  "ggml_backend_sycl_split_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_sycl_split_buffer_type(const float * tensor_split)",
+    "signatureShort": "ggml_backend_sycl_split_buffer_type(tensor_split)",
+    "location": "ggml-sycl.h#L28"
+  },
+  "ggml_backend_sycl_host_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_sycl_host_buffer_type()",
+    "signatureShort": "ggml_backend_sycl_host_buffer_type()",
+    "location": "ggml-sycl.h#L31"
+  },
+  "ggml_backend_sycl_print_sycl_devices": {
+    "signature": "void ggml_backend_sycl_print_sycl_devices()",
+    "signatureShort": "ggml_backend_sycl_print_sycl_devices()",
+    "location": "ggml-sycl.h#L33"
+  },
+  "ggml_backend_sycl_get_gpu_list": {
+    "signature": "void ggml_backend_sycl_get_gpu_list(int * id_list, int max_len)",
+    "signatureShort": "ggml_backend_sycl_get_gpu_list(id_list, max_len)",
+    "location": "ggml-sycl.h#L34"
+  },
+  "ggml_backend_sycl_get_device_description": {
+    "signature": "void ggml_backend_sycl_get_device_description(int device, char * description, int description_size)",
+    "signatureShort": "ggml_backend_sycl_get_device_description(device, description, description_size)",
+    "location": "ggml-sycl.h#L35"
+  },
+  "ggml_backend_sycl_get_device_count": {
+    "signature": "int ggml_backend_sycl_get_device_count()",
+    "signatureShort": "ggml_backend_sycl_get_device_count()",
+    "location": "ggml-sycl.h#L38"
+  },
+  "ggml_backend_sycl_get_device_memory": {
+    "signature": "void ggml_backend_sycl_get_device_memory(int device, int * free, int * total)",
+    "signatureShort": "ggml_backend_sycl_get_device_memory(device, free, total)",
+    "location": "ggml-sycl.h#L39"
+  },
+  "ggml_backend_sycl_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_sycl_reg()",
+    "signatureShort": "ggml_backend_sycl_reg()",
+    "location": "ggml-sycl.h#L45"
+  },
+  "ggml_backend_vk_init": {
+    "signature": "ggml_backend_t ggml_backend_vk_init(int dev_num)",
+    "signatureShort": "ggml_backend_vk_init(dev_num)",
+    "location": "ggml-vulkan.h#L14"
+  },
+  "ggml_backend_is_vk": {
+    "signature": "int ggml_backend_is_vk(ggml_backend_t backend)",
+    "signatureShort": "ggml_backend_is_vk(backend)",
+    "location": "ggml-vulkan.h#L16"
+  },
+  "ggml_backend_vk_get_device_count": {
+    "signature": "int ggml_backend_vk_get_device_count()",
+    "signatureShort": "ggml_backend_vk_get_device_count()",
+    "location": "ggml-vulkan.h#L17"
+  },
+  "ggml_backend_vk_get_device_description": {
+    "signature": "void ggml_backend_vk_get_device_description(int device, char * description, int description_size)",
+    "signatureShort": "ggml_backend_vk_get_device_description(device, description, description_size)",
+    "location": "ggml-vulkan.h#L18"
+  },
+  "ggml_backend_vk_get_device_memory": {
+    "signature": "void ggml_backend_vk_get_device_memory(int device, int * free, int * total)",
+    "signatureShort": "ggml_backend_vk_get_device_memory(device, free, total)",
+    "location": "ggml-vulkan.h#L19"
+  },
+  "ggml_backend_vk_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_vk_buffer_type(int dev_num)",
+    "signatureShort": "ggml_backend_vk_buffer_type(dev_num)",
+    "location": "ggml-vulkan.h#L21"
+  },
+  "ggml_backend_vk_host_buffer_type": {
+    "signature": "ggml_backend_buffer_type_t ggml_backend_vk_host_buffer_type()",
+    "signatureShort": "ggml_backend_vk_host_buffer_type()",
+    "location": "ggml-vulkan.h#L23"
+  },
+  "ggml_backend_vk_reg": {
+    "signature": "ggml_backend_reg_t ggml_backend_vk_reg()",
+    "signatureShort": "ggml_backend_vk_reg()",
+    "location": "ggml-vulkan.h#L25"
+  },
+  "ggml_abort": {
+    "signature": "void ggml_abort(const char * file, int line, const char * fmt)",
+    "signatureShort": "ggml_abort(file, line, fmt)",
+    "location": "ggml.h#L318"
+  },
+  "ggml_status_to_string": {
+    "signature": "const char * ggml_status_to_string(enum ggml_status status)",
+    "signatureShort": "ggml_status_to_string(status)",
+    "location": "ggml.h#L328"
+  },
+  "ggml_fp16_to_fp32": {
+    "signature": "float ggml_fp16_to_fp32(ggml_fp16_t )",
+    "signatureShort": "ggml_fp16_to_fp32()",
+    "location": "ggml.h#L333"
+  },
+  "ggml_fp32_to_fp16": {
+    "signature": "ggml_fp16_t ggml_fp32_to_fp16(float )",
+    "signatureShort": "ggml_fp32_to_fp16()",
+    "location": "ggml.h#L334"
+  },
+  "ggml_fp16_to_fp32_row": {
+    "signature": "void ggml_fp16_to_fp32_row(const ggml_fp16_t * , float * , int64_t )",
+    "signatureShort": "ggml_fp16_to_fp32_row(, , )",
+    "location": "ggml.h#L335"
+  },
+  "ggml_fp32_to_fp16_row": {
+    "signature": "void ggml_fp32_to_fp16_row(const float * , ggml_fp16_t * , int64_t )",
+    "signatureShort": "ggml_fp32_to_fp16_row(, , )",
+    "location": "ggml.h#L336"
+  },
+  "ggml_fp32_to_bf16": {
+    "signature": "ggml_bf16_t ggml_fp32_to_bf16(float )",
+    "signatureShort": "ggml_fp32_to_bf16()",
+    "location": "ggml.h#L340"
+  },
+  "ggml_bf16_to_fp32": {
+    "signature": "float ggml_bf16_to_fp32(ggml_bf16_t )",
+    "signatureShort": "ggml_bf16_to_fp32()",
+    "location": "ggml.h#L341"
+  },
+  "ggml_bf16_to_fp32_row": {
+    "signature": "void ggml_bf16_to_fp32_row(const ggml_bf16_t * , float * , int64_t )",
+    "signatureShort": "ggml_bf16_to_fp32_row(, , )",
+    "location": "ggml.h#L342"
+  },
+  "ggml_fp32_to_bf16_row_ref": {
+    "signature": "void ggml_fp32_to_bf16_row_ref(const float * , ggml_bf16_t * , int64_t )",
+    "signatureShort": "ggml_fp32_to_bf16_row_ref(, , )",
+    "location": "ggml.h#L343"
+  },
+  "ggml_fp32_to_bf16_row": {
+    "signature": "void ggml_fp32_to_bf16_row(const float * , ggml_bf16_t * , int64_t )",
+    "signatureShort": "ggml_fp32_to_bf16_row(, , )",
+    "location": "ggml.h#L344"
+  },
+  "ggml_guid_matches": {
+    "signature": "int ggml_guid_matches(ggml_guid_t guid_a, ggml_guid_t guid_b)",
+    "signatureShort": "ggml_guid_matches(guid_a, guid_b)",
+    "location": "ggml.h#L626"
+  },
+  "ggml_time_init": {
+    "signature": "void ggml_time_init()",
+    "signatureShort": "ggml_time_init()",
+    "location": "ggml.h#L630"
+  },
+  "ggml_time_ms": {
+    "signature": "int64_t ggml_time_ms()",
+    "signatureShort": "ggml_time_ms()",
+    "location": "ggml.h#L631"
+  },
+  "ggml_time_us": {
+    "signature": "int64_t ggml_time_us()",
+    "signatureShort": "ggml_time_us()",
+    "location": "ggml.h#L632"
+  },
+  "ggml_cycles": {
+    "signature": "int64_t ggml_cycles()",
+    "signatureShort": "ggml_cycles()",
+    "location": "ggml.h#L633"
+  },
+  "ggml_cycles_per_ms": {
+    "signature": "int64_t ggml_cycles_per_ms()",
+    "signatureShort": "ggml_cycles_per_ms()",
+    "location": "ggml.h#L634"
+  },
+  "ggml_fopen": {
+    "signature": "FILE * ggml_fopen(const char * fname, const char * mode)",
+    "signatureShort": "ggml_fopen(fname, mode)",
+    "location": "ggml.h#L637"
+  },
+  "ggml_print_object": {
+    "signature": "void ggml_print_object(const struct ggml_object * obj)",
+    "signatureShort": "ggml_print_object(obj)",
+    "location": "ggml.h#L639"
+  },
+  "ggml_print_objects": {
+    "signature": "void ggml_print_objects(const struct ggml_context * ctx)",
+    "signatureShort": "ggml_print_objects(ctx)",
+    "location": "ggml.h#L640"
+  },
+  "ggml_nelements": {
+    "signature": "int64_t ggml_nelements(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_nelements(tensor)",
+    "location": "ggml.h#L642"
+  },
+  "ggml_nrows": {
+    "signature": "int64_t ggml_nrows(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_nrows(tensor)",
+    "location": "ggml.h#L643"
+  },
+  "ggml_nbytes": {
+    "signature": "int ggml_nbytes(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_nbytes(tensor)",
+    "location": "ggml.h#L644"
+  },
+  "ggml_nbytes_pad": {
+    "signature": "int ggml_nbytes_pad(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_nbytes_pad(tensor)",
+    "location": "ggml.h#L645"
+  },
+  "ggml_blck_size": {
+    "signature": "int64_t ggml_blck_size(enum ggml_type type)",
+    "signatureShort": "ggml_blck_size(type)",
+    "location": "ggml.h#L647"
+  },
+  "ggml_type_size": {
+    "signature": "int ggml_type_size(enum ggml_type type)",
+    "signatureShort": "ggml_type_size(type)",
+    "location": "ggml.h#L648"
+  },
+  "ggml_row_size": {
+    "signature": "int ggml_row_size(enum ggml_type type, int64_t ne)",
+    "signatureShort": "ggml_row_size(type, ne)",
+    "location": "ggml.h#L649"
+  },
+  "ggml_type_sizef": {
+    "signature": "double ggml_type_sizef(enum ggml_type type)",
+    "signatureShort": "ggml_type_sizef(type)",
+    "location": "ggml.h#L651"
+  },
+  "ggml_type_name": {
+    "signature": "const char * ggml_type_name(enum ggml_type type)",
+    "signatureShort": "ggml_type_name(type)",
+    "location": "ggml.h#L655"
+  },
+  "ggml_op_name": {
+    "signature": "const char * ggml_op_name(enum ggml_op op)",
+    "signatureShort": "ggml_op_name(op)",
+    "location": "ggml.h#L656"
+  },
+  "ggml_op_symbol": {
+    "signature": "const char * ggml_op_symbol(enum ggml_op op)",
+    "signatureShort": "ggml_op_symbol(op)",
+    "location": "ggml.h#L657"
+  },
+  "ggml_unary_op_name": {
+    "signature": "const char * ggml_unary_op_name(enum ggml_unary_op op)",
+    "signatureShort": "ggml_unary_op_name(op)",
+    "location": "ggml.h#L659"
+  },
+  "ggml_op_desc": {
+    "signature": "const char * ggml_op_desc(const struct ggml_tensor * t)",
+    "signatureShort": "ggml_op_desc(t)",
+    "location": "ggml.h#L660"
+  },
+  "ggml_element_size": {
+    "signature": "int ggml_element_size(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_element_size(tensor)",
+    "location": "ggml.h#L662"
+  },
+  "ggml_is_quantized": {
+    "signature": "int ggml_is_quantized(enum ggml_type type)",
+    "signatureShort": "ggml_is_quantized(type)",
+    "location": "ggml.h#L664"
+  },
+  "ggml_ftype_to_ggml_type": {
+    "signature": "enum ggml_type ggml_ftype_to_ggml_type(enum ggml_ftype ftype)",
+    "signatureShort": "ggml_ftype_to_ggml_type(ftype)",
+    "location": "ggml.h#L667"
+  },
+  "ggml_is_transposed": {
+    "signature": "int ggml_is_transposed(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_transposed(tensor)",
+    "location": "ggml.h#L669"
+  },
+  "ggml_is_permuted": {
+    "signature": "int ggml_is_permuted(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_permuted(tensor)",
+    "location": "ggml.h#L670"
+  },
+  "ggml_is_empty": {
+    "signature": "int ggml_is_empty(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_empty(tensor)",
+    "location": "ggml.h#L671"
+  },
+  "ggml_is_scalar": {
+    "signature": "int ggml_is_scalar(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_scalar(tensor)",
+    "location": "ggml.h#L672"
+  },
+  "ggml_is_vector": {
+    "signature": "int ggml_is_vector(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_vector(tensor)",
+    "location": "ggml.h#L673"
+  },
+  "ggml_is_matrix": {
+    "signature": "int ggml_is_matrix(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_matrix(tensor)",
+    "location": "ggml.h#L674"
+  },
+  "ggml_is_3d": {
+    "signature": "int ggml_is_3d(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_3d(tensor)",
+    "location": "ggml.h#L675"
+  },
+  "ggml_n_dims": {
+    "signature": "int ggml_n_dims(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_n_dims(tensor)",
+    "location": "ggml.h#L676"
+  },
+  "ggml_is_contiguous": {
+    "signature": "int ggml_is_contiguous(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_contiguous(tensor)",
+    "location": "ggml.h#L678"
+  },
+  "ggml_is_contiguous_0": {
+    "signature": "int ggml_is_contiguous_0(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_contiguous_0(tensor)",
+    "location": "ggml.h#L679"
+  },
+  "ggml_is_contiguous_1": {
+    "signature": "int ggml_is_contiguous_1(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_contiguous_1(tensor)",
+    "location": "ggml.h#L680"
+  },
+  "ggml_is_contiguous_2": {
+    "signature": "int ggml_is_contiguous_2(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_is_contiguous_2(tensor)",
+    "location": "ggml.h#L681"
+  },
+  "ggml_are_same_shape": {
+    "signature": "int ggml_are_same_shape(const struct ggml_tensor * t0, const struct ggml_tensor * t1)",
+    "signatureShort": "ggml_are_same_shape(t0, t1)",
+    "location": "ggml.h#L683"
+  },
+  "ggml_are_same_stride": {
+    "signature": "int ggml_are_same_stride(const struct ggml_tensor * t0, const struct ggml_tensor * t1)",
+    "signatureShort": "ggml_are_same_stride(t0, t1)",
+    "location": "ggml.h#L684"
+  },
+  "ggml_can_repeat": {
+    "signature": "int ggml_can_repeat(const struct ggml_tensor * t0, const struct ggml_tensor * t1)",
+    "signatureShort": "ggml_can_repeat(t0, t1)",
+    "location": "ggml.h#L686"
+  },
+  "ggml_tensor_overhead": {
+    "signature": "int ggml_tensor_overhead()",
+    "signatureShort": "ggml_tensor_overhead()",
+    "location": "ggml.h#L689"
+  },
+  "ggml_validate_row_data": {
+    "signature": "int ggml_validate_row_data(enum ggml_type type, const void * data, int nbytes)",
+    "signatureShort": "ggml_validate_row_data(type, data, nbytes)",
+    "location": "ggml.h#L691"
+  },
+  "ggml_init": {
+    "signature": "struct ggml_context * ggml_init(struct ggml_init_params params)",
+    "signatureShort": "ggml_init(params)",
+    "location": "ggml.h#L695"
+  },
+  "ggml_reset": {
+    "signature": "void ggml_reset(struct ggml_context * ctx)",
+    "signatureShort": "ggml_reset(ctx)",
+    "location": "ggml.h#L696"
+  },
+  "ggml_free": {
+    "signature": "void ggml_free(struct ggml_context * ctx)",
+    "signatureShort": "ggml_free(ctx)",
+    "location": "ggml.h#L697"
+  },
+  "ggml_used_mem": {
+    "signature": "int ggml_used_mem(const struct ggml_context * ctx)",
+    "signatureShort": "ggml_used_mem(ctx)",
+    "location": "ggml.h#L699"
+  },
+  "ggml_get_no_alloc": {
+    "signature": "int ggml_get_no_alloc(struct ggml_context * ctx)",
+    "signatureShort": "ggml_get_no_alloc(ctx)",
+    "location": "ggml.h#L701"
+  },
+  "ggml_set_no_alloc": {
+    "signature": "void ggml_set_no_alloc(struct ggml_context * ctx, bool no_alloc)",
+    "signatureShort": "ggml_set_no_alloc(ctx, no_alloc)",
+    "location": "ggml.h#L702"
+  },
+  "ggml_get_mem_buffer": {
+    "signature": "void * ggml_get_mem_buffer(const struct ggml_context * ctx)",
+    "signatureShort": "ggml_get_mem_buffer(ctx)",
+    "location": "ggml.h#L704"
+  },
+  "ggml_get_mem_size": {
+    "signature": "int ggml_get_mem_size(const struct ggml_context * ctx)",
+    "signatureShort": "ggml_get_mem_size(ctx)",
+    "location": "ggml.h#L705"
+  },
+  "ggml_get_max_tensor_size": {
+    "signature": "int ggml_get_max_tensor_size(const struct ggml_context * ctx)",
+    "signatureShort": "ggml_get_max_tensor_size(ctx)",
+    "location": "ggml.h#L706"
+  },
+  "ggml_new_tensor": {
+    "signature": "struct ggml_tensor * ggml_new_tensor(struct ggml_context * ctx, enum ggml_type type, int n_dims, const int64_t * ne)",
+    "signatureShort": "ggml_new_tensor(ctx, type, n_dims, ne)",
+    "location": "ggml.h#L708"
+  },
+  "ggml_new_tensor_1d": {
+    "signature": "struct ggml_tensor * ggml_new_tensor_1d(struct ggml_context * ctx, enum ggml_type type, int64_t ne0)",
+    "signatureShort": "ggml_new_tensor_1d(ctx, type, ne0)",
+    "location": "ggml.h#L714"
+  },
+  "ggml_new_tensor_2d": {
+    "signature": "struct ggml_tensor * ggml_new_tensor_2d(struct ggml_context * ctx, enum ggml_type type, int64_t ne0, int64_t ne1)",
+    "signatureShort": "ggml_new_tensor_2d(ctx, type, ne0, ne1)",
+    "location": "ggml.h#L719"
+  },
+  "ggml_new_tensor_3d": {
+    "signature": "struct ggml_tensor * ggml_new_tensor_3d(struct ggml_context * ctx, enum ggml_type type, int64_t ne0, int64_t ne1, int64_t ne2)",
+    "signatureShort": "ggml_new_tensor_3d(ctx, type, ne0, ne1, ne2)",
+    "location": "ggml.h#L725"
+  },
+  "ggml_new_tensor_4d": {
+    "signature": "struct ggml_tensor * ggml_new_tensor_4d(struct ggml_context * ctx, enum ggml_type type, int64_t ne0, int64_t ne1, int64_t ne2, int64_t ne3)",
+    "signatureShort": "ggml_new_tensor_4d(ctx, type, ne0, ne1, ne2, ne3)",
+    "location": "ggml.h#L732"
+  },
+  "ggml_new_buffer": {
+    "signature": "void * ggml_new_buffer(struct ggml_context * ctx, int nbytes)",
+    "signatureShort": "ggml_new_buffer(ctx, nbytes)",
+    "location": "ggml.h#L740"
+  },
+  "ggml_dup_tensor": {
+    "signature": "struct ggml_tensor * ggml_dup_tensor(struct ggml_context * ctx, const struct ggml_tensor * src)",
+    "signatureShort": "ggml_dup_tensor(ctx, src)",
+    "location": "ggml.h#L742"
+  },
+  "ggml_view_tensor": {
+    "signature": "struct ggml_tensor * ggml_view_tensor(struct ggml_context * ctx, struct ggml_tensor * src)",
+    "signatureShort": "ggml_view_tensor(ctx, src)",
+    "location": "ggml.h#L743"
+  },
+  "ggml_get_first_tensor": {
+    "signature": "struct ggml_tensor * ggml_get_first_tensor(const struct ggml_context * ctx)",
+    "signatureShort": "ggml_get_first_tensor(ctx)",
+    "location": "ggml.h#L746"
+  },
+  "ggml_get_next_tensor": {
+    "signature": "struct ggml_tensor * ggml_get_next_tensor(const struct ggml_context * ctx, struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_get_next_tensor(ctx, tensor)",
+    "location": "ggml.h#L747"
+  },
+  "ggml_get_tensor": {
+    "signature": "struct ggml_tensor * ggml_get_tensor(struct ggml_context * ctx, const char * name)",
+    "signatureShort": "ggml_get_tensor(ctx, name)",
+    "location": "ggml.h#L748"
+  },
+  "ggml_unravel_index": {
+    "signature": "void ggml_unravel_index(const struct ggml_tensor * tensor, int64_t i, int64_t * i0, int64_t * i1, int64_t * i2, int64_t * i3)",
+    "signatureShort": "ggml_unravel_index(tensor, i, i0, i1, i2, i3)",
+    "location": "ggml.h#L751"
+  },
+  "ggml_get_unary_op": {
+    "signature": "enum ggml_unary_op ggml_get_unary_op(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_get_unary_op(tensor)",
+    "location": "ggml.h#L753"
+  },
+  "ggml_get_data": {
+    "signature": "void * ggml_get_data(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_get_data(tensor)",
+    "location": "ggml.h#L755"
+  },
+  "ggml_get_data_f32": {
+    "signature": "float * ggml_get_data_f32(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_get_data_f32(tensor)",
+    "location": "ggml.h#L756"
+  },
+  "ggml_get_name": {
+    "signature": "const char * ggml_get_name(const struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_get_name(tensor)",
+    "location": "ggml.h#L758"
+  },
+  "ggml_set_name": {
+    "signature": "struct ggml_tensor * ggml_set_name(struct ggml_tensor * tensor, const char * name)",
+    "signatureShort": "ggml_set_name(tensor, name)",
+    "location": "ggml.h#L759"
+  },
+  "ggml_format_name": {
+    "signature": "struct ggml_tensor * ggml_format_name(struct ggml_tensor * tensor, const char * fmt)",
+    "signatureShort": "ggml_format_name(tensor, fmt)",
+    "location": "ggml.h#L761"
+  },
+  "ggml_set_input": {
+    "signature": "void ggml_set_input(struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_set_input(tensor)",
+    "location": "ggml.h#L764"
+  },
+  "ggml_set_output": {
+    "signature": "void ggml_set_output(struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_set_output(tensor)",
+    "location": "ggml.h#L765"
+  },
+  "ggml_set_param": {
+    "signature": "void ggml_set_param(struct ggml_context * ctx, struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_set_param(ctx, tensor)",
+    "location": "ggml.h#L766"
+  },
+  "ggml_set_loss": {
+    "signature": "void ggml_set_loss(struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_set_loss(tensor)",
+    "location": "ggml.h#L767"
+  },
+  "ggml_dup": {
+    "signature": "struct ggml_tensor * ggml_dup(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_dup(ctx, a)",
+    "location": "ggml.h#L773"
+  },
+  "ggml_dup_inplace": {
+    "signature": "struct ggml_tensor * ggml_dup_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_dup_inplace(ctx, a)",
+    "location": "ggml.h#L778"
+  },
+  "ggml_add": {
+    "signature": "struct ggml_tensor * ggml_add(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_add(ctx, a, b)",
+    "location": "ggml.h#L782"
+  },
+  "ggml_add_inplace": {
+    "signature": "struct ggml_tensor * ggml_add_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_add_inplace(ctx, a, b)",
+    "location": "ggml.h#L787"
+  },
+  "ggml_add_cast": {
+    "signature": "struct ggml_tensor * ggml_add_cast(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, enum ggml_type type)",
+    "signatureShort": "ggml_add_cast(ctx, a, b, type)",
+    "location": "ggml.h#L792"
+  },
+  "ggml_add1": {
+    "signature": "struct ggml_tensor * ggml_add1(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_add1(ctx, a, b)",
+    "location": "ggml.h#L798"
+  },
+  "ggml_add1_inplace": {
+    "signature": "struct ggml_tensor * ggml_add1_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_add1_inplace(ctx, a, b)",
+    "location": "ggml.h#L803"
+  },
+  "ggml_acc": {
+    "signature": "struct ggml_tensor * ggml_acc(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int nb1, int nb2, int nb3, int offset)",
+    "signatureShort": "ggml_acc(ctx, a, b, nb1, nb2, nb3, offset)",
+    "location": "ggml.h#L811"
+  },
+  "ggml_acc_inplace": {
+    "signature": "struct ggml_tensor * ggml_acc_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int nb1, int nb2, int nb3, int offset)",
+    "signatureShort": "ggml_acc_inplace(ctx, a, b, nb1, nb2, nb3, offset)",
+    "location": "ggml.h#L820"
+  },
+  "ggml_sub": {
+    "signature": "struct ggml_tensor * ggml_sub(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_sub(ctx, a, b)",
+    "location": "ggml.h#L829"
+  },
+  "ggml_sub_inplace": {
+    "signature": "struct ggml_tensor * ggml_sub_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_sub_inplace(ctx, a, b)",
+    "location": "ggml.h#L834"
+  },
+  "ggml_mul": {
+    "signature": "struct ggml_tensor * ggml_mul(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_mul(ctx, a, b)",
+    "location": "ggml.h#L839"
+  },
+  "ggml_mul_inplace": {
+    "signature": "struct ggml_tensor * ggml_mul_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_mul_inplace(ctx, a, b)",
+    "location": "ggml.h#L844"
+  },
+  "ggml_div": {
+    "signature": "struct ggml_tensor * ggml_div(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_div(ctx, a, b)",
+    "location": "ggml.h#L849"
+  },
+  "ggml_div_inplace": {
+    "signature": "struct ggml_tensor * ggml_div_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_div_inplace(ctx, a, b)",
+    "location": "ggml.h#L854"
+  },
+  "ggml_sqr": {
+    "signature": "struct ggml_tensor * ggml_sqr(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sqr(ctx, a)",
+    "location": "ggml.h#L859"
+  },
+  "ggml_sqr_inplace": {
+    "signature": "struct ggml_tensor * ggml_sqr_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sqr_inplace(ctx, a)",
+    "location": "ggml.h#L863"
+  },
+  "ggml_sqrt": {
+    "signature": "struct ggml_tensor * ggml_sqrt(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sqrt(ctx, a)",
+    "location": "ggml.h#L867"
+  },
+  "ggml_sqrt_inplace": {
+    "signature": "struct ggml_tensor * ggml_sqrt_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sqrt_inplace(ctx, a)",
+    "location": "ggml.h#L871"
+  },
+  "ggml_log": {
+    "signature": "struct ggml_tensor * ggml_log(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_log(ctx, a)",
+    "location": "ggml.h#L875"
+  },
+  "ggml_log_inplace": {
+    "signature": "struct ggml_tensor * ggml_log_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_log_inplace(ctx, a)",
+    "location": "ggml.h#L879"
+  },
+  "ggml_sin": {
+    "signature": "struct ggml_tensor * ggml_sin(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sin(ctx, a)",
+    "location": "ggml.h#L883"
+  },
+  "ggml_sin_inplace": {
+    "signature": "struct ggml_tensor * ggml_sin_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sin_inplace(ctx, a)",
+    "location": "ggml.h#L887"
+  },
+  "ggml_cos": {
+    "signature": "struct ggml_tensor * ggml_cos(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_cos(ctx, a)",
+    "location": "ggml.h#L891"
+  },
+  "ggml_cos_inplace": {
+    "signature": "struct ggml_tensor * ggml_cos_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_cos_inplace(ctx, a)",
+    "location": "ggml.h#L895"
+  },
+  "ggml_sum": {
+    "signature": "struct ggml_tensor * ggml_sum(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sum(ctx, a)",
+    "location": "ggml.h#L900"
+  },
+  "ggml_sum_rows": {
+    "signature": "struct ggml_tensor * ggml_sum_rows(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sum_rows(ctx, a)",
+    "location": "ggml.h#L905"
+  },
+  "ggml_mean": {
+    "signature": "struct ggml_tensor * ggml_mean(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_mean(ctx, a)",
+    "location": "ggml.h#L910"
+  },
+  "ggml_argmax": {
+    "signature": "struct ggml_tensor * ggml_argmax(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_argmax(ctx, a)",
+    "location": "ggml.h#L915"
+  },
+  "ggml_count_equal": {
+    "signature": "struct ggml_tensor * ggml_count_equal(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_count_equal(ctx, a, b)",
+    "location": "ggml.h#L920"
+  },
+  "ggml_repeat": {
+    "signature": "struct ggml_tensor * ggml_repeat(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_repeat(ctx, a, b)",
+    "location": "ggml.h#L927"
+  },
+  "ggml_repeat_back": {
+    "signature": "struct ggml_tensor * ggml_repeat_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_repeat_back(ctx, a, b)",
+    "location": "ggml.h#L933"
+  },
+  "ggml_concat": {
+    "signature": "struct ggml_tensor * ggml_concat(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int dim)",
+    "signatureShort": "ggml_concat(ctx, a, b, dim)",
+    "location": "ggml.h#L940"
+  },
+  "ggml_abs": {
+    "signature": "struct ggml_tensor * ggml_abs(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_abs(ctx, a)",
+    "location": "ggml.h#L946"
+  },
+  "ggml_abs_inplace": {
+    "signature": "struct ggml_tensor * ggml_abs_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_abs_inplace(ctx, a)",
+    "location": "ggml.h#L950"
+  },
+  "ggml_sgn": {
+    "signature": "struct ggml_tensor * ggml_sgn(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sgn(ctx, a)",
+    "location": "ggml.h#L954"
+  },
+  "ggml_sgn_inplace": {
+    "signature": "struct ggml_tensor * ggml_sgn_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sgn_inplace(ctx, a)",
+    "location": "ggml.h#L958"
+  },
+  "ggml_neg": {
+    "signature": "struct ggml_tensor * ggml_neg(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_neg(ctx, a)",
+    "location": "ggml.h#L962"
+  },
+  "ggml_neg_inplace": {
+    "signature": "struct ggml_tensor * ggml_neg_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_neg_inplace(ctx, a)",
+    "location": "ggml.h#L966"
+  },
+  "ggml_step": {
+    "signature": "struct ggml_tensor * ggml_step(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_step(ctx, a)",
+    "location": "ggml.h#L970"
+  },
+  "ggml_step_inplace": {
+    "signature": "struct ggml_tensor * ggml_step_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_step_inplace(ctx, a)",
+    "location": "ggml.h#L974"
+  },
+  "ggml_tanh": {
+    "signature": "struct ggml_tensor * ggml_tanh(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_tanh(ctx, a)",
+    "location": "ggml.h#L978"
+  },
+  "ggml_tanh_inplace": {
+    "signature": "struct ggml_tensor * ggml_tanh_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_tanh_inplace(ctx, a)",
+    "location": "ggml.h#L982"
+  },
+  "ggml_elu": {
+    "signature": "struct ggml_tensor * ggml_elu(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_elu(ctx, a)",
+    "location": "ggml.h#L986"
+  },
+  "ggml_elu_inplace": {
+    "signature": "struct ggml_tensor * ggml_elu_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_elu_inplace(ctx, a)",
+    "location": "ggml.h#L990"
+  },
+  "ggml_relu": {
+    "signature": "struct ggml_tensor * ggml_relu(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_relu(ctx, a)",
+    "location": "ggml.h#L994"
+  },
+  "ggml_leaky_relu": {
+    "signature": "struct ggml_tensor * ggml_leaky_relu(struct ggml_context * ctx, struct ggml_tensor * a, float negative_slope, bool inplace)",
+    "signatureShort": "ggml_leaky_relu(ctx, a, negative_slope, inplace)",
+    "location": "ggml.h#L998"
+  },
+  "ggml_relu_inplace": {
+    "signature": "struct ggml_tensor * ggml_relu_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_relu_inplace(ctx, a)",
+    "location": "ggml.h#L1002"
+  },
+  "ggml_sigmoid": {
+    "signature": "struct ggml_tensor * ggml_sigmoid(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sigmoid(ctx, a)",
+    "location": "ggml.h#L1006"
+  },
+  "ggml_sigmoid_inplace": {
+    "signature": "struct ggml_tensor * ggml_sigmoid_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_sigmoid_inplace(ctx, a)",
+    "location": "ggml.h#L1010"
+  },
+  "ggml_gelu": {
+    "signature": "struct ggml_tensor * ggml_gelu(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_gelu(ctx, a)",
+    "location": "ggml.h#L1014"
+  },
+  "ggml_gelu_inplace": {
+    "signature": "struct ggml_tensor * ggml_gelu_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_gelu_inplace(ctx, a)",
+    "location": "ggml.h#L1018"
+  },
+  "ggml_gelu_quick": {
+    "signature": "struct ggml_tensor * ggml_gelu_quick(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_gelu_quick(ctx, a)",
+    "location": "ggml.h#L1022"
+  },
+  "ggml_gelu_quick_inplace": {
+    "signature": "struct ggml_tensor * ggml_gelu_quick_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_gelu_quick_inplace(ctx, a)",
+    "location": "ggml.h#L1026"
+  },
+  "ggml_silu": {
+    "signature": "struct ggml_tensor * ggml_silu(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_silu(ctx, a)",
+    "location": "ggml.h#L1030"
+  },
+  "ggml_silu_inplace": {
+    "signature": "struct ggml_tensor * ggml_silu_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_silu_inplace(ctx, a)",
+    "location": "ggml.h#L1034"
+  },
+  "ggml_silu_back": {
+    "signature": "struct ggml_tensor * ggml_silu_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_silu_back(ctx, a, b)",
+    "location": "ggml.h#L1040"
+  },
+  "ggml_hardswish": {
+    "signature": "struct ggml_tensor * ggml_hardswish(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_hardswish(ctx, a)",
+    "location": "ggml.h#L1046"
+  },
+  "ggml_hardsigmoid": {
+    "signature": "struct ggml_tensor * ggml_hardsigmoid(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_hardsigmoid(ctx, a)",
+    "location": "ggml.h#L1051"
+  },
+  "ggml_exp": {
+    "signature": "struct ggml_tensor * ggml_exp(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_exp(ctx, a)",
+    "location": "ggml.h#L1055"
+  },
+  "ggml_exp_inplace": {
+    "signature": "struct ggml_tensor * ggml_exp_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_exp_inplace(ctx, a)",
+    "location": "ggml.h#L1059"
+  },
+  "ggml_norm": {
+    "signature": "struct ggml_tensor * ggml_norm(struct ggml_context * ctx, struct ggml_tensor * a, float eps)",
+    "signatureShort": "ggml_norm(ctx, a, eps)",
+    "location": "ggml.h#L1064"
+  },
+  "ggml_norm_inplace": {
+    "signature": "struct ggml_tensor * ggml_norm_inplace(struct ggml_context * ctx, struct ggml_tensor * a, float eps)",
+    "signatureShort": "ggml_norm_inplace(ctx, a, eps)",
+    "location": "ggml.h#L1069"
+  },
+  "ggml_rms_norm": {
+    "signature": "struct ggml_tensor * ggml_rms_norm(struct ggml_context * ctx, struct ggml_tensor * a, float eps)",
+    "signatureShort": "ggml_rms_norm(ctx, a, eps)",
+    "location": "ggml.h#L1074"
+  },
+  "ggml_rms_norm_inplace": {
+    "signature": "struct ggml_tensor * ggml_rms_norm_inplace(struct ggml_context * ctx, struct ggml_tensor * a, float eps)",
+    "signatureShort": "ggml_rms_norm_inplace(ctx, a, eps)",
+    "location": "ggml.h#L1079"
+  },
+  "ggml_group_norm": {
+    "signature": "struct ggml_tensor * ggml_group_norm(struct ggml_context * ctx, struct ggml_tensor * a, int n_groups, float eps)",
+    "signatureShort": "ggml_group_norm(ctx, a, n_groups, eps)",
+    "location": "ggml.h#L1086"
+  },
+  "ggml_group_norm_inplace": {
+    "signature": "struct ggml_tensor * ggml_group_norm_inplace(struct ggml_context * ctx, struct ggml_tensor * a, int n_groups, float eps)",
+    "signatureShort": "ggml_group_norm_inplace(ctx, a, n_groups, eps)",
+    "location": "ggml.h#L1092"
+  },
+  "ggml_rms_norm_back": {
+    "signature": "struct ggml_tensor * ggml_rms_norm_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, float eps)",
+    "signatureShort": "ggml_rms_norm_back(ctx, a, b, eps)",
+    "location": "ggml.h#L1100"
+  },
+  "ggml_mul_mat": {
+    "signature": "struct ggml_tensor * ggml_mul_mat(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_mul_mat(ctx, a, b)",
+    "location": "ggml.h#L1109"
+  },
+  "ggml_mul_mat_set_prec": {
+    "signature": "void ggml_mul_mat_set_prec(struct ggml_tensor * a, enum ggml_prec prec)",
+    "signatureShort": "ggml_mul_mat_set_prec(a, prec)",
+    "location": "ggml.h#L1116"
+  },
+  "ggml_mul_mat_id": {
+    "signature": "struct ggml_tensor * ggml_mul_mat_id(struct ggml_context * ctx, struct ggml_tensor * as, struct ggml_tensor * b, struct ggml_tensor * ids)",
+    "signatureShort": "ggml_mul_mat_id(ctx, as, b, ids)",
+    "location": "ggml.h#L1121"
+  },
+  "ggml_out_prod": {
+    "signature": "struct ggml_tensor * ggml_out_prod(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_out_prod(ctx, a, b)",
+    "location": "ggml.h#L1130"
+  },
+  "ggml_scale": {
+    "signature": "struct ggml_tensor * ggml_scale(struct ggml_context * ctx, struct ggml_tensor * a, float s)",
+    "signatureShort": "ggml_scale(ctx, a, s)",
+    "location": "ggml.h#L1139"
+  },
+  "ggml_scale_inplace": {
+    "signature": "struct ggml_tensor * ggml_scale_inplace(struct ggml_context * ctx, struct ggml_tensor * a, float s)",
+    "signatureShort": "ggml_scale_inplace(ctx, a, s)",
+    "location": "ggml.h#L1145"
+  },
+  "ggml_set": {
+    "signature": "struct ggml_tensor * ggml_set(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int nb1, int nb2, int nb3, int offset)",
+    "signatureShort": "ggml_set(ctx, a, b, nb1, nb2, nb3, offset)",
+    "location": "ggml.h#L1151"
+  },
+  "ggml_set_inplace": {
+    "signature": "struct ggml_tensor * ggml_set_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int nb1, int nb2, int nb3, int offset)",
+    "signatureShort": "ggml_set_inplace(ctx, a, b, nb1, nb2, nb3, offset)",
+    "location": "ggml.h#L1161"
+  },
+  "ggml_set_1d": {
+    "signature": "struct ggml_tensor * ggml_set_1d(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int offset)",
+    "signatureShort": "ggml_set_1d(ctx, a, b, offset)",
+    "location": "ggml.h#L1170"
+  },
+  "ggml_set_1d_inplace": {
+    "signature": "struct ggml_tensor * ggml_set_1d_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int offset)",
+    "signatureShort": "ggml_set_1d_inplace(ctx, a, b, offset)",
+    "location": "ggml.h#L1176"
+  },
+  "ggml_set_2d": {
+    "signature": "struct ggml_tensor * ggml_set_2d(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int nb1, int offset)",
+    "signatureShort": "ggml_set_2d(ctx, a, b, nb1, offset)",
+    "location": "ggml.h#L1183"
+  },
+  "ggml_set_2d_inplace": {
+    "signature": "struct ggml_tensor * ggml_set_2d_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int nb1, int offset)",
+    "signatureShort": "ggml_set_2d_inplace(ctx, a, b, nb1, offset)",
+    "location": "ggml.h#L1191"
+  },
+  "ggml_cpy": {
+    "signature": "struct ggml_tensor * ggml_cpy(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_cpy(ctx, a, b)",
+    "location": "ggml.h#L1199"
+  },
+  "ggml_cast": {
+    "signature": "struct ggml_tensor * ggml_cast(struct ggml_context * ctx, struct ggml_tensor * a, enum ggml_type type)",
+    "signatureShort": "ggml_cast(ctx, a, type)",
+    "location": "ggml.h#L1204"
+  },
+  "ggml_cont": {
+    "signature": "struct ggml_tensor * ggml_cont(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_cont(ctx, a)",
+    "location": "ggml.h#L1210"
+  },
+  "ggml_cont_1d": {
+    "signature": "struct ggml_tensor * ggml_cont_1d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0)",
+    "signatureShort": "ggml_cont_1d(ctx, a, ne0)",
+    "location": "ggml.h#L1215"
+  },
+  "ggml_cont_2d": {
+    "signature": "struct ggml_tensor * ggml_cont_2d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1)",
+    "signatureShort": "ggml_cont_2d(ctx, a, ne0, ne1)",
+    "location": "ggml.h#L1220"
+  },
+  "ggml_cont_3d": {
+    "signature": "struct ggml_tensor * ggml_cont_3d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1, int64_t ne2)",
+    "signatureShort": "ggml_cont_3d(ctx, a, ne0, ne1, ne2)",
+    "location": "ggml.h#L1226"
+  },
+  "ggml_cont_4d": {
+    "signature": "struct ggml_tensor * ggml_cont_4d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1, int64_t ne2, int64_t ne3)",
+    "signatureShort": "ggml_cont_4d(ctx, a, ne0, ne1, ne2, ne3)",
+    "location": "ggml.h#L1233"
+  },
+  "ggml_reshape": {
+    "signature": "struct ggml_tensor * ggml_reshape(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_reshape(ctx, a, b)",
+    "location": "ggml.h#L1243"
+  },
+  "ggml_reshape_1d": {
+    "signature": "struct ggml_tensor * ggml_reshape_1d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0)",
+    "signatureShort": "ggml_reshape_1d(ctx, a, ne0)",
+    "location": "ggml.h#L1250"
+  },
+  "ggml_reshape_2d": {
+    "signature": "struct ggml_tensor * ggml_reshape_2d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1)",
+    "signatureShort": "ggml_reshape_2d(ctx, a, ne0, ne1)",
+    "location": "ggml.h#L1255"
+  },
+  "ggml_reshape_3d": {
+    "signature": "struct ggml_tensor * ggml_reshape_3d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1, int64_t ne2)",
+    "signatureShort": "ggml_reshape_3d(ctx, a, ne0, ne1, ne2)",
+    "location": "ggml.h#L1263"
+  },
+  "ggml_reshape_4d": {
+    "signature": "struct ggml_tensor * ggml_reshape_4d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1, int64_t ne2, int64_t ne3)",
+    "signatureShort": "ggml_reshape_4d(ctx, a, ne0, ne1, ne2, ne3)",
+    "location": "ggml.h#L1270"
+  },
+  "ggml_view_1d": {
+    "signature": "struct ggml_tensor * ggml_view_1d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int offset)",
+    "signatureShort": "ggml_view_1d(ctx, a, ne0, offset)",
+    "location": "ggml.h#L1279"
+  },
+  "ggml_view_2d": {
+    "signature": "struct ggml_tensor * ggml_view_2d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1, int nb1, int offset)",
+    "signatureShort": "ggml_view_2d(ctx, a, ne0, ne1, nb1, offset)",
+    "location": "ggml.h#L1285"
+  },
+  "ggml_view_3d": {
+    "signature": "struct ggml_tensor * ggml_view_3d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1, int64_t ne2, int nb1, int nb2, int offset)",
+    "signatureShort": "ggml_view_3d(ctx, a, ne0, ne1, ne2, nb1, nb2, offset)",
+    "location": "ggml.h#L1293"
+  },
+  "ggml_view_4d": {
+    "signature": "struct ggml_tensor * ggml_view_4d(struct ggml_context * ctx, struct ggml_tensor * a, int64_t ne0, int64_t ne1, int64_t ne2, int64_t ne3, int nb1, int nb2, int nb3, int offset)",
+    "signatureShort": "ggml_view_4d(ctx, a, ne0, ne1, ne2, ne3, nb1, nb2, nb3, offset)",
+    "location": "ggml.h#L1303"
+  },
+  "ggml_permute": {
+    "signature": "struct ggml_tensor * ggml_permute(struct ggml_context * ctx, struct ggml_tensor * a, int axis0, int axis1, int axis2, int axis3)",
+    "signatureShort": "ggml_permute(ctx, a, axis0, axis1, axis2, axis3)",
+    "location": "ggml.h#L1315"
+  },
+  "ggml_transpose": {
+    "signature": "struct ggml_tensor * ggml_transpose(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_transpose(ctx, a)",
+    "location": "ggml.h#L1324"
+  },
+  "ggml_get_rows": {
+    "signature": "struct ggml_tensor * ggml_get_rows(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_get_rows(ctx, a, b)",
+    "location": "ggml.h#L1329"
+  },
+  "ggml_get_rows_back": {
+    "signature": "struct ggml_tensor * ggml_get_rows_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c)",
+    "signatureShort": "ggml_get_rows_back(ctx, a, b, c)",
+    "location": "ggml.h#L1334"
+  },
+  "ggml_diag": {
+    "signature": "struct ggml_tensor * ggml_diag(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_diag(ctx, a)",
+    "location": "ggml.h#L1340"
+  },
+  "ggml_diag_mask_inf": {
+    "signature": "struct ggml_tensor * ggml_diag_mask_inf(struct ggml_context * ctx, struct ggml_tensor * a, int n_past)",
+    "signatureShort": "ggml_diag_mask_inf(ctx, a, n_past)",
+    "location": "ggml.h#L1345"
+  },
+  "ggml_diag_mask_inf_inplace": {
+    "signature": "struct ggml_tensor * ggml_diag_mask_inf_inplace(struct ggml_context * ctx, struct ggml_tensor * a, int n_past)",
+    "signatureShort": "ggml_diag_mask_inf_inplace(ctx, a, n_past)",
+    "location": "ggml.h#L1351"
+  },
+  "ggml_diag_mask_zero": {
+    "signature": "struct ggml_tensor * ggml_diag_mask_zero(struct ggml_context * ctx, struct ggml_tensor * a, int n_past)",
+    "signatureShort": "ggml_diag_mask_zero(ctx, a, n_past)",
+    "location": "ggml.h#L1357"
+  },
+  "ggml_diag_mask_zero_inplace": {
+    "signature": "struct ggml_tensor * ggml_diag_mask_zero_inplace(struct ggml_context * ctx, struct ggml_tensor * a, int n_past)",
+    "signatureShort": "ggml_diag_mask_zero_inplace(ctx, a, n_past)",
+    "location": "ggml.h#L1363"
+  },
+  "ggml_soft_max": {
+    "signature": "struct ggml_tensor * ggml_soft_max(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_soft_max(ctx, a)",
+    "location": "ggml.h#L1368"
+  },
+  "ggml_soft_max_inplace": {
+    "signature": "struct ggml_tensor * ggml_soft_max_inplace(struct ggml_context * ctx, struct ggml_tensor * a)",
+    "signatureShort": "ggml_soft_max_inplace(ctx, a)",
+    "location": "ggml.h#L1373"
+  },
+  "ggml_soft_max_ext": {
+    "signature": "struct ggml_tensor * ggml_soft_max_ext(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * mask, float scale, float max_bias)",
+    "signatureShort": "ggml_soft_max_ext(ctx, a, mask, scale, max_bias)",
+    "location": "ggml.h#L1380"
+  },
+  "ggml_soft_max_ext_back": {
+    "signature": "struct ggml_tensor * ggml_soft_max_ext_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, float scale, float max_bias)",
+    "signatureShort": "ggml_soft_max_ext_back(ctx, a, b, scale, max_bias)",
+    "location": "ggml.h#L1387"
+  },
+  "ggml_soft_max_ext_back_inplace": {
+    "signature": "struct ggml_tensor * ggml_soft_max_ext_back_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, float scale, float max_bias)",
+    "signatureShort": "ggml_soft_max_ext_back_inplace(ctx, a, b, scale, max_bias)",
+    "location": "ggml.h#L1395"
+  },
+  "ggml_rope": {
+    "signature": "struct ggml_tensor * ggml_rope(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int n_dims, int mode)",
+    "signatureShort": "ggml_rope(ctx, a, b, n_dims, mode)",
+    "location": "ggml.h#L1407"
+  },
+  "ggml_rope_inplace": {
+    "signature": "struct ggml_tensor * ggml_rope_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int n_dims, int mode)",
+    "signatureShort": "ggml_rope_inplace(ctx, a, b, n_dims, mode)",
+    "location": "ggml.h#L1415"
+  },
+  "ggml_rope_ext": {
+    "signature": "struct ggml_tensor * ggml_rope_ext(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, int n_dims, int mode, int n_ctx_orig, float freq_base, float freq_scale, float ext_factor, float attn_factor, float beta_fast, float beta_slow)",
+    "signatureShort": "ggml_rope_ext(ctx, a, b, c, n_dims, mode, n_ctx_orig, freq_base, freq_scale, ext_factor, attn_factor, beta_fast, beta_slow)",
+    "location": "ggml.h#L1424"
+  },
+  "ggml_rope_multi": {
+    "signature": "struct ggml_tensor * ggml_rope_multi(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, int n_dims, int[4] sections, int mode, int n_ctx_orig, float freq_base, float freq_scale, float ext_factor, float attn_factor, float beta_fast, float beta_slow)",
+    "signatureShort": "ggml_rope_multi(ctx, a, b, c, n_dims, sections, mode, n_ctx_orig, freq_base, freq_scale, ext_factor, attn_factor, beta_fast, beta_slow)",
+    "location": "ggml.h#L1439"
+  },
+  "ggml_rope_ext_inplace": {
+    "signature": "struct ggml_tensor * ggml_rope_ext_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, int n_dims, int mode, int n_ctx_orig, float freq_base, float freq_scale, float ext_factor, float attn_factor, float beta_fast, float beta_slow)",
+    "signatureShort": "ggml_rope_ext_inplace(ctx, a, b, c, n_dims, mode, n_ctx_orig, freq_base, freq_scale, ext_factor, attn_factor, beta_fast, beta_slow)",
+    "location": "ggml.h#L1456"
+  },
+  "ggml_rope_custom": {
+    "signature": "struct ggml_tensor * ggml_rope_custom(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int n_dims, int mode, int n_ctx_orig, float freq_base, float freq_scale, float ext_factor, float attn_factor, float beta_fast, float beta_slow)",
+    "signatureShort": "ggml_rope_custom(ctx, a, b, n_dims, mode, n_ctx_orig, freq_base, freq_scale, ext_factor, attn_factor, beta_fast, beta_slow)",
+    "location": "ggml.h#L1471"
+  },
+  "ggml_rope_custom_inplace": {
+    "signature": "struct ggml_tensor * ggml_rope_custom_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int n_dims, int mode, int n_ctx_orig, float freq_base, float freq_scale, float ext_factor, float attn_factor, float beta_fast, float beta_slow)",
+    "signatureShort": "ggml_rope_custom_inplace(ctx, a, b, n_dims, mode, n_ctx_orig, freq_base, freq_scale, ext_factor, attn_factor, beta_fast, beta_slow)",
+    "location": "ggml.h#L1486"
+  },
+  "ggml_rope_yarn_corr_dims": {
+    "signature": "void ggml_rope_yarn_corr_dims(int n_dims, int n_ctx_orig, float freq_base, float beta_fast, float beta_slow, float[2] dims)",
+    "signatureShort": "ggml_rope_yarn_corr_dims(n_dims, n_ctx_orig, freq_base, beta_fast, beta_slow, dims)",
+    "location": "ggml.h#L1502"
+  },
+  "ggml_rope_ext_back": {
+    "signature": "struct ggml_tensor * ggml_rope_ext_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, int n_dims, int mode, int n_ctx_orig, float freq_base, float freq_scale, float ext_factor, float attn_factor, float beta_fast, float beta_slow)",
+    "signatureShort": "ggml_rope_ext_back(ctx, a, b, c, n_dims, mode, n_ctx_orig, freq_base, freq_scale, ext_factor, attn_factor, beta_fast, beta_slow)",
+    "location": "ggml.h#L1507"
+  },
+  "ggml_rope_multi_back": {
+    "signature": "struct ggml_tensor * ggml_rope_multi_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, int n_dims, int[4] sections, int mode, int n_ctx_orig, float freq_base, float freq_scale, float ext_factor, float attn_factor, float beta_fast, float beta_slow)",
+    "signatureShort": "ggml_rope_multi_back(ctx, a, b, c, n_dims, sections, mode, n_ctx_orig, freq_base, freq_scale, ext_factor, attn_factor, beta_fast, beta_slow)",
+    "location": "ggml.h#L1522"
+  },
+  "ggml_clamp": {
+    "signature": "struct ggml_tensor * ggml_clamp(struct ggml_context * ctx, struct ggml_tensor * a, float min, float max)",
+    "signatureShort": "ggml_clamp(ctx, a, min, max)",
+    "location": "ggml.h#L1541"
+  },
+  "ggml_im2col": {
+    "signature": "struct ggml_tensor * ggml_im2col(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int s0, int s1, int p0, int p1, int d0, int d1, bool is_2D, enum ggml_type dst_type)",
+    "signatureShort": "ggml_im2col(ctx, a, b, s0, s1, p0, p1, d0, d1, is_2D, dst_type)",
+    "location": "ggml.h#L1549"
+  },
+  "ggml_im2col_back": {
+    "signature": "struct ggml_tensor * ggml_im2col_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int64_t * ne, int s0, int s1, int p0, int p1, int d0, int d1, bool is_2D)",
+    "signatureShort": "ggml_im2col_back(ctx, a, b, ne, s0, s1, p0, p1, d0, d1, is_2D)",
+    "location": "ggml.h#L1562"
+  },
+  "ggml_conv_1d": {
+    "signature": "struct ggml_tensor * ggml_conv_1d(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int s0, int p0, int d0)",
+    "signatureShort": "ggml_conv_1d(ctx, a, b, s0, p0, d0)",
+    "location": "ggml.h#L1575"
+  },
+  "ggml_conv_1d_ph": {
+    "signature": "struct ggml_tensor * ggml_conv_1d_ph(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int s, int d)",
+    "signatureShort": "ggml_conv_1d_ph(ctx, a, b, s, d)",
+    "location": "ggml.h#L1585"
+  },
+  "ggml_conv_1d_dw": {
+    "signature": "struct ggml_tensor * ggml_conv_1d_dw(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int s0, int p0, int d0)",
+    "signatureShort": "ggml_conv_1d_dw(ctx, a, b, s0, p0, d0)",
+    "location": "ggml.h#L1594"
+  },
+  "ggml_conv_1d_dw_ph": {
+    "signature": "struct ggml_tensor * ggml_conv_1d_dw_ph(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int s0, int d0)",
+    "signatureShort": "ggml_conv_1d_dw_ph(ctx, a, b, s0, d0)",
+    "location": "ggml.h#L1602"
+  },
+  "ggml_conv_transpose_1d": {
+    "signature": "struct ggml_tensor * ggml_conv_transpose_1d(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int s0, int p0, int d0)",
+    "signatureShort": "ggml_conv_transpose_1d(ctx, a, b, s0, p0, d0)",
+    "location": "ggml.h#L1609"
+  },
+  "ggml_conv_2d": {
+    "signature": "struct ggml_tensor * ggml_conv_2d(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int s0, int s1, int p0, int p1, int d0, int d1)",
+    "signatureShort": "ggml_conv_2d(ctx, a, b, s0, s1, p0, p1, d0, d1)",
+    "location": "ggml.h#L1617"
+  },
+  "ggml_conv_2d_sk_p0": {
+    "signature": "struct ggml_tensor * ggml_conv_2d_sk_p0(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_conv_2d_sk_p0(ctx, a, b)",
+    "location": "ggml.h#L1636"
+  },
+  "ggml_conv_2d_s1_ph": {
+    "signature": "struct ggml_tensor * ggml_conv_2d_s1_ph(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_conv_2d_s1_ph(ctx, a, b)",
+    "location": "ggml.h#L1649"
+  },
+  "ggml_conv_2d_dw": {
+    "signature": "struct ggml_tensor * ggml_conv_2d_dw(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int s0, int s1, int p0, int p1, int d0, int d1)",
+    "signatureShort": "ggml_conv_2d_dw(ctx, a, b, s0, s1, p0, p1, d0, d1)",
+    "location": "ggml.h#L1655"
+  },
+  "ggml_conv_transpose_2d_p0": {
+    "signature": "struct ggml_tensor * ggml_conv_transpose_2d_p0(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, int stride)",
+    "signatureShort": "ggml_conv_transpose_2d_p0(ctx, a, b, stride)",
+    "location": "ggml.h#L1666"
+  },
+  "ggml_pool_1d": {
+    "signature": "struct ggml_tensor * ggml_pool_1d(struct ggml_context * ctx, struct ggml_tensor * a, enum ggml_op_pool op, int k0, int s0, int p0)",
+    "signatureShort": "ggml_pool_1d(ctx, a, op, k0, s0, p0)",
+    "location": "ggml.h#L1678"
+  },
+  "ggml_pool_2d": {
+    "signature": "struct ggml_tensor * ggml_pool_2d(struct ggml_context * ctx, struct ggml_tensor * a, enum ggml_op_pool op, int k0, int k1, int s0, int s1, float p0, float p1)",
+    "signatureShort": "ggml_pool_2d(ctx, a, op, k0, k1, s0, s1, p0, p1)",
+    "location": "ggml.h#L1688"
+  },
+  "ggml_pool_2d_back": {
+    "signature": "struct ggml_tensor * ggml_pool_2d_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * af, enum ggml_op_pool op, int k0, int k1, int s0, int s1, float p0, float p1)",
+    "signatureShort": "ggml_pool_2d_back(ctx, a, af, op, k0, k1, s0, s1, p0, p1)",
+    "location": "ggml.h#L1699"
+  },
+  "ggml_upscale": {
+    "signature": "struct ggml_tensor * ggml_upscale(struct ggml_context * ctx, struct ggml_tensor * a, int scale_factor)",
+    "signatureShort": "ggml_upscale(ctx, a, scale_factor)",
+    "location": "ggml.h#L1714"
+  },
+  "ggml_upscale_ext": {
+    "signature": "struct ggml_tensor * ggml_upscale_ext(struct ggml_context * ctx, struct ggml_tensor * a, int ne0, int ne1, int ne2, int ne3)",
+    "signatureShort": "ggml_upscale_ext(ctx, a, ne0, ne1, ne2, ne3)",
+    "location": "ggml.h#L1722"
+  },
+  "ggml_pad": {
+    "signature": "struct ggml_tensor * ggml_pad(struct ggml_context * ctx, struct ggml_tensor * a, int p0, int p1, int p2, int p3)",
+    "signatureShort": "ggml_pad(ctx, a, p0, p1, p2, p3)",
+    "location": "ggml.h#L1731"
+  },
+  "ggml_pad_reflect_1d": {
+    "signature": "struct ggml_tensor * ggml_pad_reflect_1d(struct ggml_context * ctx, struct ggml_tensor * a, int p0, int p1)",
+    "signatureShort": "ggml_pad_reflect_1d(ctx, a, p0, p1)",
+    "location": "ggml.h#L1740"
+  },
+  "ggml_timestep_embedding": {
+    "signature": "struct ggml_tensor * ggml_timestep_embedding(struct ggml_context * ctx, struct ggml_tensor * timesteps, int dim, int max_period)",
+    "signatureShort": "ggml_timestep_embedding(ctx, timesteps, dim, max_period)",
+    "location": "ggml.h#L1749"
+  },
+  "ggml_argsort": {
+    "signature": "struct ggml_tensor * ggml_argsort(struct ggml_context * ctx, struct ggml_tensor * a, enum ggml_sort_order order)",
+    "signatureShort": "ggml_argsort(ctx, a, order)",
+    "location": "ggml.h#L1761"
+  },
+  "ggml_arange": {
+    "signature": "struct ggml_tensor * ggml_arange(struct ggml_context * ctx, float start, float stop, float step)",
+    "signatureShort": "ggml_arange(ctx, start, stop, step)",
+    "location": "ggml.h#L1766"
+  },
+  "ggml_top_k": {
+    "signature": "struct ggml_tensor * ggml_top_k(struct ggml_context * ctx, struct ggml_tensor * a, int k)",
+    "signatureShort": "ggml_top_k(ctx, a, k)",
+    "location": "ggml.h#L1773"
+  },
+  "ggml_flash_attn_ext": {
+    "signature": "struct ggml_tensor * ggml_flash_attn_ext(struct ggml_context * ctx, struct ggml_tensor * q, struct ggml_tensor * k, struct ggml_tensor * v, struct ggml_tensor * mask, float scale, float max_bias, float logit_softcap)",
+    "signatureShort": "ggml_flash_attn_ext(ctx, q, k, v, mask, scale, max_bias, logit_softcap)",
+    "location": "ggml.h#L1785"
+  },
+  "ggml_flash_attn_ext_set_prec": {
+    "signature": "void ggml_flash_attn_ext_set_prec(struct ggml_tensor * a, enum ggml_prec prec)",
+    "signatureShort": "ggml_flash_attn_ext_set_prec(a, prec)",
+    "location": "ggml.h#L1795"
+  },
+  "ggml_flash_attn_ext_get_prec": {
+    "signature": "enum ggml_prec ggml_flash_attn_ext_get_prec(const struct ggml_tensor * a)",
+    "signatureShort": "ggml_flash_attn_ext_get_prec(a)",
+    "location": "ggml.h#L1799"
+  },
+  "ggml_flash_attn_back": {
+    "signature": "struct ggml_tensor * ggml_flash_attn_back(struct ggml_context * ctx, struct ggml_tensor * q, struct ggml_tensor * k, struct ggml_tensor * v, struct ggml_tensor * d, bool masked)",
+    "signatureShort": "ggml_flash_attn_back(ctx, q, k, v, d, masked)",
+    "location": "ggml.h#L1803"
+  },
+  "ggml_ssm_conv": {
+    "signature": "struct ggml_tensor * ggml_ssm_conv(struct ggml_context * ctx, struct ggml_tensor * sx, struct ggml_tensor * c)",
+    "signatureShort": "ggml_ssm_conv(ctx, sx, c)",
+    "location": "ggml.h#L1811"
+  },
+  "ggml_ssm_scan": {
+    "signature": "struct ggml_tensor * ggml_ssm_scan(struct ggml_context * ctx, struct ggml_tensor * s, struct ggml_tensor * x, struct ggml_tensor * dt, struct ggml_tensor * A, struct ggml_tensor * B, struct ggml_tensor * C)",
+    "signatureShort": "ggml_ssm_scan(ctx, s, x, dt, A, B, C)",
+    "location": "ggml.h#L1816"
+  },
+  "ggml_win_part": {
+    "signature": "struct ggml_tensor * ggml_win_part(struct ggml_context * ctx, struct ggml_tensor * a, int w)",
+    "signatureShort": "ggml_win_part(ctx, a, w)",
+    "location": "ggml.h#L1831"
+  },
+  "ggml_win_unpart": {
+    "signature": "struct ggml_tensor * ggml_win_unpart(struct ggml_context * ctx, struct ggml_tensor * a, int w0, int h0, int w)",
+    "signatureShort": "ggml_win_unpart(ctx, a, w0, h0, w)",
+    "location": "ggml.h#L1838"
+  },
+  "ggml_unary": {
+    "signature": "struct ggml_tensor * ggml_unary(struct ggml_context * ctx, struct ggml_tensor * a, enum ggml_unary_op op)",
+    "signatureShort": "ggml_unary(ctx, a, op)",
+    "location": "ggml.h#L1845"
+  },
+  "ggml_unary_inplace": {
+    "signature": "struct ggml_tensor * ggml_unary_inplace(struct ggml_context * ctx, struct ggml_tensor * a, enum ggml_unary_op op)",
+    "signatureShort": "ggml_unary_inplace(ctx, a, op)",
+    "location": "ggml.h#L1850"
+  },
+  "ggml_get_rel_pos": {
+    "signature": "struct ggml_tensor * ggml_get_rel_pos(struct ggml_context * ctx, struct ggml_tensor * a, int qh, int kh)",
+    "signatureShort": "ggml_get_rel_pos(ctx, a, qh, kh)",
+    "location": "ggml.h#L1856"
+  },
+  "ggml_add_rel_pos": {
+    "signature": "struct ggml_tensor * ggml_add_rel_pos(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * pw, struct ggml_tensor * ph)",
+    "signatureShort": "ggml_add_rel_pos(ctx, a, pw, ph)",
+    "location": "ggml.h#L1863"
+  },
+  "ggml_add_rel_pos_inplace": {
+    "signature": "struct ggml_tensor * ggml_add_rel_pos_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * pw, struct ggml_tensor * ph)",
+    "signatureShort": "ggml_add_rel_pos_inplace(ctx, a, pw, ph)",
+    "location": "ggml.h#L1869"
+  },
+  "ggml_rwkv_wkv6": {
+    "signature": "struct ggml_tensor * ggml_rwkv_wkv6(struct ggml_context * ctx, struct ggml_tensor * k, struct ggml_tensor * v, struct ggml_tensor * r, struct ggml_tensor * tf, struct ggml_tensor * td, struct ggml_tensor * state)",
+    "signatureShort": "ggml_rwkv_wkv6(ctx, k, v, r, tf, td, state)",
+    "location": "ggml.h#L1875"
+  },
+  "ggml_gated_linear_attn": {
+    "signature": "struct ggml_tensor * ggml_gated_linear_attn(struct ggml_context * ctx, struct ggml_tensor * k, struct ggml_tensor * v, struct ggml_tensor * q, struct ggml_tensor * g, struct ggml_tensor * state, float scale)",
+    "signatureShort": "ggml_gated_linear_attn(ctx, k, v, q, g, state, scale)",
+    "location": "ggml.h#L1884"
+  },
+  "ggml_map_unary_f32": {
+    "signature": "struct ggml_tensor * ggml_map_unary_f32(struct ggml_context * ctx, struct ggml_tensor * a, ggml_unary_op_f32_t fun)",
+    "signatureShort": "ggml_map_unary_f32(ctx, a, fun)",
+    "location": "ggml.h#L1902"
+  },
+  "ggml_map_unary_inplace_f32": {
+    "signature": "struct ggml_tensor * ggml_map_unary_inplace_f32(struct ggml_context * ctx, struct ggml_tensor * a, ggml_unary_op_f32_t fun)",
+    "signatureShort": "ggml_map_unary_inplace_f32(ctx, a, fun)",
+    "location": "ggml.h#L1908"
+  },
+  "ggml_map_binary_f32": {
+    "signature": "struct ggml_tensor * ggml_map_binary_f32(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, ggml_binary_op_f32_t fun)",
+    "signatureShort": "ggml_map_binary_f32(ctx, a, b, fun)",
+    "location": "ggml.h#L1914"
+  },
+  "ggml_map_binary_inplace_f32": {
+    "signature": "struct ggml_tensor * ggml_map_binary_inplace_f32(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, ggml_binary_op_f32_t fun)",
+    "signatureShort": "ggml_map_binary_inplace_f32(ctx, a, b, fun)",
+    "location": "ggml.h#L1921"
+  },
+  "ggml_map_custom1_f32": {
+    "signature": "struct ggml_tensor * ggml_map_custom1_f32(struct ggml_context * ctx, struct ggml_tensor * a, ggml_custom1_op_f32_t fun)",
+    "signatureShort": "ggml_map_custom1_f32(ctx, a, fun)",
+    "location": "ggml.h#L1928"
+  },
+  "ggml_map_custom1_inplace_f32": {
+    "signature": "struct ggml_tensor * ggml_map_custom1_inplace_f32(struct ggml_context * ctx, struct ggml_tensor * a, ggml_custom1_op_f32_t fun)",
+    "signatureShort": "ggml_map_custom1_inplace_f32(ctx, a, fun)",
+    "location": "ggml.h#L1934"
+  },
+  "ggml_map_custom2_f32": {
+    "signature": "struct ggml_tensor * ggml_map_custom2_f32(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, ggml_custom2_op_f32_t fun)",
+    "signatureShort": "ggml_map_custom2_f32(ctx, a, b, fun)",
+    "location": "ggml.h#L1940"
+  },
+  "ggml_map_custom2_inplace_f32": {
+    "signature": "struct ggml_tensor * ggml_map_custom2_inplace_f32(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, ggml_custom2_op_f32_t fun)",
+    "signatureShort": "ggml_map_custom2_inplace_f32(ctx, a, b, fun)",
+    "location": "ggml.h#L1947"
+  },
+  "ggml_map_custom3_f32": {
+    "signature": "struct ggml_tensor * ggml_map_custom3_f32(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, ggml_custom3_op_f32_t fun)",
+    "signatureShort": "ggml_map_custom3_f32(ctx, a, b, c, fun)",
+    "location": "ggml.h#L1954"
+  },
+  "ggml_map_custom3_inplace_f32": {
+    "signature": "struct ggml_tensor * ggml_map_custom3_inplace_f32(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, ggml_custom3_op_f32_t fun)",
+    "signatureShort": "ggml_map_custom3_inplace_f32(ctx, a, b, c, fun)",
+    "location": "ggml.h#L1962"
+  },
+  "ggml_map_custom1": {
+    "signature": "struct ggml_tensor * ggml_map_custom1(struct ggml_context * ctx, struct ggml_tensor * a, ggml_custom1_op_t fun, int n_tasks, void * userdata)",
+    "signatureShort": "ggml_map_custom1(ctx, a, fun, n_tasks, userdata)",
+    "location": "ggml.h#L1979"
+  },
+  "ggml_map_custom1_inplace": {
+    "signature": "struct ggml_tensor * ggml_map_custom1_inplace(struct ggml_context * ctx, struct ggml_tensor * a, ggml_custom1_op_t fun, int n_tasks, void * userdata)",
+    "signatureShort": "ggml_map_custom1_inplace(ctx, a, fun, n_tasks, userdata)",
+    "location": "ggml.h#L1986"
+  },
+  "ggml_map_custom2": {
+    "signature": "struct ggml_tensor * ggml_map_custom2(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, ggml_custom2_op_t fun, int n_tasks, void * userdata)",
+    "signatureShort": "ggml_map_custom2(ctx, a, b, fun, n_tasks, userdata)",
+    "location": "ggml.h#L1993"
+  },
+  "ggml_map_custom2_inplace": {
+    "signature": "struct ggml_tensor * ggml_map_custom2_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, ggml_custom2_op_t fun, int n_tasks, void * userdata)",
+    "signatureShort": "ggml_map_custom2_inplace(ctx, a, b, fun, n_tasks, userdata)",
+    "location": "ggml.h#L2001"
+  },
+  "ggml_map_custom3": {
+    "signature": "struct ggml_tensor * ggml_map_custom3(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, ggml_custom3_op_t fun, int n_tasks, void * userdata)",
+    "signatureShort": "ggml_map_custom3(ctx, a, b, c, fun, n_tasks, userdata)",
+    "location": "ggml.h#L2009"
+  },
+  "ggml_map_custom3_inplace": {
+    "signature": "struct ggml_tensor * ggml_map_custom3_inplace(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c, ggml_custom3_op_t fun, int n_tasks, void * userdata)",
+    "signatureShort": "ggml_map_custom3_inplace(ctx, a, b, c, fun, n_tasks, userdata)",
+    "location": "ggml.h#L2018"
+  },
+  "ggml_cross_entropy_loss": {
+    "signature": "struct ggml_tensor * ggml_cross_entropy_loss(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b)",
+    "signatureShort": "ggml_cross_entropy_loss(ctx, a, b)",
+    "location": "ggml.h#L2029"
+  },
+  "ggml_cross_entropy_loss_back": {
+    "signature": "struct ggml_tensor * ggml_cross_entropy_loss_back(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * b, struct ggml_tensor * c)",
+    "signatureShort": "ggml_cross_entropy_loss_back(ctx, a, b, c)",
+    "location": "ggml.h#L2034"
+  },
+  "ggml_opt_step_adamw": {
+    "signature": "struct ggml_tensor * ggml_opt_step_adamw(struct ggml_context * ctx, struct ggml_tensor * a, struct ggml_tensor * grad, struct ggml_tensor * m, struct ggml_tensor * v, struct ggml_tensor * adamw_params)",
+    "signatureShort": "ggml_opt_step_adamw(ctx, a, grad, m, v, adamw_params)",
+    "location": "ggml.h#L2043"
+  },
+  "ggml_build_forward_expand": {
+    "signature": "void ggml_build_forward_expand(struct ggml_cgraph * cgraph, struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_build_forward_expand(cgraph, tensor)",
+    "location": "ggml.h#L2055"
+  },
+  "ggml_build_backward_expand": {
+    "signature": "void ggml_build_backward_expand(struct ggml_context * ctx_static, struct ggml_context * ctx_compute, struct ggml_cgraph * cgraph, bool accumulate)",
+    "signatureShort": "ggml_build_backward_expand(ctx_static, ctx_compute, cgraph, accumulate)",
+    "location": "ggml.h#L2056"
+  },
+  "ggml_new_graph": {
+    "signature": "struct ggml_cgraph * ggml_new_graph(struct ggml_context * ctx)",
+    "signatureShort": "ggml_new_graph(ctx)",
+    "location": "ggml.h#L2063"
+  },
+  "ggml_new_graph_custom": {
+    "signature": "struct ggml_cgraph * ggml_new_graph_custom(struct ggml_context * ctx, int size, bool grads)",
+    "signatureShort": "ggml_new_graph_custom(ctx, size, grads)",
+    "location": "ggml.h#L2064"
+  },
+  "ggml_graph_dup": {
+    "signature": "struct ggml_cgraph * ggml_graph_dup(struct ggml_context * ctx, struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_graph_dup(ctx, cgraph)",
+    "location": "ggml.h#L2065"
+  },
+  "ggml_graph_cpy": {
+    "signature": "void ggml_graph_cpy(struct ggml_cgraph * src, struct ggml_cgraph * dst)",
+    "signatureShort": "ggml_graph_cpy(src, dst)",
+    "location": "ggml.h#L2066"
+  },
+  "ggml_graph_reset": {
+    "signature": "void ggml_graph_reset(struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_graph_reset(cgraph)",
+    "location": "ggml.h#L2067"
+  },
+  "ggml_graph_clear": {
+    "signature": "void ggml_graph_clear(struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_graph_clear(cgraph)",
+    "location": "ggml.h#L2068"
+  },
+  "ggml_graph_size": {
+    "signature": "int ggml_graph_size(struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_graph_size(cgraph)",
+    "location": "ggml.h#L2070"
+  },
+  "ggml_graph_node": {
+    "signature": "struct ggml_tensor * ggml_graph_node(struct ggml_cgraph * cgraph, int i)",
+    "signatureShort": "ggml_graph_node(cgraph, i)",
+    "location": "ggml.h#L2071"
+  },
+  "ggml_graph_nodes": {
+    "signature": "struct ggml_tensor ** ggml_graph_nodes(struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_graph_nodes(cgraph)",
+    "location": "ggml.h#L2072"
+  },
+  "ggml_graph_n_nodes": {
+    "signature": "int ggml_graph_n_nodes(struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_graph_n_nodes(cgraph)",
+    "location": "ggml.h#L2073"
+  },
+  "ggml_graph_add_node": {
+    "signature": "void ggml_graph_add_node(struct ggml_cgraph * cgraph, struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_graph_add_node(cgraph, tensor)",
+    "location": "ggml.h#L2075"
+  },
+  "ggml_graph_overhead": {
+    "signature": "int ggml_graph_overhead()",
+    "signatureShort": "ggml_graph_overhead()",
+    "location": "ggml.h#L2077"
+  },
+  "ggml_graph_overhead_custom": {
+    "signature": "int ggml_graph_overhead_custom(int size, bool grads)",
+    "signatureShort": "ggml_graph_overhead_custom(size, grads)",
+    "location": "ggml.h#L2078"
+  },
+  "ggml_graph_get_tensor": {
+    "signature": "struct ggml_tensor * ggml_graph_get_tensor(const struct ggml_cgraph * cgraph, const char * name)",
+    "signatureShort": "ggml_graph_get_tensor(cgraph, name)",
+    "location": "ggml.h#L2080"
+  },
+  "ggml_graph_get_grad": {
+    "signature": "struct ggml_tensor * ggml_graph_get_grad(const struct ggml_cgraph * cgraph, const struct ggml_tensor * node)",
+    "signatureShort": "ggml_graph_get_grad(cgraph, node)",
+    "location": "ggml.h#L2081"
+  },
+  "ggml_graph_get_grad_acc": {
+    "signature": "struct ggml_tensor * ggml_graph_get_grad_acc(const struct ggml_cgraph * cgraph, const struct ggml_tensor * node)",
+    "signatureShort": "ggml_graph_get_grad_acc(cgraph, node)",
+    "location": "ggml.h#L2082"
+  },
+  "ggml_graph_export": {
+    "signature": "void ggml_graph_export(const struct ggml_cgraph * cgraph, const char * fname)",
+    "signatureShort": "ggml_graph_export(cgraph, fname)",
+    "location": "ggml.h#L2084"
+  },
+  "ggml_graph_import": {
+    "signature": "struct ggml_cgraph * ggml_graph_import(const char * fname, struct ggml_context ** ctx_data, struct ggml_context ** ctx_eval)",
+    "signatureShort": "ggml_graph_import(fname, ctx_data, ctx_eval)",
+    "location": "ggml.h#L2085"
+  },
+  "ggml_graph_print": {
+    "signature": "void ggml_graph_print(const struct ggml_cgraph * cgraph)",
+    "signatureShort": "ggml_graph_print(cgraph)",
+    "location": "ggml.h#L2088"
+  },
+  "ggml_graph_dump_dot": {
+    "signature": "void ggml_graph_dump_dot(const struct ggml_cgraph * gb, const struct ggml_cgraph * gf, const char * filename)",
+    "signatureShort": "ggml_graph_dump_dot(gb, gf, filename)",
+    "location": "ggml.h#L2091"
+  },
+  "ggml_log_set": {
+    "signature": "void ggml_log_set(ggml_log_callback log_callback, void * user_data)",
+    "signatureShort": "ggml_log_set(log_callback, user_data)",
+    "location": "ggml.h#L2098"
+  },
+  "ggml_set_zero": {
+    "signature": "struct ggml_tensor * ggml_set_zero(struct ggml_tensor * tensor)",
+    "signatureShort": "ggml_set_zero(tensor)",
+    "location": "ggml.h#L2100"
+  },
+  "ggml_quantize_init": {
+    "signature": "void ggml_quantize_init(enum ggml_type type)",
+    "signatureShort": "ggml_quantize_init(type)",
+    "location": "ggml.h#L2115"
+  },
+  "ggml_quantize_free": {
+    "signature": "void ggml_quantize_free()",
+    "signatureShort": "ggml_quantize_free()",
+    "location": "ggml.h#L2116"
+  },
+  "ggml_quantize_requires_imatrix": {
+    "signature": "int ggml_quantize_requires_imatrix(enum ggml_type type)",
+    "signatureShort": "ggml_quantize_requires_imatrix(type)",
+    "location": "ggml.h#L2119"
+  },
+  "ggml_quantize_chunk": {
+    "signature": "int ggml_quantize_chunk(enum ggml_type type, const float * src, void * dst, int64_t start, int64_t nrows, int64_t n_per_row, const float * imatrix)",
+    "signatureShort": "ggml_quantize_chunk(type, src, dst, start, nrows, n_per_row, imatrix)",
+    "location": "ggml.h#L2122"
+  },
+  "ggml_get_type_traits": {
+    "signature": "const struct ggml_type_traits * ggml_get_type_traits(enum ggml_type type)",
+    "signatureShort": "ggml_get_type_traits(type)",
+    "location": "ggml.h#L2158"
+  },
+  "ggml_threadpool_params_default": {
+    "signature": "struct ggml_threadpool_params ggml_threadpool_params_default(int n_threads)",
+    "signatureShort": "ggml_threadpool_params_default(n_threads)",
+    "location": "ggml.h#L2187"
+  },
+  "ggml_threadpool_params_init": {
+    "signature": "void ggml_threadpool_params_init(struct ggml_threadpool_params * p, int n_threads)",
+    "signatureShort": "ggml_threadpool_params_init(p, n_threads)",
+    "location": "ggml.h#L2188"
+  },
+  "ggml_threadpool_params_match": {
+    "signature": "int ggml_threadpool_params_match(const struct ggml_threadpool_params * p0, const struct ggml_threadpool_params * p1)",
+    "signatureShort": "ggml_threadpool_params_match(p0, p1)",
+    "location": "ggml.h#L2189"
+  },
+  "gguf_init_empty": {
+    "signature": "struct gguf_context * gguf_init_empty()",
+    "signatureShort": "gguf_init_empty()",
+    "location": "gguf.h#L79"
+  },
+  "gguf_init_from_file": {
+    "signature": "struct gguf_context * gguf_init_from_file(const char * fname, struct gguf_init_params params)",
+    "signatureShort": "gguf_init_from_file(fname, params)",
+    "location": "gguf.h#L80"
+  },
+  "gguf_free": {
+    "signature": "void gguf_free(struct gguf_context * ctx)",
+    "signatureShort": "gguf_free(ctx)",
+    "location": "gguf.h#L83"
+  },
+  "gguf_type_name": {
+    "signature": "const char * gguf_type_name(enum gguf_type type)",
+    "signatureShort": "gguf_type_name(type)",
+    "location": "gguf.h#L85"
+  },
+  "gguf_get_version": {
+    "signature": "uint32_t gguf_get_version(const struct gguf_context * ctx)",
+    "signatureShort": "gguf_get_version(ctx)",
+    "location": "gguf.h#L87"
+  },
+  "gguf_get_alignment": {
+    "signature": "int gguf_get_alignment(const struct gguf_context * ctx)",
+    "signatureShort": "gguf_get_alignment(ctx)",
+    "location": "gguf.h#L88"
+  },
+  "gguf_get_data_offset": {
+    "signature": "int gguf_get_data_offset(const struct gguf_context * ctx)",
+    "signatureShort": "gguf_get_data_offset(ctx)",
+    "location": "gguf.h#L89"
+  },
+  "gguf_get_n_kv": {
+    "signature": "int64_t gguf_get_n_kv(const struct gguf_context * ctx)",
+    "signatureShort": "gguf_get_n_kv(ctx)",
+    "location": "gguf.h#L91"
+  },
+  "gguf_find_key": {
+    "signature": "int64_t gguf_find_key(const struct gguf_context * ctx, const char * key)",
+    "signatureShort": "gguf_find_key(ctx, key)",
+    "location": "gguf.h#L92"
+  },
+  "gguf_get_key": {
+    "signature": "const char * gguf_get_key(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_key(ctx, key_id)",
+    "location": "gguf.h#L93"
+  },
+  "gguf_get_kv_type": {
+    "signature": "enum gguf_type gguf_get_kv_type(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_kv_type(ctx, key_id)",
+    "location": "gguf.h#L95"
+  },
+  "gguf_get_arr_type": {
+    "signature": "enum gguf_type gguf_get_arr_type(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_arr_type(ctx, key_id)",
+    "location": "gguf.h#L96"
+  },
+  "gguf_get_val_u8": {
+    "signature": "uint8_t gguf_get_val_u8(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_u8(ctx, key_id)",
+    "location": "gguf.h#L99"
+  },
+  "gguf_get_val_i8": {
+    "signature": "int8_t gguf_get_val_i8(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_i8(ctx, key_id)",
+    "location": "gguf.h#L100"
+  },
+  "gguf_get_val_u16": {
+    "signature": "uint16_t gguf_get_val_u16(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_u16(ctx, key_id)",
+    "location": "gguf.h#L101"
+  },
+  "gguf_get_val_i16": {
+    "signature": "int16_t gguf_get_val_i16(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_i16(ctx, key_id)",
+    "location": "gguf.h#L102"
+  },
+  "gguf_get_val_u32": {
+    "signature": "uint32_t gguf_get_val_u32(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_u32(ctx, key_id)",
+    "location": "gguf.h#L103"
+  },
+  "gguf_get_val_i32": {
+    "signature": "int32_t gguf_get_val_i32(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_i32(ctx, key_id)",
+    "location": "gguf.h#L104"
+  },
+  "gguf_get_val_f32": {
+    "signature": "float gguf_get_val_f32(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_f32(ctx, key_id)",
+    "location": "gguf.h#L105"
+  },
+  "gguf_get_val_u64": {
+    "signature": "uint64_t gguf_get_val_u64(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_u64(ctx, key_id)",
+    "location": "gguf.h#L106"
+  },
+  "gguf_get_val_i64": {
+    "signature": "int64_t gguf_get_val_i64(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_i64(ctx, key_id)",
+    "location": "gguf.h#L107"
+  },
+  "gguf_get_val_f64": {
+    "signature": "double gguf_get_val_f64(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_f64(ctx, key_id)",
+    "location": "gguf.h#L108"
+  },
+  "gguf_get_val_bool": {
+    "signature": "int gguf_get_val_bool(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_bool(ctx, key_id)",
+    "location": "gguf.h#L109"
+  },
+  "gguf_get_val_str": {
+    "signature": "const char * gguf_get_val_str(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_str(ctx, key_id)",
+    "location": "gguf.h#L110"
+  },
+  "gguf_get_val_data": {
+    "signature": "const void * gguf_get_val_data(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_val_data(ctx, key_id)",
+    "location": "gguf.h#L111"
+  },
+  "gguf_get_arr_n": {
+    "signature": "int gguf_get_arr_n(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_arr_n(ctx, key_id)",
+    "location": "gguf.h#L112"
+  },
+  "gguf_get_arr_data": {
+    "signature": "const void * gguf_get_arr_data(const struct gguf_context * ctx, int64_t key_id)",
+    "signatureShort": "gguf_get_arr_data(ctx, key_id)",
+    "location": "gguf.h#L116"
+  },
+  "gguf_get_arr_str": {
+    "signature": "const char * gguf_get_arr_str(const struct gguf_context * ctx, int64_t key_id, int i)",
+    "signatureShort": "gguf_get_arr_str(ctx, key_id, i)",
+    "location": "gguf.h#L119"
+  },
+  "gguf_get_n_tensors": {
+    "signature": "int64_t gguf_get_n_tensors(const struct gguf_context * ctx)",
+    "signatureShort": "gguf_get_n_tensors(ctx)",
+    "location": "gguf.h#L121"
+  },
+  "gguf_find_tensor": {
+    "signature": "int64_t gguf_find_tensor(const struct gguf_context * ctx, const char * name)",
+    "signatureShort": "gguf_find_tensor(ctx, name)",
+    "location": "gguf.h#L122"
+  },
+  "gguf_get_tensor_offset": {
+    "signature": "int gguf_get_tensor_offset(const struct gguf_context * ctx, int64_t tensor_id)",
+    "signatureShort": "gguf_get_tensor_offset(ctx, tensor_id)",
+    "location": "gguf.h#L123"
+  },
+  "gguf_get_tensor_name": {
+    "signature": "const char * gguf_get_tensor_name(const struct gguf_context * ctx, int64_t tensor_id)",
+    "signatureShort": "gguf_get_tensor_name(ctx, tensor_id)",
+    "location": "gguf.h#L124"
+  },
+  "gguf_get_tensor_type": {
+    "signature": "enum ggml_type gguf_get_tensor_type(const struct gguf_context * ctx, int64_t tensor_id)",
+    "signatureShort": "gguf_get_tensor_type(ctx, tensor_id)",
+    "location": "gguf.h#L125"
+  },
+  "gguf_get_tensor_size": {
+    "signature": "int gguf_get_tensor_size(const struct gguf_context * ctx, int64_t tensor_id)",
+    "signatureShort": "gguf_get_tensor_size(ctx, tensor_id)",
+    "location": "gguf.h#L126"
+  },
+  "gguf_remove_key": {
+    "signature": "int64_t gguf_remove_key(struct gguf_context * ctx, const char * key)",
+    "signatureShort": "gguf_remove_key(ctx, key)",
+    "location": "gguf.h#L129"
+  },
+  "gguf_set_val_u8": {
+    "signature": "void gguf_set_val_u8(struct gguf_context * ctx, const char * key, uint8_t val)",
+    "signatureShort": "gguf_set_val_u8(ctx, key, val)",
+    "location": "gguf.h#L132"
+  },
+  "gguf_set_val_i8": {
+    "signature": "void gguf_set_val_i8(struct gguf_context * ctx, const char * key, int8_t val)",
+    "signatureShort": "gguf_set_val_i8(ctx, key, val)",
+    "location": "gguf.h#L133"
+  },
+  "gguf_set_val_u16": {
+    "signature": "void gguf_set_val_u16(struct gguf_context * ctx, const char * key, uint16_t val)",
+    "signatureShort": "gguf_set_val_u16(ctx, key, val)",
+    "location": "gguf.h#L134"
+  },
+  "gguf_set_val_i16": {
+    "signature": "void gguf_set_val_i16(struct gguf_context * ctx, const char * key, int16_t val)",
+    "signatureShort": "gguf_set_val_i16(ctx, key, val)",
+    "location": "gguf.h#L135"
+  },
+  "gguf_set_val_u32": {
+    "signature": "void gguf_set_val_u32(struct gguf_context * ctx, const char * key, uint32_t val)",
+    "signatureShort": "gguf_set_val_u32(ctx, key, val)",
+    "location": "gguf.h#L136"
+  },
+  "gguf_set_val_i32": {
+    "signature": "void gguf_set_val_i32(struct gguf_context * ctx, const char * key, int32_t val)",
+    "signatureShort": "gguf_set_val_i32(ctx, key, val)",
+    "location": "gguf.h#L137"
+  },
+  "gguf_set_val_f32": {
+    "signature": "void gguf_set_val_f32(struct gguf_context * ctx, const char * key, float val)",
+    "signatureShort": "gguf_set_val_f32(ctx, key, val)",
+    "location": "gguf.h#L138"
+  },
+  "gguf_set_val_u64": {
+    "signature": "void gguf_set_val_u64(struct gguf_context * ctx, const char * key, uint64_t val)",
+    "signatureShort": "gguf_set_val_u64(ctx, key, val)",
+    "location": "gguf.h#L139"
+  },
+  "gguf_set_val_i64": {
+    "signature": "void gguf_set_val_i64(struct gguf_context * ctx, const char * key, int64_t val)",
+    "signatureShort": "gguf_set_val_i64(ctx, key, val)",
+    "location": "gguf.h#L140"
+  },
+  "gguf_set_val_f64": {
+    "signature": "void gguf_set_val_f64(struct gguf_context * ctx, const char * key, double val)",
+    "signatureShort": "gguf_set_val_f64(ctx, key, val)",
+    "location": "gguf.h#L141"
+  },
+  "gguf_set_val_bool": {
+    "signature": "void gguf_set_val_bool(struct gguf_context * ctx, const char * key, bool val)",
+    "signatureShort": "gguf_set_val_bool(ctx, key, val)",
+    "location": "gguf.h#L142"
+  },
+  "gguf_set_val_str": {
+    "signature": "void gguf_set_val_str(struct gguf_context * ctx, const char * key, const char * val)",
+    "signatureShort": "gguf_set_val_str(ctx, key, val)",
+    "location": "gguf.h#L143"
+  },
+  "gguf_set_arr_data": {
+    "signature": "void gguf_set_arr_data(struct gguf_context * ctx, const char * key, enum gguf_type type, const void * data, int n)",
+    "signatureShort": "gguf_set_arr_data(ctx, key, type, data, n)",
+    "location": "gguf.h#L146"
+  },
+  "gguf_set_arr_str": {
+    "signature": "void gguf_set_arr_str(struct gguf_context * ctx, const char * key, const char ** data, int n)",
+    "signatureShort": "gguf_set_arr_str(ctx, key, data, n)",
+    "location": "gguf.h#L149"
+  },
+  "gguf_set_kv": {
+    "signature": "void gguf_set_kv(struct gguf_context * ctx, const struct gguf_context * src)",
+    "signatureShort": "gguf_set_kv(ctx, src)",
+    "location": "gguf.h#L152"
+  },
+  "gguf_add_tensor": {
+    "signature": "void gguf_add_tensor(struct gguf_context * ctx, const struct ggml_tensor * tensor)",
+    "signatureShort": "gguf_add_tensor(ctx, tensor)",
+    "location": "gguf.h#L155"
+  },
+  "gguf_set_tensor_type": {
+    "signature": "void gguf_set_tensor_type(struct gguf_context * ctx, const char * name, enum ggml_type type)",
+    "signatureShort": "gguf_set_tensor_type(ctx, name, type)",
+    "location": "gguf.h#L159"
+  },
+  "gguf_set_tensor_data": {
+    "signature": "void gguf_set_tensor_data(struct gguf_context * ctx, const char * name, const void * data)",
+    "signatureShort": "gguf_set_tensor_data(ctx, name, data)",
+    "location": "gguf.h#L162"
+  },
+  "gguf_write_to_file": {
+    "signature": "int gguf_write_to_file(const struct gguf_context * ctx, const char * fname, bool only_meta)",
+    "signatureShort": "gguf_write_to_file(ctx, fname, only_meta)",
+    "location": "gguf.h#L192"
+  },
+  "gguf_get_meta_size": {
+    "signature": "int gguf_get_meta_size(const struct gguf_context * ctx)",
+    "signatureShort": "gguf_get_meta_size(ctx)",
+    "location": "gguf.h#L195"
+  },
+  "gguf_get_meta_data": {
+    "signature": "void gguf_get_meta_data(const struct gguf_context * ctx, void * data)",
+    "signatureShort": "gguf_get_meta_data(ctx, data)",
+    "location": "gguf.h#L198"
+  }
+}

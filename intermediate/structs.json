@@ -1,0 +1,162 @@
+{
+  "ggml_backend_buffer_type": {
+    "definition": "struct ggml_backend_buffer_type;",
+    "location": "ggml-alloc.h#L9"
+  },
+  "ggml_backend": {
+    "definition": "struct ggml_backend;",
+    "location": "ggml-alloc.h#L11"
+  },
+  "ggml_tallocr": {
+    "definition": "struct ggml_tallocr {\n    ggml_backend_buffer_t buffer;\n    void * base;\n    int alignment;\n    int offset;\n};",
+    "location": "ggml-alloc.h#L14"
+  },
+  "ggml_gallocr": {
+    "definition": "struct ggml_gallocr;",
+    "location": "ggml-alloc.h#L46"
+  },
+  "ggml_backend_event": {
+    "definition": "struct ggml_backend_event;",
+    "location": "ggml-backend.h#L26"
+  },
+  "ggml_backend_reg": {
+    "definition": "struct ggml_backend_reg;",
+    "location": "ggml-backend.h#L29"
+  },
+  "ggml_backend_device": {
+    "definition": "struct ggml_backend_device;",
+    "location": "ggml-backend.h#L30"
+  },
+  "ggml_backend_dev_caps": {
+    "definition": "struct ggml_backend_dev_caps {\n    bool async;\n    bool host_buffer;\n    bool buffer_from_host_ptr;\n    bool events;\n};",
+    "location": "ggml-backend.h#L140"
+  },
+  "ggml_backend_dev_props": {
+    "definition": "struct ggml_backend_dev_props {\n    const char * name;\n    const char * description;\n    int memory_free;\n    int memory_total;\n    enum ggml_backend_dev_type type;\n    struct ggml_backend_dev_caps caps;\n};",
+    "location": "ggml-backend.h#L152"
+  },
+  "ggml_backend_feature": {
+    "definition": "struct ggml_backend_feature {\n    const char * name;\n    const char * value;\n};",
+    "location": "ggml-backend.h#L196"
+  },
+  "ggml_backend_sched": {
+    "definition": "struct ggml_backend_sched;",
+    "location": "ggml-backend.h#L280"
+  },
+  "ggml_backend_graph_copy": {
+    "definition": "struct ggml_backend_graph_copy {\n    ggml_backend_buffer_t buffer;\n    struct ggml_context * ctx_allocated;\n    struct ggml_context * ctx_unallocated;\n    struct ggml_cgraph * graph;\n};",
+    "location": "ggml-backend.h#L328"
+  },
+  "ggml_context_deleter": {
+    "definition": "struct ggml_context_deleter {\n    int () operator;\n};",
+    "location": "ggml-cpp.h#L17"
+  },
+  "gguf_context_deleter": {
+    "definition": "struct gguf_context_deleter {\n    int () operator;\n};",
+    "location": "ggml-cpp.h#L18"
+  },
+  "ggml_gallocr_deleter": {
+    "definition": "struct ggml_gallocr_deleter {\n    int () operator;\n};",
+    "location": "ggml-cpp.h#L25"
+  },
+  "ggml_backend_deleter": {
+    "definition": "struct ggml_backend_deleter {\n    int () operator;\n};",
+    "location": "ggml-cpp.h#L31"
+  },
+  "ggml_backend_buffer_deleter": {
+    "definition": "struct ggml_backend_buffer_deleter {\n    int () operator;\n};",
+    "location": "ggml-cpp.h#L32"
+  },
+  "ggml_backend_event_deleter": {
+    "definition": "struct ggml_backend_event_deleter {\n    int () operator;\n};",
+    "location": "ggml-cpp.h#L33"
+  },
+  "ggml_backend_sched_deleter": {
+    "definition": "struct ggml_backend_sched_deleter {\n    int () operator;\n};",
+    "location": "ggml-cpp.h#L34"
+  },
+  "ggml_cplan": {
+    "definition": "struct ggml_cplan {\n    int work_size;\n    uint8_t * work_data;\n    int n_threads;\n    struct ggml_threadpool * threadpool;\n    int abort_callback;\n    void * abort_callback_data;\n};",
+    "location": "ggml-cpu.h#L12"
+  },
+  "ggml_type_traits_cpu": {
+    "definition": "struct ggml_type_traits_cpu {\n    ggml_from_float_t from_float;\n    ggml_vec_dot_t vec_dot;\n    enum ggml_type vec_dot_type;\n    int64_t nrows;\n};",
+    "location": "ggml-cpu.h#L109"
+  },
+  "ggml_vk_device": {
+    "definition": "struct ggml_vk_device {\n    int index;\n    int type;\n    int heapSize;\n    const char * name;\n    const char * vendor;\n    int subgroupSize;\n    uint64_t bufferAlignment;\n    uint64_t maxAlloc;\n};",
+    "location": "ggml-kompute.h#L16"
+  },
+  "ggml_tensor": {
+    "definition": "struct ggml_tensor {\n    enum ggml_type type;\n    struct ggml_backend_buffer * buffer;\n    int64_t[4] ne;\n    int[4] nb;\n    enum ggml_op op;\n    int32_t[16] op_params;\n    int32_t flags;\n    struct ggml_tensor *[10] src;\n    struct ggml_tensor * view_src;\n    int view_offs;\n    void * data;\n    char[64] name;\n    void * extra;\n    char[8] padding;\n};",
+    "location": "ggml.h#L576"
+  },
+  "ggml_cgraph": {
+    "definition": "struct ggml_cgraph;",
+    "location": "ggml.h#L348"
+  },
+  "ggml_opt_dataset": {
+    "definition": "struct ggml_opt_dataset;",
+    "location": "ggml-opt.h#L18"
+  },
+  "ggml_opt_context": {
+    "definition": "struct ggml_opt_context;",
+    "location": "ggml-opt.h#L19"
+  },
+  "ggml_opt_result": {
+    "definition": "struct ggml_opt_result;",
+    "location": "ggml-opt.h#L20"
+  },
+  "ggml_opt_optimizer_params": {
+    "definition": "struct ggml_opt_optimizer_params {\n    struct (unnamed struct at ggml-opt.h:71:9) adamw;\n};",
+    "location": "ggml-opt.h#L69"
+  },
+  "struct (unnamed at ggml-opt.h:71:9)": {
+    "definition": "struct struct (unnamed at ggml-opt.h:71:9) {\n    float alpha;\n    float beta1;\n    float beta2;\n    float eps;\n    float wd;\n};",
+    "location": "ggml-opt.h#L71"
+  },
+  "ggml_opt_params": {
+    "definition": "struct ggml_opt_params {\n    ggml_backend_sched_t backend_sched;\n    struct ggml_context * ctx_compute;\n    struct ggml_tensor * inputs;\n    struct ggml_tensor * outputs;\n    enum ggml_opt_loss_type loss_type;\n    enum ggml_opt_build_type build_type;\n    int32_t opt_period;\n    ggml_opt_get_optimizer_params get_opt_pars;\n    void * get_opt_pars_ud;\n};",
+    "location": "ggml-opt.h#L89"
+  },
+  "ggml_bf16_t": {
+    "definition": "struct ggml_bf16_t {\n    uint16_t bits;\n};",
+    "location": "ggml.h#L339"
+  },
+  "ggml_object": {
+    "definition": "struct ggml_object;",
+    "location": "ggml.h#L346"
+  },
+  "ggml_context": {
+    "definition": "struct ggml_context;",
+    "location": "ggml.h#L347"
+  },
+  "ggml_init_params": {
+    "definition": "struct ggml_init_params {\n    int mem_size;\n    void * mem_buffer;\n    int no_alloc;\n};",
+    "location": "ggml.h#L568"
+  },
+  "ggml_backend_buffer": {
+    "definition": "struct ggml_backend_buffer;",
+    "location": "ggml.h#L579"
+  },
+  "ggml_type_traits": {
+    "definition": "struct ggml_type_traits {\n    const char * type_name;\n    int64_t blck_size;\n    int64_t blck_size_interleave;\n    int type_size;\n    bool is_quantized;\n    ggml_to_float_t to_float;\n    ggml_from_float_t from_float_ref;\n};",
+    "location": "ggml.h#L2148"
+  },
+  "ggml_threadpool_params": {
+    "definition": "struct ggml_threadpool_params {\n    int cpumask;\n    int n_threads;\n    enum ggml_sched_priority prio;\n    uint32_t poll;\n    bool strict_cpu;\n    bool paused;\n};",
+    "location": "ggml.h#L2174"
+  },
+  "ggml_threadpool": {
+    "definition": "struct ggml_threadpool;",
+    "location": "ggml.h#L2183"
+  },
+  "gguf_context": {
+    "definition": "struct gguf_context;",
+    "location": "gguf.h#L70"
+  },
+  "gguf_init_params": {
+    "definition": "struct gguf_init_params {\n    bool no_alloc;\n    struct ggml_context ** ctx;\n};",
+    "location": "gguf.h#L72"
+  }
+}

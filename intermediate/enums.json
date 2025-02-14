@@ -1,0 +1,74 @@
+{
+  "ggml_backend_buffer_usage": {
+    "definition": "enum ggml_backend_buffer_usage {\n    GGML_BACKEND_BUFFER_USAGE_ANY = 0\n    GGML_BACKEND_BUFFER_USAGE_WEIGHTS = 1\n    GGML_BACKEND_BUFFER_USAGE_COMPUTE = 2\n};",
+    "location": "ggml-backend.h#L49"
+  },
+  "ggml_backend_dev_type": {
+    "definition": "enum ggml_backend_dev_type {\n    GGML_BACKEND_DEVICE_TYPE_CPU = 0\n    GGML_BACKEND_DEVICE_TYPE_GPU = 1\n    GGML_BACKEND_DEVICE_TYPE_ACCEL = 2\n};",
+    "location": "ggml-backend.h#L130"
+  },
+  "ggml_numa_strategy": {
+    "definition": "enum ggml_numa_strategy {\n    GGML_NUMA_STRATEGY_DISABLED = 0\n    GGML_NUMA_STRATEGY_DISTRIBUTE = 1\n    GGML_NUMA_STRATEGY_ISOLATE = 2\n    GGML_NUMA_STRATEGY_NUMACTL = 3\n    GGML_NUMA_STRATEGY_MIRROR = 4\n    GGML_NUMA_STRATEGY_COUNT = 5\n};",
+    "location": "ggml-cpu.h#L25"
+  },
+  "ggml_opt_loss_type": {
+    "definition": "enum ggml_opt_loss_type {\n    GGML_OPT_LOSS_TYPE_MEAN = 0\n    GGML_OPT_LOSS_TYPE_SUM = 1\n    GGML_OPT_LOSS_TYPE_CROSS_ENTROPY = 2\n    GGML_OPT_LOSS_TYPE_MEAN_SQUARED_ERROR = 3\n};",
+    "location": "ggml-opt.h#L30"
+  },
+  "ggml_opt_build_type": {
+    "definition": "enum ggml_opt_build_type {\n    GGML_OPT_BUILD_TYPE_FORWARD = 0\n    GGML_OPT_BUILD_TYPE_GRAD = 1\n    GGML_OPT_BUILD_TYPE_OPT = 2\n};",
+    "location": "ggml-opt.h#L62"
+  },
+  "ggml_status": {
+    "definition": "enum ggml_status {\n    GGML_STATUS_ALLOC_FAILED = -2\n    GGML_STATUS_FAILED = -1\n    GGML_STATUS_SUCCESS = 0\n    GGML_STATUS_ABORTED = 1\n};",
+    "location": "ggml.h#L320"
+  },
+  "ggml_type": {
+    "definition": "enum ggml_type {\n    GGML_TYPE_F32 = 0\n    GGML_TYPE_F16 = 1\n    GGML_TYPE_Q4_0 = 2\n    GGML_TYPE_Q4_1 = 3\n    GGML_TYPE_Q5_0 = 6\n    GGML_TYPE_Q5_1 = 7\n    GGML_TYPE_Q8_0 = 8\n    GGML_TYPE_Q8_1 = 9\n    GGML_TYPE_Q2_K = 10\n    GGML_TYPE_Q3_K = 11\n    GGML_TYPE_Q4_K = 12\n    GGML_TYPE_Q5_K = 13\n    GGML_TYPE_Q6_K = 14\n    GGML_TYPE_Q8_K = 15\n    GGML_TYPE_IQ2_XXS = 16\n    GGML_TYPE_IQ2_XS = 17\n    GGML_TYPE_IQ3_XXS = 18\n    GGML_TYPE_IQ1_S = 19\n    GGML_TYPE_IQ4_NL = 20\n    GGML_TYPE_IQ3_S = 21\n    GGML_TYPE_IQ2_S = 22\n    GGML_TYPE_IQ4_XS = 23\n    GGML_TYPE_I8 = 24\n    GGML_TYPE_I16 = 25\n    GGML_TYPE_I32 = 26\n    GGML_TYPE_I64 = 27\n    GGML_TYPE_F64 = 28\n    GGML_TYPE_IQ1_M = 29\n    GGML_TYPE_BF16 = 30\n    GGML_TYPE_TQ1_0 = 34\n    GGML_TYPE_TQ2_0 = 35\n    GGML_TYPE_COUNT = 39\n};",
+    "location": "ggml.h#L351"
+  },
+  "ggml_prec": {
+    "definition": "enum ggml_prec {\n    GGML_PREC_DEFAULT = 0\n    GGML_PREC_F32 = 1\n};",
+    "location": "ggml.h#L395"
+  },
+  "ggml_ftype": {
+    "definition": "enum ggml_ftype {\n    GGML_FTYPE_UNKNOWN = -1\n    GGML_FTYPE_ALL_F32 = 0\n    GGML_FTYPE_MOSTLY_F16 = 1\n    GGML_FTYPE_MOSTLY_Q4_0 = 2\n    GGML_FTYPE_MOSTLY_Q4_1 = 3\n    GGML_FTYPE_MOSTLY_Q4_1_SOME_F16 = 4\n    GGML_FTYPE_MOSTLY_Q8_0 = 7\n    GGML_FTYPE_MOSTLY_Q5_0 = 8\n    GGML_FTYPE_MOSTLY_Q5_1 = 9\n    GGML_FTYPE_MOSTLY_Q2_K = 10\n    GGML_FTYPE_MOSTLY_Q3_K = 11\n    GGML_FTYPE_MOSTLY_Q4_K = 12\n    GGML_FTYPE_MOSTLY_Q5_K = 13\n    GGML_FTYPE_MOSTLY_Q6_K = 14\n    GGML_FTYPE_MOSTLY_IQ2_XXS = 15\n    GGML_FTYPE_MOSTLY_IQ2_XS = 16\n    GGML_FTYPE_MOSTLY_IQ3_XXS = 17\n    GGML_FTYPE_MOSTLY_IQ1_S = 18\n    GGML_FTYPE_MOSTLY_IQ4_NL = 19\n    GGML_FTYPE_MOSTLY_IQ3_S = 20\n    GGML_FTYPE_MOSTLY_IQ2_S = 21\n    GGML_FTYPE_MOSTLY_IQ4_XS = 22\n    GGML_FTYPE_MOSTLY_IQ1_M = 23\n    GGML_FTYPE_MOSTLY_BF16 = 24\n};",
+    "location": "ggml.h#L401"
+  },
+  "ggml_op": {
+    "definition": "enum ggml_op {\n    GGML_OP_NONE = 0\n    GGML_OP_DUP = 1\n    GGML_OP_ADD = 2\n    GGML_OP_ADD1 = 3\n    GGML_OP_ACC = 4\n    GGML_OP_SUB = 5\n    GGML_OP_MUL = 6\n    GGML_OP_DIV = 7\n    GGML_OP_SQR = 8\n    GGML_OP_SQRT = 9\n    GGML_OP_LOG = 10\n    GGML_OP_SIN = 11\n    GGML_OP_COS = 12\n    GGML_OP_SUM = 13\n    GGML_OP_SUM_ROWS = 14\n    GGML_OP_MEAN = 15\n    GGML_OP_ARGMAX = 16\n    GGML_OP_COUNT_EQUAL = 17\n    GGML_OP_REPEAT = 18\n    GGML_OP_REPEAT_BACK = 19\n    GGML_OP_CONCAT = 20\n    GGML_OP_SILU_BACK = 21\n    GGML_OP_NORM = 22\n    GGML_OP_RMS_NORM = 23\n    GGML_OP_RMS_NORM_BACK = 24\n    GGML_OP_GROUP_NORM = 25\n    GGML_OP_MUL_MAT = 26\n    GGML_OP_MUL_MAT_ID = 27\n    GGML_OP_OUT_PROD = 28\n    GGML_OP_SCALE = 29\n    GGML_OP_SET = 30\n    GGML_OP_CPY = 31\n    GGML_OP_CONT = 32\n    GGML_OP_RESHAPE = 33\n    GGML_OP_VIEW = 34\n    GGML_OP_PERMUTE = 35\n    GGML_OP_TRANSPOSE = 36\n    GGML_OP_GET_ROWS = 37\n    GGML_OP_GET_ROWS_BACK = 38\n    GGML_OP_DIAG = 39\n    GGML_OP_DIAG_MASK_INF = 40\n    GGML_OP_DIAG_MASK_ZERO = 41\n    GGML_OP_SOFT_MAX = 42\n    GGML_OP_SOFT_MAX_BACK = 43\n    GGML_OP_ROPE = 44\n    GGML_OP_ROPE_BACK = 45\n    GGML_OP_CLAMP = 46\n    GGML_OP_CONV_TRANSPOSE_1D = 47\n    GGML_OP_IM2COL = 48\n    GGML_OP_IM2COL_BACK = 49\n    GGML_OP_CONV_TRANSPOSE_2D = 50\n    GGML_OP_POOL_1D = 51\n    GGML_OP_POOL_2D = 52\n    GGML_OP_POOL_2D_BACK = 53\n    GGML_OP_UPSCALE = 54\n    GGML_OP_PAD = 55\n    GGML_OP_PAD_REFLECT_1D = 56\n    GGML_OP_ARANGE = 57\n    GGML_OP_TIMESTEP_EMBEDDING = 58\n    GGML_OP_ARGSORT = 59\n    GGML_OP_LEAKY_RELU = 60\n    GGML_OP_FLASH_ATTN_EXT = 61\n    GGML_OP_FLASH_ATTN_BACK = 62\n    GGML_OP_SSM_CONV = 63\n    GGML_OP_SSM_SCAN = 64\n    GGML_OP_WIN_PART = 65\n    GGML_OP_WIN_UNPART = 66\n    GGML_OP_GET_REL_POS = 67\n    GGML_OP_ADD_REL_POS = 68\n    GGML_OP_RWKV_WKV6 = 69\n    GGML_OP_GATED_LINEAR_ATTN = 70\n    GGML_OP_UNARY = 71\n    GGML_OP_MAP_UNARY = 72\n    GGML_OP_MAP_BINARY = 73\n    GGML_OP_MAP_CUSTOM1_F32 = 74\n    GGML_OP_MAP_CUSTOM2_F32 = 75\n    GGML_OP_MAP_CUSTOM3_F32 = 76\n    GGML_OP_MAP_CUSTOM1 = 77\n    GGML_OP_MAP_CUSTOM2 = 78\n    GGML_OP_MAP_CUSTOM3 = 79\n    GGML_OP_CROSS_ENTROPY_LOSS = 80\n    GGML_OP_CROSS_ENTROPY_LOSS_BACK = 81\n    GGML_OP_OPT_STEP_ADAMW = 82\n    GGML_OP_COUNT = 83\n};",
+    "location": "ggml.h#L429"
+  },
+  "ggml_unary_op": {
+    "definition": "enum ggml_unary_op {\n    GGML_UNARY_OP_ABS = 0\n    GGML_UNARY_OP_SGN = 1\n    GGML_UNARY_OP_NEG = 2\n    GGML_UNARY_OP_STEP = 3\n    GGML_UNARY_OP_TANH = 4\n    GGML_UNARY_OP_ELU = 5\n    GGML_UNARY_OP_RELU = 6\n    GGML_UNARY_OP_SIGMOID = 7\n    GGML_UNARY_OP_GELU = 8\n    GGML_UNARY_OP_GELU_QUICK = 9\n    GGML_UNARY_OP_SILU = 10\n    GGML_UNARY_OP_HARDSWISH = 11\n    GGML_UNARY_OP_HARDSIGMOID = 12\n    GGML_UNARY_OP_EXP = 13\n    GGML_UNARY_OP_COUNT = 14\n};",
+    "location": "ggml.h#L526"
+  },
+  "ggml_object_type": {
+    "definition": "enum ggml_object_type {\n    GGML_OBJECT_TYPE_TENSOR = 0\n    GGML_OBJECT_TYPE_GRAPH = 1\n    GGML_OBJECT_TYPE_WORK_BUFFER = 2\n};",
+    "location": "ggml.h#L545"
+  },
+  "ggml_log_level": {
+    "definition": "enum ggml_log_level {\n    GGML_LOG_LEVEL_NONE = 0\n    GGML_LOG_LEVEL_DEBUG = 1\n    GGML_LOG_LEVEL_INFO = 2\n    GGML_LOG_LEVEL_WARN = 3\n    GGML_LOG_LEVEL_ERROR = 4\n    GGML_LOG_LEVEL_CONT = 5\n};",
+    "location": "ggml.h#L551"
+  },
+  "ggml_tensor_flag": {
+    "definition": "enum ggml_tensor_flag {\n    GGML_TENSOR_FLAG_INPUT = 1\n    GGML_TENSOR_FLAG_OUTPUT = 2\n    GGML_TENSOR_FLAG_PARAM = 4\n    GGML_TENSOR_FLAG_LOSS = 8\n};",
+    "location": "ggml.h#L561"
+  },
+  "ggml_op_pool": {
+    "definition": "enum ggml_op_pool {\n    GGML_OP_POOL_MAX = 0\n    GGML_OP_POOL_AVG = 1\n    GGML_OP_POOL_COUNT = 2\n};",
+    "location": "ggml.h#L1672"
+  },
+  "ggml_sort_order": {
+    "definition": "enum ggml_sort_order {\n    GGML_SORT_ORDER_ASC = 0\n    GGML_SORT_ORDER_DESC = 1\n};",
+    "location": "ggml.h#L1756"
+  },
+  "ggml_sched_priority": {
+    "definition": "enum ggml_sched_priority {\n    GGML_SCHED_PRIO_NORMAL = 0\n    GGML_SCHED_PRIO_MEDIUM = 1\n    GGML_SCHED_PRIO_HIGH = 2\n    GGML_SCHED_PRIO_REALTIME = 3\n};",
+    "location": "ggml.h#L2165"
+  },
+  "gguf_type": {
+    "definition": "enum gguf_type {\n    GGUF_TYPE_UINT8 = 0\n    GGUF_TYPE_INT8 = 1\n    GGUF_TYPE_UINT16 = 2\n    GGUF_TYPE_INT16 = 3\n    GGUF_TYPE_UINT32 = 4\n    GGUF_TYPE_INT32 = 5\n    GGUF_TYPE_FLOAT32 = 6\n    GGUF_TYPE_BOOL = 7\n    GGUF_TYPE_STRING = 8\n    GGUF_TYPE_ARRAY = 9\n    GGUF_TYPE_UINT64 = 10\n    GGUF_TYPE_INT64 = 11\n    GGUF_TYPE_FLOAT64 = 12\n    GGUF_TYPE_COUNT = 13\n};",
+    "location": "gguf.h#L53"
+  }
+}

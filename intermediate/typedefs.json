@@ -1,0 +1,158 @@
+{
+  "ggml_backend_buffer_type_t": {
+    "definition": "typedef struct ggml_backend_buffer_type * ggml_backend_buffer_type_t;",
+    "location": "ggml-backend.h#L24"
+  },
+  "ggml_backend_buffer_t": {
+    "definition": "typedef struct ggml_backend_buffer * ggml_backend_buffer_t;",
+    "location": "ggml-backend.h#L25"
+  },
+  "ggml_backend_t": {
+    "definition": "typedef struct ggml_backend * ggml_backend_t;",
+    "location": "ggml-kompute.h#L38"
+  },
+  "ggml_gallocr_t": {
+    "definition": "typedef struct ggml_gallocr * ggml_gallocr_t;",
+    "location": "ggml-alloc.h#L46"
+  },
+  "ggml_backend_event_t": {
+    "definition": "typedef struct ggml_backend_event * ggml_backend_event_t;",
+    "location": "ggml-backend.h#L26"
+  },
+  "ggml_backend_graph_plan_t": {
+    "definition": "typedef void * ggml_backend_graph_plan_t;",
+    "location": "ggml-backend.h#L28"
+  },
+  "ggml_backend_reg_t": {
+    "definition": "typedef struct ggml_backend_reg * ggml_backend_reg_t;",
+    "location": "ggml-backend.h#L29"
+  },
+  "ggml_backend_dev_t": {
+    "definition": "typedef struct ggml_backend_device * ggml_backend_dev_t;",
+    "location": "ggml-backend.h#L30"
+  },
+  "ggml_backend_split_buffer_type_t": {
+    "definition": "typedef ggml_backend_buffer_type_t (*)(int, const float *) ggml_backend_split_buffer_type_t;",
+    "location": "ggml-backend.h#L188"
+  },
+  "ggml_backend_set_n_threads_t": {
+    "definition": "typedef void (*)(ggml_backend_t, int) ggml_backend_set_n_threads_t;",
+    "location": "ggml-backend.h#L190"
+  },
+  "ggml_backend_dev_get_extra_bufts_t": {
+    "definition": "typedef ggml_backend_buffer_type_t *(*)(ggml_backend_dev_t) ggml_backend_dev_get_extra_bufts_t;",
+    "location": "ggml-backend.h#L192"
+  },
+  "ggml_backend_set_abort_callback_t": {
+    "definition": "typedef void (*)(ggml_backend_t, int, void *) ggml_backend_set_abort_callback_t;",
+    "location": "ggml-backend.h#L194"
+  },
+  "ggml_backend_get_features_t": {
+    "definition": "typedef struct ggml_backend_feature *(*)(ggml_backend_reg_t) ggml_backend_get_features_t;",
+    "location": "ggml-backend.h#L200"
+  },
+  "ggml_backend_sched_t": {
+    "definition": "typedef struct ggml_backend_sched * ggml_backend_sched_t;",
+    "location": "ggml-backend.h#L280"
+  },
+  "ggml_backend_sched_eval_callback": {
+    "definition": "typedef int (*)(struct ggml_tensor *, bool *, void *) ggml_backend_sched_eval_callback;",
+    "location": "ggml-backend.h#L289"
+  },
+  "ggml_backend_eval_callback": {
+    "definition": "typedef int (*)(int, struct ggml_tensor *, struct ggml_tensor *, void *) ggml_backend_eval_callback;",
+    "location": "ggml-backend.h#L339"
+  },
+  "ggml_vec_dot_t": {
+    "definition": "typedef void (*)(int, float *restrict, int, const void *restrict, int, const void *restrict, int, int) ggml_vec_dot_t;",
+    "location": "ggml-cpu.h#L106"
+  },
+  "ggml_opt_dataset_t": {
+    "definition": "typedef struct ggml_opt_dataset * ggml_opt_dataset_t;",
+    "location": "ggml-opt.h#L22"
+  },
+  "ggml_opt_context_t": {
+    "definition": "typedef struct ggml_opt_context * ggml_opt_context_t;",
+    "location": "ggml-opt.h#L23"
+  },
+  "ggml_opt_result_t": {
+    "definition": "typedef struct ggml_opt_result * ggml_opt_result_t;",
+    "location": "ggml-opt.h#L24"
+  },
+  "ggml_opt_get_optimizer_params": {
+    "definition": "typedef struct ggml_opt_optimizer_params (*)(void *) ggml_opt_get_optimizer_params;",
+    "location": "ggml-opt.h#L82"
+  },
+  "ggml_opt_epoch_callback": {
+    "definition": "typedef void (*)(bool *, ggml_opt_context_t, ggml_opt_dataset_t, ggml_opt_result_t, int64_t, int64_t, int64_t) ggml_opt_epoch_callback;",
+    "location": "ggml-opt.h#L171"
+  },
+  "ggml_fp16_t": {
+    "definition": "typedef uint16_t ggml_fp16_t;",
+    "location": "ggml.h#L332"
+  },
+  "ggml_bf16_t": {
+    "definition": "typedef struct ggml_bf16_t ggml_bf16_t;",
+    "location": "ggml.h#L339"
+  },
+  "bool": {
+    "definition": "typedef int (int *) bool;",
+    "location": "ggml.h#L615"
+  },
+  "ggml_guid": {
+    "definition": "typedef uint8_t[16] ggml_guid;",
+    "location": "ggml.h#L623"
+  },
+  "ggml_guid_t": {
+    "definition": "typedef ggml_guid * ggml_guid_t;",
+    "location": "ggml.h#L624"
+  },
+  "ggml_unary_op_f32_t": {
+    "definition": "typedef void (*)(const int, float *, const float *) ggml_unary_op_f32_t;",
+    "location": "ggml.h#L1895"
+  },
+  "ggml_binary_op_f32_t": {
+    "definition": "typedef void (*)(const int, float *, const float *, const float *) ggml_binary_op_f32_t;",
+    "location": "ggml.h#L1896"
+  },
+  "ggml_custom1_op_f32_t": {
+    "definition": "typedef void (*)(struct ggml_tensor *, const struct ggml_tensor *) ggml_custom1_op_f32_t;",
+    "location": "ggml.h#L1898"
+  },
+  "ggml_custom2_op_f32_t": {
+    "definition": "typedef void (*)(struct ggml_tensor *, const struct ggml_tensor *, const struct ggml_tensor *) ggml_custom2_op_f32_t;",
+    "location": "ggml.h#L1899"
+  },
+  "ggml_custom3_op_f32_t": {
+    "definition": "typedef void (*)(struct ggml_tensor *, const struct ggml_tensor *, const struct ggml_tensor *, const struct ggml_tensor *) ggml_custom3_op_f32_t;",
+    "location": "ggml.h#L1900"
+  },
+  "ggml_custom1_op_t": {
+    "definition": "typedef void (*)(struct ggml_tensor *, const struct ggml_tensor *, int, int, void *) ggml_custom1_op_t;",
+    "location": "ggml.h#L1972"
+  },
+  "ggml_custom2_op_t": {
+    "definition": "typedef void (*)(struct ggml_tensor *, const struct ggml_tensor *, const struct ggml_tensor *, int, int, void *) ggml_custom2_op_t;",
+    "location": "ggml.h#L1973"
+  },
+  "ggml_custom3_op_t": {
+    "definition": "typedef void (*)(struct ggml_tensor *, const struct ggml_tensor *, const struct ggml_tensor *, const struct ggml_tensor *, int, int, void *) ggml_custom3_op_t;",
+    "location": "ggml.h#L1974"
+  },
+  "ggml_log_callback": {
+    "definition": "typedef void (*)(enum ggml_log_level, const char *, void *) ggml_log_callback;",
+    "location": "ggml.h#L2094"
+  },
+  "ggml_to_float_t": {
+    "definition": "typedef void (*)(const void *restrict, float *restrict, int64_t) ggml_to_float_t;",
+    "location": "ggml.h#L2145"
+  },
+  "ggml_from_float_t": {
+    "definition": "typedef void (*)(const float *restrict, void *restrict, int64_t) ggml_from_float_t;",
+    "location": "ggml.h#L2146"
+  },
+  "ggml_threadpool_t": {
+    "definition": "typedef struct ggml_threadpool * ggml_threadpool_t;",
+    "location": "ggml.h#L2185"
+  }
+}
